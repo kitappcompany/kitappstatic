@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="28" viewBox="0 0 35 28">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="35" height="28" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="burger-menu" clip-path="url(#clip-path)">
+    <g transform="translate(-871 -44)">
+      <g id="Rectangle_315" data-name="Rectangle 315" transform="translate(871 44)" fill="#5ab5f1" stroke="#5ab5f1" stroke-width="1">
+        <rect width="35" height="8" rx="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="34" height="7" rx="3.5" fill="none"/>
+      </g>
+      <g id="Rectangle_317" data-name="Rectangle 317" transform="translate(871 64)" fill="#5ab5f1" stroke="#5ab5f1" stroke-width="1">
+        <rect width="35" height="8" rx="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="34" height="7" rx="3.5" fill="none"/>
+      </g>
+      <g id="Rectangle_316" data-name="Rectangle 316" transform="translate(881 54)" fill="#5ab5f1" stroke="#5ab5f1" stroke-width="1">
+        <rect width="25" height="8" rx="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="24" height="7" rx="3.5" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

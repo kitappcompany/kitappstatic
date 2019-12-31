@@ -1,0 +1,18 @@
+@import "fonts.css";
+@import "respansive.css";
+html{
+    font-size:10px;
+}
+#book-sell{
+    font-family: DINPro-Medium !important;
+}
+.bookmarks-title{
+    font-size:2.5rem;
+    color:#5CB4F1;
+    font-family: DINPro-Medium !important;
+}
+.book-sell-title,.book-looking-title{
+    font-size:2rem;
+    font-family: DINPro-Medium !important;
+    color:#686868;
+}

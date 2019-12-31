@@ -1,0 +1,84 @@
+@import "fonts.css";
+.favorite-genre-header{
+    font-size:2rem;
+    padding-left:1rem;
+    font-family:DINPro-Bold;
+    color:#686868;
+}
+.very-option{
+    font-size:2rem;
+    font-family: DINPro;
+    color:#B5B5B5;
+}
+.favorite-genre-item{
+    width:16rem;
+    height:4rem;
+    font-size:1.5rem;
+    display:inline-block;
+    position:relative;
+    border:.1rem solid #707070;
+    border-radius:5rem;
+    color:#707070;
+    padding-left:2.1rem;
+    font-family:DINPro-Medium;
+    margin:.5rem 0 .5rem 0;
+    padding-top:-2rem !important;
+    transition:all 1s;
+}
+#settings .favorite-genre-item{
+    margin-right:2.7rem;
+}
+.genre-content{
+    position:absolute;
+    top:52%;
+    left:2.1rem;
+    transform:translateY(-50%);
+}
+.genre-close{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:.89rem;
+    right:1.6rem;
+    cursor:pointer;
+}
+.genres{
+    padding-top:1.5rem;
+    margin-top:1.5rem;
+}
+.genres-item{
+    width:100%;
+    height:9.8rem;
+    font-size:1.5rem;
+    border:.2rem solid #5EB3F1;
+    border-radius:4rem;
+    position:relative;
+    transition:all .4s;
+}
+.genres-item:hover{
+    background:#5EB3F1;
+    transition:all .4s;
+    cursor:pointer;
+}
+.genres-item:hover .genres-content{
+    color:#fff;
+}
+.genres .col-2,.genres .col-4{
+    padding:1.4rem;
+}
+
+.genres-content{
+    position:absolute;
+    top:50%;
+    left:50%;
+    font-family:DINPro-Medium;
+    transform:translate(-50%,-50%);
+    color:#686868;
+}
+
+
+@media screen and (max-width:1200px){
+    .favorite-genre-item{
+        margin-right:.72rem;
+    }
+}

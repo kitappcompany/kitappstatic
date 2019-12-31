@@ -1,0 +1,396 @@
+html{
+    font-size:10px;
+}
+
+
+
+/* Respansive */
+
+@media screen and (max-width:1200px){
+    /* Search */
+    #search .col-7 img{
+        width: 520px;
+        height:340px;
+    }
+    #search p{
+        font-size:3.4rem;
+    }
+    /* menu */
+    #menu ul li a{
+        margin:0 1rem;
+    }
+    #menu ul li{
+        padding:0 .55rem;
+    }
+    /* books */
+
+    /* download */
+    #download .col-12 p{
+        font-size:2.8rem;
+    }
+}
+
+/* books */
+
+@media screen and (max-width:1100px){
+    /* books */
+    .book{
+        width:33%;
+    }
+}
+@media screen and (max-width:992px){
+    html{
+        font-size:9px;
+    }
+    /* Search */
+    #search .col-7 img{
+        height:250px;
+    }
+    #search-box{
+        width:40.9rem;
+        height:5.3rem;
+    }
+    /* books */
+    .book{
+        width:49.5%;
+    }
+    #search p{
+        padding-top:1rem;
+        font-size:2rem;
+        line-height:2rem;
+        margin-top:0;
+    }
+    #search a img{
+        width:10rem;
+    }
+    #search-box{
+        padding:1rem;
+    }
+    /* download */
+    #download .col-12 p{
+        font-size:2rem;
+    }
+}
+@media screen and (max-width:760px){
+    #search .col-7 img{
+        height:220px;
+    }
+    /*  */
+}
+@media screen and (max-width:760px){
+    html{
+        font-size:9px;
+    }
+    .popup-container,.done-container{
+        width:57.6rem;
+    }
+    #popup .col-7{
+    padding-right:5rem;
+    }
+    .write-seller button{
+        width:14rem;
+        height:4.8rem;
+    }
+    .popup-footer{
+        margin-top:2rem;
+    }
+    .popup-book{
+        width:18.964rem;
+        height:27.319rem;
+    }
+}
+@media screen and (max-width:576px){
+    html{
+        font-size:7px;
+    }
+}
+@media screen and (max-width:360px){
+    html{
+        font-size:5px;
+    }
+    .popup-container,.done-container{
+        width:36rem;
+    }
+}
+@media screen and (max-width:576px){
+    #search .col-7 img{
+        height:190px;
+    }
+    #search p{
+        font-size:1.8rem;
+    }
+    #search input{
+        font-size:1.2rem;
+    }
+    /* menu */    
+    .filter img{
+        width:2rem;
+        padding-top:.2rem;
+    }
+    .filter span{
+        display:inline-block;
+    }
+
+    /* download */
+    #download .col-12 p{
+        font-size:1.6rem;
+    }
+
+    .forget-password-email{
+        width:30rem;
+        padding-left:2rem;
+    } 
+
+}
+@media screen and (max-width:450px){
+    #search .col-7 img{
+        height:160px;
+    }
+    html{
+        font-size:7px;
+    }
+    #download p {
+        font-size:1.4rem;
+    }
+    #download img{
+        padding:2.5rem;
+        padding-top:2rem;
+    }
+    #search-box{
+        padding:.5rem 1.8rem;
+    }
+    .download-footer{
+        bottom:12rem;
+    }
+}
+/* -------------------------------------------------------------------- */
+
+
+
+/* Respansive */
+
+@media screen and (max-width:1200px){
+    /* Search */
+    #search .col-7 img{
+        width: 520px;
+        height:340px;
+    }
+    #search p{
+        font-size:3.4rem;
+    }
+    /* menu */
+    #menu ul li a{
+        margin:0 1rem;
+    }
+    #menu ul li{
+        padding:0 .55rem;
+    }
+    /* books */   
+    /* download */
+    #download .col-12 p{
+        font-size:2.8rem;
+    }
+}
+
+/* books */
+
+@media screen and (max-width:1100px){
+    /* books */
+}
+@media screen and (max-width:992px){
+    html{
+        font-size:9px;
+    }
+    /* Search */
+    #search .col-7 img{
+        height:250px;
+    }
+    /* books */
+    #search p{
+        padding-top:1rem;
+        font-size:2rem;
+        line-height:2rem;
+        margin-top:0;
+    }
+    #search a img{
+        width:10rem;
+    }
+    #search-box{
+        padding:1rem;
+    }
+    /* download */
+    #download .col-12 p{
+        font-size:2rem;
+    }
+}
+@media screen and (max-width:760px){
+    #search .col-7 img{
+        height:220px;
+    }
+    /*  */
+}
+@media screen and (max-width:576px){
+    #search .col-7 img{
+        height:190px;
+    }
+    #search p{
+        font-size:1.8rem;
+    }
+    #search input{
+        font-size:1.2rem;
+    }
+    /* menu */    
+    .filter img{
+        width:2rem;
+        padding-top:.2rem;
+    }
+    .filter span{
+        display:inline-block;
+    }
+
+    /* download */
+    #download .col-12 p{
+        font-size:1.6rem;
+    }
+    .book-img{
+        min-height:31.3rem;
+        max-height:31.3rem;
+    }
+    .book-img img{
+        max-height:31.3rem;
+    }
+
+    /* book place */
+    .tooltip-remoteness{
+        left:45%;
+        font-size:1rem;
+    }
+}
+@media screen and (max-width:450px){
+    #search .col-7 img{
+        height:160px;
+    }
+    html{
+        font-size:7px;
+    }
+    #download p {
+        font-size:1.4rem;
+    }
+    #download img{
+        padding:2.5rem;
+        padding-top:2rem;
+    }
+    #search-box{
+        padding:.5rem 1.8rem;
+    }
+    .download-footer{
+        bottom:12rem;
+    }
+    .book-img{
+        min-height:32.55rem;
+        max-height:32.55rem;
+    }
+    .book-img img{
+        max-height:32.55rem;
+    }
+}
+
+
+
+
+
+/* Respansive */
+@media screen and (max-width:1200px){
+    html{
+        font-size:9px;
+    }
+    #sign-in-up .sign-header, #sign-in-up .sale-buy{
+        margin-top:4.2rem;
+        margin-left:4.9rem
+    }
+}
+@media screen and (max-width:992px){
+    html{
+        font-size:8px;
+    }
+    #sign-in-up .sign-header, #sign-in-up .sale-buy{
+        margin-top:4.2rem;
+        margin-left:3rem
+    }
+    #sign-in-up .first-col .sign-bg{
+        width:40rem;
+    }
+}
+@media screen and (max-width:768px){
+    html{
+        font-size:7px;
+    }
+    #sign-in-up .sign-header, #sign-in-up .sale-buy{
+        margin-top:4.2rem;
+        margin-left:3rem
+    }
+    #sign-in-up .first-col .sign-bg{
+        width:30rem;
+    }
+    #sign-in-up .sale-buy{
+        font-size:2.1rem;
+    }
+    #signup .signin-up-button{
+        width:18rem;
+        font-size:1.7rem;
+    }
+    .signin-up-google, .signin-up-facebook{
+        width:60%;
+    }
+
+    .popup-container{
+        width:57.6rem;
+    }
+}
+@media screen and (max-width:576px){
+    html{
+        font-size:6px;
+    }
+    #sign-in-up .first-col{
+        border-radius:4.6rem;
+    }
+    .signin-up-google, .signin-up-facebook{
+        width:40%;
+    }
+    #sign-in-up .sale-buy{
+        font-size:2.9rem;
+    }
+    #sign-in-up .first-col .sign-bg{
+        width:45rem;
+    }
+    .forget-password-email{
+        width:30rem;
+        padding-left:2rem;
+    } 
+    /* create profile */
+    .genres-item{
+        height:6rem;
+        border-radius:2em;
+        font-size:1.2rem;
+    }
+    .genres .col-2,.genres .col-4{
+        padding:.8rem;
+    }
+    .favorite-genre-item{
+        width:11rem;
+        height:3rem;
+        font-size:1.2rem;
+    }
+    .profile-header{
+        margin-bottom:-1.5rem;
+    }
+
+    /* labels header */
+    .not-count{
+        padding:.4rem .8rem;
+    }
+}
+@media screen and (max-width:360px){
+
+
+}
