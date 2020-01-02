@@ -1,7 +1,7 @@
 let deliveryContainer = document.querySelector('.delivery-container');
 let locationInputTemp = Handlebars.compile(`<div class="delivery d-flex align-items-center py-2">
             <input value="{{loc_name}}" list="suggestionsholder" type="text" class = "input-val" oninput="SuggestPlace(event)">
-            <img src="/static/icons/Path 413.svg" alt="" class = "ml-3 plas-delivery" onclick = "addDelivery();return false;">
+            <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/Path 413.svg" alt="" class = "ml-3 plas-delivery" onclick = "addDelivery();return false;">
             </div>`);
 
 
