@@ -11,6 +11,7 @@ let signIn = document.querySelector("#signin"), signUp = document.querySelector(
 signInHeader.onclick = function(){
     blockSignIn();
 }
+
 signUpHeader.onclick = function(){
     blockSignUp();
 }
@@ -47,7 +48,7 @@ radioButton.onclick = function(){
     }
     else{
         radioContent.style.display = "none";
-        checkRadio = false;        
+        checkRadio = false;
     }
 }
 
