@@ -41,14 +41,17 @@ function resetEmail(e){
     e.style.border = ".1rem solid #B5B5B5";
 }
 
-function change_style() {
-            // body...
-            checkEmailPassword.style.opacity = "1";
+function change_style(signin=true) {
+    checkEmailPassword.style.opacity = "1";
+    if (signin) {
+        // body...
             signinEmail.style.color = "red";
             signinEmail.style.border = ".1rem solid red";
             signinEmail.style.background = "#fff";
 
-            signinPassword.style.color = "red";
-            signinPassword.style.border = ".1rem solid red";
-            signinPassword.style.background = "#fff";
-        }
+            // signinPassword.style.color = "red";
+            // signinPassword.style.border = ".1rem solid red";
+            // signinPassword.style.background = "#fff";
+    }
+
+}
