@@ -49,9 +49,6 @@ function change_style(signin=true) {
             signinEmail.style.border = ".1rem solid red";
             signinEmail.style.background = "#fff";
 
-            // signinPassword.style.color = "red";
-            // signinPassword.style.border = ".1rem solid red";
-            // signinPassword.style.background = "#fff";
     }
 
 }

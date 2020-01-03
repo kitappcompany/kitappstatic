@@ -5,6 +5,7 @@ function openHomePage(){
 }
 
 // sign in sign up
+let signupBtn = document.querySelector('#register-user');
 let signInHeader = document.querySelector(".signin-h p"), signUpHeader = document.querySelector(".signup-h p"); // daxil ol ,qeydiyyat rengi
 let signInBorder = document.querySelector(".signin-h") ,signUpBorder = document.querySelector(".signup-h"); // daxil ol,qeydiyyat border bottom rengi
 let signIn = document.querySelector("#signin"), signUp = document.querySelector("#signup"); // display block none
@@ -45,10 +46,12 @@ radioButton.onclick = function(){
     if(!checkRadio){
         radioContent.style.display = "inline-block";
         checkRadio = true;
+        signupBtn.disabled = true;
     }
     else{
         radioContent.style.display = "none";
         checkRadio = false;
+        signupBtn.disabled = false;
     }
 }
 
