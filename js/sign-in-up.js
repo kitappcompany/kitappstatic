@@ -46,12 +46,14 @@ radioButton.onclick = function(){
     if(!checkRadio){
         radioContent.style.display = "inline-block";
         checkRadio = true;
-        signupBtn.disabled = true;
+        signupBtn.disabled = false;
+        signupBtn.style.backgroundColor = ''
     }
     else{
         radioContent.style.display = "none";
         checkRadio = false;
-        signupBtn.disabled = false;
+        signupBtn.disabled = true;
+        signupBtn.style.backgroundColor = '#b4c9d4'
     }
 }
 
