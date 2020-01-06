@@ -3,7 +3,7 @@ function message() {
     if (true) {
         wsStart = 'wss://'
     }
-    endpoint = wsStart + window.location.host + "chatSocket";
+    endpoint = wsStart + window.location.host + "/chatSocket";
     let socket = new WebSocket(endpoint);
 
     socket.onopen = function (e) {
