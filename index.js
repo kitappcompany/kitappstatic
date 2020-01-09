@@ -74,12 +74,14 @@ function bookdetail(id, popup) {
         const temp = Handlebars.compile(document.querySelector("#book-detail").innerHTML); // book detail HTML
         const msgStartTemp = Handlebars.compile(document.querySelector("#message-start-box").innerHTML) // msg start for this book
         popup.querySelector('span').innerHTML = (temp({"book":res, "img":res.img[0]}))// book detailHTML rendered
-        document.querySelector("#message-popup .row").innerHTML = msgStartTemp({"book":res, "img":res.img[0]})
+        document.querySelector("#message-popup .row").innerHTML = msgStartTemp({"book":res, "img":res.img[0]}) //message popup temp
+
         popupchangeimage(res.img);
         popupdelivery();
         all_locations_obj = res.locations;
         once=true;
-        message_js();
+
+        message_js(); // this creates message popup for a book
     }
     request.send()
 

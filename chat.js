@@ -6,7 +6,7 @@ function messageStart() {
     endpoint = wsStart + window.location.host + "/chatSocket";
     let socket = new WebSocket(endpoint);
     let textArea   = document.querySelector("#message-input");
-    let data   = JSON.stringify({"reciver":textArea.dataset.reciverEmail, "book":textArea.dataset.bookId, "text":textArea.value})
+    let data   = JSON.stringify({"reciver":textArea.dataset.reciveremail, "book":textArea.dataset.bookid, "text":textArea.value})
     socket.onopen = function (e) {
         socket.send(data)
         // body...
