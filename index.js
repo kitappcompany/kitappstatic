@@ -71,8 +71,10 @@ function bookdetail(id, popup) {
 
     request.onload = ()=>{
         let res = JSON.parse(request.responseText)
-        const temp = Handlebars.compile(document.querySelector("#book-detail").innerHTML);
-        popup.querySelector('span').innerHTML = (temp({"book":res, "img":res.img[0]}))
+        const temp = Handlebars.compile(document.querySelector("#book-detail").innerHTML); // book detail HTML
+        const msgStartTemp = Handlebars.compile(document.querySelector("#message-start-box").innerHTML) // msg start for this book
+        popup.querySelector('span').innerHTML = (temp({"book":res, "img":res.img[0]}))// book detailHTML rendered
+        document.querySelector("#message-popup .row").innerHTML = msgStartTemp({"book":res, "img":res.img[0]})
         popupchangeimage(res.img);
         popupdelivery();
         all_locations_obj = res.locations;
