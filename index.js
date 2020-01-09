@@ -77,6 +77,7 @@ function bookdetail(id, popup) {
         popupdelivery();
         all_locations_obj = res.locations;
         once=true;
+        message_js();
     }
     request.send()
 
