@@ -15,6 +15,7 @@ function message_js() {
     messageButton.onclick = function(){
         messageContainer.style.display = "none";
         sendedMessage.style.display = "block";
+        messageStart();
     }
     bgOpacity.onclick = function(){
         messagePopup.style.display = "none";

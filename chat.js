@@ -1,13 +1,14 @@
-function messageStart(reciverEmail, book_id) {
+function messageStart() {
     wsStart = 'ws://'
     if (true) {
         wsStart = 'wss://'
     }
     endpoint = wsStart + window.location.host + "/chatSocket";
     let socket = new WebSocket(endpoint);
-    let text   = document.querySelector("#message-input").value;
+    let textArea   = document.querySelector("#message-input");
+    let data   = JSON.stringify({"reciver":textArea.dataset.reciverEmail, "book":textArea.dataset.bookId, "text":textArea.value})
     socket.onopen = function (e) {
-        socket.send(JSON.stringify({"reciver":reciverEmail, "book":book_id, "text":text}))
+        socket.send(data)
         // body...
         socket.close()
     }
