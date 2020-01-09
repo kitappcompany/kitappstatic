@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360.269" height="98.8" viewBox="0 0 360.269 98.8">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="360.269" height="98.8" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Repeat_Grid_1" data-name="Repeat Grid 1" clip-path="url(#clip-path)">
+    <g transform="translate(-482.061 -2302.251)">
+      <path id="Path_414" data-name="Path 414" d="M11748.1,2134s119.7,5.105,115.267-27.927c-2.04-13.889-13.749-15.144-19-12.547-9.959,5.381-8.974,15.366-5.789,20.684,5.7,9.514,13.6,12.949,34.458,19.789,92.071,20.729,93.57-33.7,128.649-16.238" transform="translate(-11266 241)" fill="none" stroke="#707070" stroke-width="2" stroke-dasharray="3"/>
+      <g id="Group_71" data-name="Group 71" transform="translate(711.654 2324.77) rotate(-11)">
+        <path id="Path_401" data-name="Path 401" d="M687.037,38.758l-16.1,27.905L788.958,85.881,712.947,32.949Z" transform="translate(-670.942 -8.172)" fill="#5ab5f1"/>
+        <path id="Path_402" data-name="Path 402" d="M687.037,38.758l-16.1,27.905L788.958,85.881,712.947,32.949Z" transform="translate(-670.942 -8.172)" opacity="0.2"/>
+        <path id="Path_403" data-name="Path 403" d="M706.342,8.293,788.88,86,686.959,38.879Z" transform="translate(-670.863 -8.293)" fill="#5ab5f1"/>
+        <path id="Path_404" data-name="Path 404" d="M675.274,82.994,788.616,85.16,682.806,47.576Z" transform="translate(-670.921 -8.101)" fill="#5ab5f1"/>
+      </g>
+    </g>
+  </g>
+</svg>
