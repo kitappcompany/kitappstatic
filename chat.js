@@ -22,3 +22,25 @@ function messageStart() {
         console.log("error", e)
     }
 }
+
+function messageMsg(slug) {
+    // body...
+    endpoint = "wss://" + window.location.host + "/chatMsg/" + slug;
+    let socket = new WebSocket(endpoint);
+
+
+    socket.onmessage = function (e) {
+        // body...
+        console.log("onmessage", e)
+    }
+
+    socket.onclose = function (e) {
+        // body...
+        console.log("close", e)
+    }
+
+    socket.onerror = function (e) {
+        // body...
+        console.log("error", e)
+    }
+}
