@@ -3,11 +3,22 @@ selectedMessage = document.querySelector('.selected-message');
 
 let beforeMessage = '';
 function hoverMessage(message){
+    newMessageItemNot(message);
+     // mesajlasmadaki scrolun asaqidan baslamasi
+     $(document).ready(function() {  
+         $(".write-messages").animate({ 
+             scrollTop: $( 
+            '.write-messages').get(0).scrollHeight 
+        }, 1000); 
+    }); 
     if(beforeMessage != ''){
         beforeMessage.style.borderRight = '0';
     }
     message.style.borderRight = ".4rem solid #5EB3F1";
     beforeMessage = message;
+    // yeni mesaj sayini 0 lamaq
+    message.children[1].textContent = '0';
+    message.children[1].style.display = 'none';
     // her hansi mesaja click olunanda hemin shexsin mesajlarinin acilmasi
     notSelectedMessage.style.display = "none";
     selectedMessage.style.display = "block";
@@ -17,25 +28,59 @@ function hoverMessage(message){
 
 
 
+let messagesItem = document.querySelectorAll('.messages-item'),
+ownerNameMessage = document.querySelectorAll('.owner-name-message'),
+lastMessage = document.querySelectorAll('.last-message'),
+newMessageCount = document.querySelectorAll('.new-message-count'),
+manIcon = document.querySelectorAll('.man-icon');
 
+for(let i = 0;i < newMessageCount.length;i++){
+        checkNewMessageZero(i);
+}
 
+function checkNewMessageZero(i){
+    if(newMessageCount[i].textContent != '0'){
+        newMessageCount[i].style.display = 'flex';
+        newMessageItem(i);
+    }
+}
 
+for(let i = 0;i < lastMessage.length;i++){
+    lastMessage[i].textContent = lastMessage[i].textContent.slice(0, 55);
+    if(lastMessage[i].textContent.length > 54)
+    lastMessage[i].textContent += '...';
+}
+function checkLastMessageLength(i){
+        lastMessage[i].textContent = lastMessage[i].textContent.slice(0, 55);
+        if(lastMessage[i].textContent.length > 54)
+        lastMessage[i].textContent += '...';
+}
+// yeni mesajin geldiyini 3 saniyeden b=1 yoxlamaq ve sonuncu mesajin uzunlugunun yoxlanilmasi
 
+setInterval(function(){
+    for(let i = 0;i < newMessageCount.length;i++){
+        checkNewMessageZero(i);
+        checkLastMessageLength(i);
+    }
+},3000);
 
+function newMessageItem(i){
+    messagesItem[i].style.background = "#5CB4F1";
+    ownerNameMessage[i].style.fontFamily = "DINPro-Bold";
+    ownerNameMessage[i].style.color = "#fff";
+    lastMessage[i].style.fontFamily = "DINPro-Medium";
+    lastMessage[i].style.color = "#fff";
+    manIcon[i].setAttribute('src',"icons/man-white.svg");
+}
+function newMessageItemNot(message){
+    message.style.background = "#fff";
+    message.children[0].children[1].children[0].style.fontFamily = "DINPro-Medium";
+    message.children[0].children[1].children[0].style.color = "#686868";
+    message.children[0].children[1].children[1].style.fontFamily = "DINPro";
+    message.children[0].children[1].children[1].style.color = "#B5B5B5";
+    message.children[0].children[0].children[0].setAttribute('src',"icons/man-black.svg");
+}
 
-
-
-
-
-
-
-// let messagesItem = document.querySelectorAll('.messages-item'),
-// ownerNameMessage = document.querySelectorAll('.owner-name-message'),
-// lastMessage = document.querySelectorAll('.last-message'),
-// lastMessageDate = document.querySelectorAll('.last-message-date'),
-// manIcon = document.querySelectorAll('.man-icon');
-// let notSelectedMessage = document.querySelector('.not-selected-message'),
-// selectedMessage = document.querySelector('.selected-message');
 
 // mesajlara  click olunmasi
 // for(let i = 0;i < messagesItem.length;i++){
@@ -52,13 +97,13 @@ function hoverMessage(message){
 //         notSelectedMessage.style.display = "none";
 //         selectedMessage.style.display = "block";
         
-//         // mesajlasmadaki scrolun asaqidan baslamasi
-//         $(document).ready(function() {  
-//             $(".write-messages").animate({ 
-//                 scrollTop: $( 
-//                 '.write-messages').get(0).scrollHeight 
-//             }, 1000); 
-//         }); 
+        // // mesajlasmadaki scrolun asaqidan baslamasi
+        // $(document).ready(function() {  
+        //     $(".write-messages").animate({ 
+        //         scrollTop: $( 
+        //         '.write-messages').get(0).scrollHeight 
+        //     }, 1000); 
+        // }); 
 //     }
 // }
 

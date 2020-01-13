@@ -12,18 +12,27 @@ html{
 .messages-item{
     border-top:.1rem solid #B5B5B5;
     position:relative;
-    transition:all .5s;
+    transition:all .1s;
     cursor:pointer;
 }
-.last-message-date{
+
+.new-message-count{
     position:absolute;
-    right:1.9rem;
+    right:3rem;
     top:50%;
     transform:translateY(-50%);
     color:#B5B5B5;
-    font-size:1.3rem;
+    background:#fff;
+    width: 4rem;
+    border-radius:50%;
+    height: 4rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:1.7rem;
     transition:all .5s;
     font-family:DINPro;
+    display:none;
 }
 .man-icon{
     margin-top:.7rem;
