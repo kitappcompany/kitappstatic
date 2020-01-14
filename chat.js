@@ -58,7 +58,7 @@ function MsgRooms(user, url = "/chat-api/chatrooms") {
     request.onload = ()=>{
         const temp = Handlebars.compile(document.querySelector("#msg-item").innerHTML);
         res = JSON.parse(request.responseText)
-        document.querySelector("#messages .messages").innerHTML = temp({"chat_room":{"owner":res[0]["seller"], "pk":res[0]["id"]}})
+        document.querySelector("#messages .messages").innerHTML = temp({"chat_room":res["results"], "user_email":document.querySelector("#user_email").value})
         console.log(res)
     }
 
