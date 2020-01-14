@@ -56,8 +56,9 @@ function MsgRooms(user, url = "/chat-api/chatrooms") {
     request.setRequestHeader("Authorization", "Token " + user)
 
     request.onload = ()=>{
-        // const temp = Handlebars.compile(document.querySelector("#msg-item").innerHTML);
+        const temp = Handlebars.compile(document.querySelector("#msg-item").innerHTML);
         res = JSON.parse(request.responseText)
+        document.querySelector("#messages .messages").innerHTML = temp({"chat_room":{"owner":res[0]["seller"], "pk":res[0]["id"]}})
         console.log(res)
     }
 
