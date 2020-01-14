@@ -45,14 +45,14 @@ function messageMsg(slug) {
     }
 }
 
-function MsgRooms(user, next_page = 1) {
+function MsgRooms(user, url = "/chat-api/chatrooms") {
     // body...
     if (next_page === null) {
         return
     }
 
     const request = new XMLHttpRequest();
-    request.open("GET", "chat-api/chatrooms"+"?next="+next_page, true)
+    request.open("GET", url, true)
     request.setRequestHeader("Authorization", "Token " + user)
 
     request.onload = ()=>{
