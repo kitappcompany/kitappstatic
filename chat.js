@@ -47,7 +47,7 @@ function messageMsg(slug) {
 
 function MsgRooms(user, url = "/chat-api/chatrooms") {
     // body...
-    if (next_page === null) {
+    if (url === null) {
         return
     }
 
