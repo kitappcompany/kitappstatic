@@ -45,22 +45,16 @@ function messageMsg(slug) {
     }
 }
 
-function MsgRooms(user, url = "/chat-api/chatrooms") {
+function chatRoomHandler() {
     // body...
-    if (url === null) {
-        return
+    endpoint = "wss://" + window.location.host + "/chatStart/" + textArea.dataset.slug;
+    let socketChatRoomHandler = WebSocket(endpoint)
+
+    socketChatRoomHandler.onopen = data=>{
+        console.log(data, "open")
     }
 
-    const request = new XMLHttpRequest();
-    request.open("GET", url, true)
-    request.setRequestHeader("Authorization", "Token " + user)
-
-    request.onload = ()=>{
-        const temp = Handlebars.compile(document.querySelector("#msg-item").innerHTML);
-        res = JSON.parse(request.responseText)
-        document.querySelector("#messages .messages").innerHTML = temp({"chat_room":res["results"], "user_email":document.querySelector("#user_email").value})
-        console.log(res)
+    socketChatRoomHandler.onmessage = data =>{
+        console.log(data, "recive")
     }
-
-    request.send()
 }
