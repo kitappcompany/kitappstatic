@@ -47,7 +47,7 @@ function messageMsg(slug) {
 
 function chatRoomHandler() {
     // body...
-    endpoint = "wss://" + window.location.host + "/chatStart/" + textArea.dataset.slug;
+    endpoint = "wss://" + window.location.host + "/chatRoomHandler/";
     let socketChatRoomHandler = WebSocket(endpoint)
 
     socketChatRoomHandler.onopen = data=>{
