@@ -52,7 +52,8 @@ function chatRoomHandler() {
     let temp;
     socketChatRoomHandler.onopen = data=>{
         console.log(data, "open")
-        temp = Handlerbars.compile(document.querySelector("#msg-item").innerHTML)
+        temp = Handlebars.compile(document.querySelector("#msg-item").innerHTML);
+        socket.send({"type":1, "help_text":"query chat room"})
     }
 
     socketChatRoomHandler.onmessage = data =>{
@@ -60,6 +61,6 @@ function chatRoomHandler() {
         json_data = JSON.parse(data["text"])
         // if first time to load
         document.querySelector("#messages .messages").innerHTML += temp({"chat_room":json_data, "user_email":document.querySelector("#user_email").value});
-        
+
     }
 }
