@@ -48,13 +48,18 @@ function messageMsg(slug) {
 function chatRoomHandler() {
     // body...
     endpoint = "wss://" + window.location.host + "/chatRoomHandler/";
-    let socketChatRoomHandler = WebSocket(endpoint)
-
+    let socketChatRoomHandler = new WebSocket(endpoint)
+    let temp;
     socketChatRoomHandler.onopen = data=>{
         console.log(data, "open")
+        temp = Handlerbars.compile(document.querySelector("#msg-item").innerHTML)
     }
 
     socketChatRoomHandler.onmessage = data =>{
         console.log(data, "recive")
+        json_data = JSON.parse(data["text"])
+        // if first time to load
+        document.querySelector("#messages .messages").innerHTML += temp({"chat_room":json_data, "user_email":document.querySelector("#user_email").value});
+        
     }
 }
