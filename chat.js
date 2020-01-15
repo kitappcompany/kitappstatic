@@ -1,3 +1,8 @@
+Handlebars.registerHelper('if_value', function (a, b) {
+	if (a === b ) return true
+  	else return false
+})
+
 function messageStart() {
     wsStart = 'wss://'
     let textArea   = document.querySelector("#message-input");
@@ -53,7 +58,7 @@ function chatRoomHandler() {
     socketChatRoomHandler.onopen = data=>{
         console.log(data, "open")
         temp = Handlebars.compile(document.querySelector("#msg-item").innerHTML);
-        socket.send({"type":1, "help_text":"query chat room"})
+        socketChatRoomHandler.send({"type":1, "help_text":"query chat room"})
     }
 
     socketChatRoomHandler.onmessage = data =>{
