@@ -63,7 +63,7 @@ function chatRoomHandler() {
 
     socketChatRoomHandler.onmessage = data =>{
         console.log(data, "recive")
-        json_data = JSON.parse(data["text"])
+        json_data = JSON.parse(data["data"])
         // if first time to load
         document.querySelector("#messages .messages").innerHTML += temp({"chat_room":json_data, "user_email":document.querySelector("#user_email").value});
 
