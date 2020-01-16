@@ -33,7 +33,10 @@ function messageMsg(slug) {
     endpoint = "wss://" + window.location.host + "/chatMsg/" + slug;
     let socket = new WebSocket(endpoint);
 
-
+    socket.open = function (e) {
+        // body...
+        console.log("onmessage", e)
+    }
     socket.onmessage = function (e) {
         // body...
         console.log("onmessage", e)
