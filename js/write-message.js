@@ -9,26 +9,29 @@ messageButton.onclick = function(){
         '<p class="outgoing-message float-right">' + messageInput.value + '</p>' +
         '<p class="outgoing-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
         '</div>';
+        socket.send({
+            "text":messageInput.value,
+        })
         messageInput.value = '';
         // mesajlasmadaki scrolun asaqidan baslamasi
-        $(document).ready(function() {  
-            $(".write-messages").animate({ 
-                scrollTop: $( 
-                '.write-messages').get(0).scrollHeight 
-            }, 100); 
-        }); 
-        paddingBottom();    
+        $(document).ready(function() {
+            $(".write-messages").animate({
+                scrollTop: $(
+                '.write-messages').get(0).scrollHeight
+            }, 100);
+        });
+        paddingBottom();
     }
 }
 
 
 // mesajlasmadaki scrolun asaqidan baslamasi
-$(document).ready(function() {  
-    $(".write-messages").animate({ 
-        scrollTop: $( 
-          '.write-messages').get(0).scrollHeight 
-    }, 1000); 
-}); 
+$(document).ready(function() {
+    $(".write-messages").animate({
+        scrollTop: $(
+          '.write-messages').get(0).scrollHeight
+    }, 1000);
+});
 
 // eger mesaj 40 simvoldan azdirsa padding bottomu artit
 paddingBottom();

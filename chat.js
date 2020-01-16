@@ -28,10 +28,16 @@ function messageStart() {
     }
 }
 
+var socket;
 function messageMsg(slug) {
+    try {
+        socket.close()
+    } catch (e) {
+        console.log(e, "catch")
+    }
     // body...
     endpoint = "wss://" + window.location.host + "/chatMsg/" + slug;
-    let socket = new WebSocket(endpoint);
+    socket = new WebSocket(endpoint);
 
     socket.open = function (e) {
         // body...
