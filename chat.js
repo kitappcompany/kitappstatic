@@ -28,7 +28,7 @@ function messageStart() {
     }
 }
 
-var socket;
+var socket, incoming=true;
 
 function messageMsg(slug) {
     try {
@@ -42,14 +42,25 @@ function messageMsg(slug) {
 
     socket.open = function (e) {
         // body...
-        console.log("onmessage", e)
     }
     socket.onmessage = function (e) {
         // body...
-        writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
-        '<p class="incoming-message float-right">' + e["data"] + '</p>' +
-        '<p class="incoming-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
-        '</div>';
+
+        var d = new Date();
+        if (incoming) {
+            writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
+            '<p class="incoming-message">' + e["data"] + '</p>' +
+            '<p class="incoming-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
+            '</div>';
+
+        }else{
+            writeMessages.innerHTML += '<div class="outgoing-div clearfix">' +
+            '<p class="outgoing-message float-right">' + e["data"] + '</p>' +
+            '<p class="outgoing-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
+            '</div>';
+
+            incoming = true;
+        }
         console.log("onmessage", e)
     }
 

@@ -5,14 +5,11 @@ let messageBottomPadding = document.querySelectorAll('.incoming-message, .outgoi
 messageButton.onclick = function(){
     var d = new Date();
     if(messageInput.value != ''){
-        writeMessages.innerHTML += '<div class="outgoing-div clearfix">' +
-        '<p class="outgoing-message float-right">' + messageInput.value + '</p>' +
-        '<p class="outgoing-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
-        '</div>';
+        incoming = false; // it is outgoing msg in chat.js
         message = JSON.stringify({
             "text":messageInput.value,
         })
-        socket.send(message)
+        socket.send(message) //socket in chat.js
         messageInput.value = '';
         // mesajlasmadaki scrolun asaqidan baslamasi
         $(document).ready(function() {
