@@ -29,6 +29,7 @@ function messageStart() {
 }
 
 var socket;
+
 function messageMsg(slug) {
     try {
         socket.close()
@@ -45,6 +46,10 @@ function messageMsg(slug) {
     }
     socket.onmessage = function (e) {
         // body...
+        writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
+        '<p class="incoming-message float-right">' + e["data"] + '</p>' +
+        '<p class="incoming-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
+        '</div>';
         console.log("onmessage", e)
     }
 

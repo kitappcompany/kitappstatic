@@ -9,9 +9,10 @@ messageButton.onclick = function(){
         '<p class="outgoing-message float-right">' + messageInput.value + '</p>' +
         '<p class="outgoing-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
         '</div>';
-        socket.send({
+        message = JSON.stringify({
             "text":messageInput.value,
         })
+        socket.send(message)
         messageInput.value = '';
         // mesajlasmadaki scrolun asaqidan baslamasi
         $(document).ready(function() {
