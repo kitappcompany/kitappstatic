@@ -28,7 +28,7 @@ function messageStart() {
     }
 }
 
-var socket, incoming=true;
+var socket, incoming=true, user_email= document.querySelector("#user_email").value;
 
 function messageMsg(slug) {
     try {
@@ -40,8 +40,9 @@ function messageMsg(slug) {
     endpoint = "wss://" + window.location.host + "/chatMsg/" + slug;
     socket = new WebSocket(endpoint);
 
-    socket.open = function (e) {
+    socket.onopen = function (e) {
         // body...
+        writeMessages.innerHTM = "";
         let previous_msgs = JSON.stringify({
             "type":1, "text":"No Message"
         })
@@ -51,7 +52,33 @@ function messageMsg(slug) {
         // body...
         console.log(e["data"])
         const response = JSON.parse(e["data"]);
-        if (response["type"] === 1) { // if response is for request sent from on open
+        const res = response["res"]
+        if (response["type"] === 1) { // if response is for request sent from onopen
+            for (var i = 0; i < res.length; i++) {
+                if (res["msg_type"]) {
+                    if (res["sender"]["email"] === user_email) {
+                        writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
+                        '<p class="incoming-message">' +res["data"] + '</p>' +
+                        '<p class="incoming-date">' + res["timestamp"] +'</p>' +
+                        '</div>';
+                    }
+                    else{
+                        writeMessages.innerHTML += '<div class="outgoing-div clearfix">' +
+                        '<p class="outgoing-message float-right">' + res["data"] + '</p>' +
+                        '<p class="outgoing-date">' + res["timestamp"] +'</p>' +
+                        '</div>';
+                    }
+                }
+            }
+
+            // mesajlasmadaki scrolun asaqidan baslamasi
+            $(document).ready(function() {
+                $(".write-messages").animate({
+                    scrollTop: $(
+                    '.write-messages').get(0).scrollHeight
+                }, 100);
+            });
+            paddingBottom();
 
             return
         }
@@ -71,7 +98,7 @@ function messageMsg(slug) {
             incoming = true;
         }
 
-         // mesajlasmadaki scrolun asaqidan baslamasi
+        // mesajlasmadaki scrolun asaqidan baslamasi
         $(document).ready(function() {
             $(".write-messages").animate({
                 scrollTop: $(
