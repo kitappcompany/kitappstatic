@@ -5,7 +5,7 @@ let messageBottomPadding = document.querySelectorAll('.incoming-message, .outgoi
 messageButton.onclick = function(){
     var d = new Date();
     if(messageInput.value != ''){
-        incoming = false; // it is outgoing msg in chat.js
+        incoming = false; // it is outgoing msg ,in chat.js
         message = JSON.stringify({
             "text":messageInput.value,
         })
