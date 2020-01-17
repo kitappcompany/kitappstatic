@@ -7,18 +7,12 @@ messageButton.onclick = function(){
     if(messageInput.value != ''){
         incoming = false; // it is outgoing msg ,in chat.js
         message = JSON.stringify({
+            "type":2,
             "text":messageInput.value,
         })
         socket.send(message) //socket in chat.js
         messageInput.value = '';
-        // mesajlasmadaki scrolun asaqidan baslamasi
-        $(document).ready(function() {
-            $(".write-messages").animate({
-                scrollTop: $(
-                '.write-messages').get(0).scrollHeight
-            }, 100);
-        });
-        paddingBottom();
+
     }
 }
 

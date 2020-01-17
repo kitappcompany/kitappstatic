@@ -42,10 +42,19 @@ function messageMsg(slug) {
 
     socket.open = function (e) {
         // body...
+        let previous_msgs = JSON.stringify({
+            "type":1, "text":"No Message"
+        })
+        socket.send(previous_msgs)
     }
     socket.onmessage = function (e) {
         // body...
+        console.log(e["data"])
+        const response = JSON.parse(e["data"]);
+        if (response["type"] === 1) { // if response is for request sent from on open
 
+            return
+        }
         var d = new Date();
         if (incoming) {
             writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
@@ -61,7 +70,16 @@ function messageMsg(slug) {
 
             incoming = true;
         }
-        console.log("onmessage", e)
+
+         // mesajlasmadaki scrolun asaqidan baslamasi
+        $(document).ready(function() {
+            $(".write-messages").animate({
+                scrollTop: $(
+                '.write-messages').get(0).scrollHeight
+            }, 100);
+        });
+        paddingBottom();
+
     }
 
     socket.onclose = function (e) {
