@@ -55,17 +55,17 @@ function messageMsg(slug) {
         const res = response["res"]
         if (response["type"] === 1) { // if response is for request sent from onopen
             for (var i = 0; i < res.length; i++) {
-                if (res["msg_type"]) {
+                if (res[i]["msg_type"]) {
                     if (res["sender"]["email"] === user_email) {
                         writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
-                        '<p class="incoming-message">' +res["data"] + '</p>' +
-                        '<p class="incoming-date">' + res["timestamp"] +'</p>' +
+                        '<p class="incoming-message">' +res[i]["data"] + '</p>' +
+                        '<p class="incoming-date">' + res[i]["timestamp"] +'</p>' +
                         '</div>';
                     }
                     else{
                         writeMessages.innerHTML += '<div class="outgoing-div clearfix">' +
-                        '<p class="outgoing-message float-right">' + res["data"] + '</p>' +
-                        '<p class="outgoing-date">' + res["timestamp"] +'</p>' +
+                        '<p class="outgoing-message float-right">' + res[i]["data"] + '</p>' +
+                        '<p class="outgoing-date">' + res[i]["timestamp"] +'</p>' +
                         '</div>';
                     }
                 }
@@ -85,13 +85,13 @@ function messageMsg(slug) {
         var d = new Date();
         if (incoming) {
             writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
-            '<p class="incoming-message">' + e["data"] + '</p>' +
+            '<p class="incoming-message">' + res + '</p>' +
             '<p class="incoming-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
             '</div>';
 
         }else{
             writeMessages.innerHTML += '<div class="outgoing-div clearfix">' +
-            '<p class="outgoing-message float-right">' + e["data"] + '</p>' +
+            '<p class="outgoing-message float-right">' + res + '</p>' +
             '<p class="outgoing-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
             '</div>';
 
