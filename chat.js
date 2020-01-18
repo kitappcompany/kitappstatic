@@ -42,7 +42,6 @@ function messageMsg(slug) {
 
     socket.onopen = function (e) {
         // body...
-        writeMessages.innerHTM = "";
         let previous_msgs = JSON.stringify({
             "type":1, "text":"No Message"
         })
@@ -50,13 +49,13 @@ function messageMsg(slug) {
     }
     socket.onmessage = function (e) {
         // body...
-        console.log(e["data"])
         const response = JSON.parse(e["data"]);
         const res = response["res"]
         if (response["type"] === 1) { // if response is for request sent from onopen
+            writeMessages.innerHTML = "";
             for (var i = 0; i < res.length; i++) {
                 if (res[i]["msg_type"]) {
-                    if (res["sender"]["email"] === user_email) {
+                    if (res[i]["sender"]["email"] != user_email) {
                         writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
                         '<p class="incoming-message">' +res[i]["data"] + '</p>' +
                         '<p class="incoming-date">' + res[i]["timestamp"] +'</p>' +
@@ -126,13 +125,11 @@ function chatRoomHandler() {
     let socketChatRoomHandler = new WebSocket(endpoint)
     let temp;
     socketChatRoomHandler.onopen = data=>{
-        console.log(data, "open")
         temp = Handlebars.compile(document.querySelector("#msg-item").innerHTML);
         socketChatRoomHandler.send({"type":1, "help_text":"query chat room"})
     }
 
     socketChatRoomHandler.onmessage = data =>{
-        console.log(data, "recive")
         json_data = JSON.parse(data["data"])
         // if first time to load
         document.querySelector("#messages .messages").innerHTML += temp({"chat_room":json_data, "user_email":document.querySelector("#user_email").value});
