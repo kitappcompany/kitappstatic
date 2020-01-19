@@ -31,6 +31,7 @@ function messageStart() {
 var socket, incoming=true, user_email= document.querySelector("#user_email").value;
 
 function messageMsg(slug, owner_name) {
+    document.querySelector(".owner-name").innerHTML = owner_name;
     try {
         socket.close()
     } catch (e) {
@@ -87,7 +88,6 @@ function messageMsg(slug, owner_name) {
                      }
                 }
             }
-            document.querySelector(".owner-name").innerHTML = owner_name;
             // mesajlasmadaki scrolun asaqidan baslamasi
             $(document).ready(function() {
                 $(".write-messages").animate({
