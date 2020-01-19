@@ -35,7 +35,15 @@ newMessageCount = document.querySelectorAll('.new-message-count'),
 manIcon = document.querySelectorAll('.man-icon');
 
 function for_ui() {
-    // body...
+    // body... update UI new messages if any
+
+    messagesItem = document.querySelectorAll('.messages-item');
+    ownerNameMessage = document.querySelectorAll('.owner-name-message');
+    lastMessage = document.querySelectorAll('.last-message');
+    newMessageCount = document.querySelectorAll('.new-message-count');
+    manIcon = document.querySelectorAll('.man-icon');
+
+
     for(let i = 0;i < newMessageCount.length;i++){
             checkNewMessageZero(i);
     }
