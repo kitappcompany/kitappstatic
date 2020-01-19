@@ -54,19 +54,37 @@ function messageMsg(slug) {
         if (response["type"] === 1) { // if response is for request sent from onopen
             writeMessages.innerHTML = "";
             for (var i = 0; i < res.length; i++) {
+                let d = new Date( `${res[i]["timestamp"]}` );
                 if (res[i]["msg_type"]) {
                     if (res[i]["sender"]["email"] != user_email) {
                         writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
                         '<p class="incoming-message">' +res[i]["data"] + '</p>' +
-                        '<p class="incoming-date">' + res[i]["timestamp"] +'</p>' +
+                        '<p class="incoming-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
                         '</div>';
                     }
                     else{
                         writeMessages.innerHTML += '<div class="outgoing-div clearfix">' +
                         '<p class="outgoing-message float-right">' + res[i]["data"] + '</p>' +
-                        '<p class="outgoing-date">' + res[i]["timestamp"] +'</p>' +
+                        '<p class="outgoing-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
                         '</div>';
                     }
+
+                    if (i === res.length - 1) {//fill date of last msg  to top of msg template
+                         document.querySelector(".date-container").innerHTML = d.getDate() + '.' + d.getMonth() + 1 + '.' + d.getFullYear();
+                     }
+                }
+                else{
+                    let data = JSON.parse(res[i]["data"]);
+                    //  <!-- sekil -->
+                        writeMessages.innerHTML += '<div class="img-div">' +
+                        '<div class="img-container">' +
+                        '<img src="'+ data["img"] +'" alt="No Image">' +
+                        '</div>'+
+                        '</div>'
+
+                    if (i === res.length - 1) {//fill date of last msg  to top of msg template
+                         document.querySelector(".date-container").innerHTML = d.getDate() + '.' + d.getMonth() + 1 + '.' + d.getFullYear();
+                     }
                 }
             }
 
