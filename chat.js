@@ -139,18 +139,11 @@ function messageMsg(slug, owner_name) {
 
 function chatRoomHandler() {
     // body...
-    endpoint = "wss://" + window.location.host + "/chatRoomHandler/";
-    let socketChatRoomHandler = new WebSocket(endpoint)
-    let temp;
-    socketChatRoomHandler.onopen = data=>{
-        temp = Handlebars.compile(document.querySelector("#msg-item").innerHTML);
-        socketChatRoomHandler.send({"type":1, "help_text":"query chat room"})
+    const request = new XMLHttpRequest();
+    request.open("GET", "/chat-api/chatrooms", true);
+    request.onload = data =>{
+        console.log(data)
+        document.querySelector("#messages .messages").innerHTML += temp({"chat_room":JSON.parse(data), "user_email":document.querySelector("#user_email").value});
     }
-
-    socketChatRoomHandler.onmessage = data =>{
-        json_data = JSON.parse(data["data"])
-        // if first time to load
-        document.querySelector("#messages .messages").innerHTML += temp({"chat_room":json_data, "user_email":document.querySelector("#user_email").value});
-
-    }
+    request.send()
 }
