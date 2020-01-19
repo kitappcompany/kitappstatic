@@ -28,9 +28,12 @@ function messageStart() {
     }
 }
 
-var socket, incoming=true, user_email= document.querySelector("#user_email").value;
+var socket, incoming=true, user_email= document.querySelector("#user_email").value, last_slug=false;
 
 function messageMsg(slug, owner_name) {
+    if (last_slug === slug) {
+        return
+    }
     document.querySelector(".owner-name").innerHTML = owner_name;
     try {
         socket.close()
@@ -141,9 +144,10 @@ function chatRoomHandler() {
     // body...
     const request = new XMLHttpRequest();
     request.open("GET", "/chat-api/chatrooms", true);
-    request.onload = data =>{
-        console.log(data)
-        document.querySelector("#messages .messages").innerHTML += temp({"chat_room":JSON.parse(data), "user_email":document.querySelector("#user_email").value});
+    const temp = Handlebars.compile(document.querySelector("#msg-item").innerHTML);
+    request.onload = () =>{
+        let data = JSON.parse(request.responseText);
+        document.querySelector("#messages .messages").innerHTML += temp({"chat_room":data["results"], "user_email":document.querySelector("#user_email").value});
     }
     request.send()
 }
