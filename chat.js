@@ -31,14 +31,13 @@ function messageStart() {
 var socket, incoming=true, user_email= document.querySelector("#user_email").value, last_slug=false;
 
 function messageMsg(slug, owner_name) {
-    if (last_slug === slug) {
-        return
-    }
+    if (last_slug === slug) return;
+    last_slug = slug;
     document.querySelector(".owner-name").innerHTML = owner_name;
+    writeMessages.innerHTML = '<span class = "not-selected-message"> Mesajlar Yüklənir ... </span>';
     try {
         socket.close()
     } catch (e) {
-        console.log(e, "catch")
     }
     // body...
     endpoint = "wss://" + window.location.host + "/chatMsg/" + slug;
@@ -148,6 +147,7 @@ function chatRoomHandler() {
     request.onload = () =>{
         let data = JSON.parse(request.responseText);
         document.querySelector("#messages .messages").innerHTML += temp({"chat_room":data["results"], "user_email":document.querySelector("#user_email").value});
+        for_ui() // design for new message
     }
     request.send()
 }

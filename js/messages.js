@@ -34,9 +34,19 @@ lastMessage = document.querySelectorAll('.last-message'),
 newMessageCount = document.querySelectorAll('.new-message-count'),
 manIcon = document.querySelectorAll('.man-icon');
 
-for(let i = 0;i < newMessageCount.length;i++){
-        checkNewMessageZero(i);
+function for_ui() {
+    // body...
+    for(let i = 0;i < newMessageCount.length;i++){
+            checkNewMessageZero(i);
+    }
+
+    for(let i = 0;i < lastMessage.length;i++){
+        lastMessage[i].textContent = lastMessage[i].textContent.slice(0, 55);
+        if(lastMessage[i].textContent.length > 54)
+        lastMessage[i].textContent += '...';
+    }
 }
+
 
 function checkNewMessageZero(i){
     if(newMessageCount[i].textContent != '0'){
@@ -45,11 +55,8 @@ function checkNewMessageZero(i){
     }
 }
 
-for(let i = 0;i < lastMessage.length;i++){
-    lastMessage[i].textContent = lastMessage[i].textContent.slice(0, 55);
-    if(lastMessage[i].textContent.length > 54)
-    lastMessage[i].textContent += '...';
-}
+
+
 function checkLastMessageLength(i){
         lastMessage[i].textContent = lastMessage[i].textContent.slice(0, 55);
         if(lastMessage[i].textContent.length > 54)
@@ -57,12 +64,6 @@ function checkLastMessageLength(i){
 }
 // yeni mesajin geldiyini 3 saniyeden b=1 yoxlamaq ve sonuncu mesajin uzunlugunun yoxlanilmasi
 
-setInterval(function(){
-    for(let i = 0;i < newMessageCount.length;i++){
-        checkNewMessageZero(i);
-        checkLastMessageLength(i);
-    }
-},3000);
 
 function newMessageItem(i){
     messagesItem[i].style.background = "#5CB4F1";
@@ -70,7 +71,7 @@ function newMessageItem(i){
     ownerNameMessage[i].style.color = "#fff";
     lastMessage[i].style.fontFamily = "DINPro-Medium";
     lastMessage[i].style.color = "#fff";
-    manIcon[i].setAttribute('src',"icons/man-white.svg");
+    manIcon[i].setAttribute('src',"https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic/icons/man-white.svg");
 }
 function newMessageItemNot(message){
     message.style.background = "#fff";
