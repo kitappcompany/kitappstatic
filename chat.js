@@ -101,6 +101,7 @@ function messageMsg(slug, owner_name) {
 
             return
         }
+
         var d = new Date();
         if (incoming) {
             writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
@@ -117,6 +118,10 @@ function messageMsg(slug, owner_name) {
             incoming = true;
         }
 
+        let messages_were_read = JSON.stringify({
+            "type":3, "text":"messages_were_read"
+        })
+        socket.send(messages_were_read)
         // mesajlasmadaki scrolun asaqidan baslamasi
         $(document).ready(function() {
             $(".write-messages").animate({
