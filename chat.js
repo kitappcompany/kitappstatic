@@ -1,7 +1,3 @@
-Handlebars.registerHelper('if_value', function (a, b) {
-	if (a === b ) return true
-  	else return false
-})
 
 function messageStart() {
     wsStart = 'wss://'
@@ -28,7 +24,24 @@ function messageStart() {
     }
 }
 
+// Message HTML below
+Handlebars.registerHelper('if_value', function (a, b) {
+	if (a === b ) return true
+  	else return false
+})
+
 var socket, incoming=true, user_email= document.querySelector("#user_email").value, last_slug=false;
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyBYrGDFm--z7SQAZ1x4yj_dP5FFNqaTRs0",
+    authDomain: "kitapp-notification.firebaseapp.com",
+    databaseURL: "https://kitapp-notification.firebaseio.com",
+    projectId: "kitapp-notification",
+    storageBucket: "kitapp-notification.appspot.com",
+    messagingSenderId: "999167140206",
+    appId: "1:999167140206:web:b7015852657575e98b217f",
+    measurementId: "G-S2E8PGML50"
+  };
 
 function messageMsg(slug, owner_name) {
     if (last_slug === slug) return;
@@ -49,6 +62,8 @@ function messageMsg(slug, owner_name) {
             "type":1, "text":"No Message"
         })
         socket.send(previous_msgs)
+        document.querySelector(".message-button").disabled = false;
+
     }
     socket.onmessage = function (e) {
         // body...
@@ -156,3 +171,19 @@ function chatRoomHandler() {
     }
     request.send()
 }
+
+// firebase code below
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Retrieve Firebase Messaging object.
+const messaging = firebase.messaging();
+
+messaging.requestPermission()
+.then(function (argument) {
+    console.log(argument)
+})
+.catch(function (argument) {
+    console.log(argument)
+})
