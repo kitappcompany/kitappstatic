@@ -177,13 +177,20 @@ function chatRoomHandler() {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Retrieve Firebase Messaging object.
-const messaging = firebase.messaging();
+function enable_notification(){
+    // Retrieve Firebase Messaging object.
+    const messaging = firebase.messaging();
 
-messaging.requestPermission()
-.then(function (argument) {
-    console.log(argument)
-})
-.catch(function (argument) {
-    console.log(argument)
-})
+
+    messaging.requestPermission()
+    .then(function (){
+        console.log("HAVE PERMISSION")
+        return messaging.getToken();
+    })
+    .then(function (token) {
+        console.log(token)
+    })
+    .catch(function (err) {
+        console.log(err)
+    })
+}
