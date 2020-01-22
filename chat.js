@@ -58,6 +58,8 @@ function messageMsg(slug, owner_name) {
         // body...
         const response = JSON.parse(e["data"]);
         const res = response["res"]
+
+        // load previous messages type 1
         if (response["type"] === 1) { // if response is for request sent from onopen
             writeMessages.innerHTML = "";
             for (var i = 0; i < res.length; i++) {
@@ -106,6 +108,7 @@ function messageMsg(slug, owner_name) {
             return
         }
 
+        // load realtime messages type 2
         var d = new Date();
         if (incoming) {
             writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
@@ -122,10 +125,13 @@ function messageMsg(slug, owner_name) {
             incoming = true;
         }
 
+
+        // if user read message type 2 send this info
         let messages_were_read = JSON.stringify({
             "type":3, "text":"messages_were_read"
         })
         socket.send(messages_were_read)
+
         // mesajlasmadaki scrolun asaqidan baslamasi
         $(document).ready(function() {
             $(".write-messages").animate({
@@ -197,8 +203,12 @@ function SendTokenToServer(token) {
 
     const request = new XMLHttpRequest();
     request.open("POST", "/chat-api/pushtoken", true)
+    request.setRequestHeader("X-CSRFToken", document.getElementsByName("csrfmiddlewaretoken")[0].value)
     request.onload = ()=>{
         console.log("response token", request.responseText)
     }
-    request.send('token',token)
+    const data = new FormData();
+    data.append('token',token)
+    data.append('app', 1)
+    request.send(data)
 }
