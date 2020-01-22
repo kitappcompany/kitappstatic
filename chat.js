@@ -31,17 +31,6 @@ Handlebars.registerHelper('if_value', function (a, b) {
 })
 
 var socket, incoming=true, user_email= document.querySelector("#user_email").value, last_slug=false;
-// Your web app's Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyBYrGDFm--z7SQAZ1x4yj_dP5FFNqaTRs0",
-    authDomain: "kitapp-notification.firebaseapp.com",
-    databaseURL: "https://kitapp-notification.firebaseio.com",
-    projectId: "kitapp-notification",
-    storageBucket: "kitapp-notification.appspot.com",
-    messagingSenderId: "999167140206",
-    appId: "1:999167140206:web:b7015852657575e98b217f",
-    measurementId: "G-S2E8PGML50"
-  };
 
 function messageMsg(slug, owner_name) {
     if (last_slug === slug) return;
@@ -173,6 +162,15 @@ function chatRoomHandler() {
 }
 
 // firebase code below
+const firebaseConfig = {
+  apiKey: "AIzaSyBZNtdO4KHMUt7SM0MW6St-idoA4g0XJ9o",
+  authDomain: "kitapp-notify.firebaseapp.com",
+  databaseURL: "https://kitapp-notify.firebaseio.com",
+  projectId: "kitapp-notify",
+  storageBucket: "kitapp-notify.appspot.com",
+  messagingSenderId: "919683070115",
+  appId: "1:919683070115:web:08bfcd2e3c6e9683bee716"
+};
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
