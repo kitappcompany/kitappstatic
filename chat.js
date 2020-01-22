@@ -179,16 +179,26 @@ function enable_notification(){
     // Retrieve Firebase Messaging object.
     const messaging = firebase.messaging();
 
-
     messaging.requestPermission()
     .then(function (){
         console.log("HAVE PERMISSION")
         return messaging.getToken();
     })
     .then(function (token) {
+        SendTokenToServer(token);
         console.log(token)
     })
     .catch(function (err) {
         console.log(err)
     })
+}
+
+function SendTokenToServer(token) {
+
+    const request = new XMLHttpRequest();
+    request.open("POST", "/chat-api/pushtoken", true)
+    request.onload = ()=>{
+        console.log("response token", request.responseText)
+    }
+    request.send('token',token)
 }
