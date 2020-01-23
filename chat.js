@@ -208,7 +208,8 @@ function SendTokenToServer(token) {
         console.log("response token", request.responseText)
     }
     const data = new FormData();
-    data.append('token',token)
-    data.append('app', 1)
+    data.append('registration_id',token)
+    data.append('type', 'web')
+    data.append("active", true)
     request.send(data)
 }
