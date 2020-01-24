@@ -203,8 +203,19 @@ function enable_notification(){
     // - the user clicks on an app notification created by a service worker
     //   `messaging.setBackgroundMessageHandler` handler.
     messaging.onMessage((payload) => {
-      console.log('Message received. ', payload);
-      // ...
+
+        try{
+            // if chat room is already on page
+            document.querySelector('#'+payload['data']['id']).querySelector('.new-message-count').innerHTML = payload['data']['number']
+         }
+        catch(e){
+            // except create one new chat room
+            let list = document.querySelector("#messages .messages");
+            const temp = Handlebars.compile(document.querySelector("#msg-item").innerHTML);
+            list.insertBefore(temp({"chat_room":[payload["data"]], "user_email":document.querySelector("#user_email").value}), list.childNodes[0]);
+        }
+        for_ui();
+
     });
 }
 
