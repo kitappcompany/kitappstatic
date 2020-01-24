@@ -14,9 +14,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var messaging = firebase.messaging();
 
-document.querySelector('.switch .checkbox').onclick = ()=>{
-    enable_notification(messaging);
-}
 if (messaging.permission === 'granted') {
     // if granted just run on message no need to get permission again
     fcm_onmessage(messaging);
