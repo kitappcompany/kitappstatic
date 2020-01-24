@@ -14,7 +14,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var messaging = firebase.messaging();
 
-if (messaging.permission === 'granted') {
+if (Notification.permission === 'granted') {
     // if granted just run on message no need to get permission again
     fcm_onmessage(messaging);
     updateToken(messaging);
@@ -22,9 +22,9 @@ if (messaging.permission === 'granted') {
 else{
     // if not granted
     let div = `<div class="alert alert-primary row">
-                <h3 class="col-10"> Bildirişlər bağlıdır. Yeni mesajlardan xəbərdar olmaq üçün bildirişləri aktiv edin. </h3>
+                <h4 class="col-11"> Bildirişlər bağlıdır. Yeni mesajlardan xəbərdar olmaq üçün bildirişləri aktiv edin. </h4>
                  <!-- Rounded switch -->
-                 <label class="switch col-1">
+                 <label class="switch">
                       <input type="checkbox" onclick="enable_notification()">
                       <span class="slider round"></span>
                  </label>
@@ -45,7 +45,7 @@ function enable_notification(){
       return;
     }
 
-    if (messaging.permission === 'granted') {
+    if (Notification.permission === 'granted') {
         SendTokenToServer(token); // chack this user
         return
     }
