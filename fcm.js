@@ -46,13 +46,12 @@ function enable_notification(){
     }
 
     if (Notification.permission === 'granted') {
-        SendTokenToServer(token); // chack this user
+        updateToken(messaging); // chack this user
         return
     }
 
     messaging.requestPermission()
     .then(function (){
-        console.log("HAVE PERMISSION")
         return messaging.getToken();
     })
     .then(function (token) {
@@ -81,7 +80,7 @@ function fcm_onmessage(messaging){
             // except create one new chat room
             let list = document.querySelector("#messages .messages");
             const temp = Handlebars.compile(document.querySelector("#msg-item").innerHTML);
-            list.insertBefore(temp({"chat_room":[payload["data"]], "user_email":document.querySelector("#user_email").value}), list.childNodes[0]);
+            list.insertAdjacentHTML("afterend",temp({"chat_room":[payload["data"]], "user_email":document.querySelector("#user_email").value}));
         }
         for_ui();
 
