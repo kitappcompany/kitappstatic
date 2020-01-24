@@ -22,20 +22,18 @@ if (messaging.permission === 'granted') {
 else{
     // if not granted
     let div = `<div class="alert alert-primary row">
-                <p class="col-10"> Bildirişlər bağlıdır. Yeni mesajlardan xəbərdar olmaq üçün bildirişləri aktiv edin. </p>
+                <h3 class="col-10"> Bildirişlər bağlıdır. Yeni mesajlardan xəbərdar olmaq üçün bildirişləri aktiv edin. </h3>
                  <!-- Rounded switch -->
-                 <label class="switch col-2">
-                      <input type="checkbox">
+                 <label class="switch col-1">
+                      <input type="checkbox" onclick="enable_notification()">
                       <span class="slider round"></span>
                  </label>
             </div>`;
     document.querySelector("#Notification-on-off").innerHTML = div;
-    document.querySelector('.switch .checkbox').onclick = ()=>{
-        enable_notification(messaging);
-    }
+
 }
 
-function enable_notification(messaging){
+function enable_notification(){
     // Retrieve Firebase Messaging object.
     // if (!('serviceWorker' in navigator)) {
     //   // Service Worker isn't supported on this browser, disable or hide UI.
