@@ -206,7 +206,9 @@ function enable_notification(){
 
         try{
             // if chat room is already on page
-            document.querySelector('#'+payload['data']['id']).querySelector('.new-message-count').innerHTML = payload['data']['unread_msgs']
+            let msgDiv =  document.querySelector('#'+payload['data']['id']);
+            msgDiv.querySelector('.last-message').innerHTML = payload['data']['lastMsg']
+            msgDiv.querySelector('.new-message-count').innerHTML = payload['data']['unread_msgs']
          }
         catch(e){
             // except create one new chat room
