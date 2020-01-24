@@ -12,14 +12,31 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-const messaging = firebase.messaging();
+var messaging = firebase.messaging();
 
+document.querySelector('.switch .checkbox').onclick = ()=>{
+    enable_notification(messaging);
+}
 if (messaging.permission === 'granted') {
     // if granted just run on message no need to get permission again
     fcm_onmessage(messaging);
     updateToken(messaging);
 }
-
+else{
+    // if not granted
+    let div = `<div class="alert alert-primary row">
+                <p class="col-10"> Bildirişlər bağlıdır. Yeni mesajlardan xəbərdar olmaq üçün bildirişləri aktiv edin. </p>
+                 <!-- Rounded switch -->
+                 <label class="switch col-2">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                 </label>
+            </div>`;
+    document.querySelector("#Notification-on-off").innerHTML = div;
+    document.querySelector('.switch .checkbox').onclick = ()=>{
+        enable_notification(messaging);
+    }
+}
 
 function enable_notification(messaging){
     // Retrieve Firebase Messaging object.
