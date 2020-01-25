@@ -43,7 +43,7 @@ function messageMsg(slug, owner_name) {
     }
     // body...
     endpoint = "wss://" + window.location.host + "/chatMsg/" + slug;
-    socket = new WebSocket(endpoint);
+    socket = new ReconnectingWebSocket(endpoint);
 
     socket.onopen = function (e) {
         // body...
