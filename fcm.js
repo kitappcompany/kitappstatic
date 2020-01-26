@@ -80,7 +80,9 @@ function fcm_onmessage(messaging){
             // except create one new chat room
             let list = document.querySelector("#messages .messages");
             const temp = Handlebars.compile(document.querySelector("#msg-item").innerHTML);
-            list.insertAdjacentHTML("afterend",temp({"chat_room":[payload["data"]], "user_email":document.querySelector("#user_email").value}));
+            let name = JSON.parse(payload["data"]['customer']);
+            payload['data']['customer'] = name ;
+            list.insertAdjacentHTML("afterbegin",temp({"chat_room":[ payload['data'] ], "user_email":document.querySelector("#user_email").value}));
         }
         for_ui();
 
