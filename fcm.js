@@ -72,7 +72,7 @@ function fcm_onmessage(messaging){
 
         try{
             // if chat room is already on page
-            let msgDiv =  document.querySelector('#'+payload['data']['id']);
+            let msgDiv =  document.getElementById(payload['data']['id']);
             msgDiv.querySelector('.last-message').innerHTML = payload['data']['lastMsg']
             msgDiv.querySelector('.new-message-count').innerHTML = payload['data']['unread_msgs']
          }

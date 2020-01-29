@@ -4,7 +4,7 @@ function messageStart() {
     let textArea   = document.querySelector("#message-input");
     endpoint = wsStart + window.location.host + "/chatStart/" + textArea.dataset.slug;
     let socket = new WebSocket(endpoint);
-    let data   = JSON.stringify({"text":textArea.value})
+    let data   = JSON.stringify({"type":5, "text":textArea.value})
     socket.onopen = function (e) {
         socket.send(data)
         // body...
@@ -29,8 +29,11 @@ Handlebars.registerHelper('if_value', function (a, b) {
 	if (a === b ) return true
   	else return false
 })
+try {
+    /* code */
+    var socket, incoming=true, user_email= document.querySelector("#user_email").value, last_slug=false;
 
-var socket, incoming=true, user_email= document.querySelector("#user_email").value, last_slug=false;
+} catch (e) {}
 
 function messageMsg(slug, owner_name) {
     if (last_slug === slug) return;
