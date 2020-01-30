@@ -34,11 +34,17 @@ else{
 }
 
 function enable_notification(){
-    // Retrieve Firebase Messaging object.
-    // if (!('serviceWorker' in navigator)) {
-    //   // Service Worker isn't supported on this browser, disable or hide UI.
-    //   return;
-    // }
+    if ('serviceWorker' in navigator) {
+      // Register a service worker hosted at the root of the
+      // site using the default scope.
+      navigator.serviceWorker.register('/static/firebase-messaging-sw.js').then(function(registration) {
+        console.log('Service worker registration succeeded:', registration);
+      }, /*catch*/ function(error) {
+        console.log('Service worker registration failed:', error);
+      });
+    } else {
+      console.log('Service workers are not supported.');
+    }
 
     if (!('Notification' in window)) {
       // Notification isn't supported on this browser, disable or hide UI.
