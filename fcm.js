@@ -39,6 +39,8 @@ function enable_notification(){
       // site using the default scope.
       navigator.serviceWorker.register('/static/firebase-messaging-sw.js').then(function(registration) {
         console.log('Service worker registration succeeded:', registration);
+        messaging.useServiceWorker(registration);
+
       }, /*catch*/ function(error) {
         console.log('Service worker registration failed:', error);
       });
