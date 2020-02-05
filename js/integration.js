@@ -21,11 +21,11 @@ function logged_in_header() {
         location.href='/accounts-api/logout';
     }
 
-    for(let i = 0;i < bookmarkIcon.length;i++){
-        bookmarkIcon[i].onclick = function(){
-            location.href='/accounts/bookmarks';
-        }
-    }
+    // for(let i = 0;i < bookmarkIcon.length;i++){
+    //     bookmarkIcon[i].onclick = function(){
+    //         location.href='/accounts/bookmarks';
+    //     }
+    // }
 
     for(let i = 0;i < placeBook.length;i++){
         placeBook[i].onclick = function(){
