@@ -16,7 +16,7 @@ html{
         font-size:3.4rem;
     }
     /* menu */
-    #menu ul li a{
+    #menu ul li{
         margin:0 1rem;
     }
     #menu ul li{
@@ -25,7 +25,7 @@ html{
     /* books */
 
     /* download */
-    #download .col-12 p{
+    #download p{
         font-size:2.8rem;
     }
 }
@@ -67,7 +67,7 @@ html{
         padding:1rem;
     }
     /* download */
-    #download .col-12 p{
+    #download p{
         font-size:2rem;
     }
 }
@@ -132,7 +132,7 @@ html{
     }
 
     /* download */
-    #download .col-12 p{
+    #download p{
         font-size:1.6rem;
     }
 
@@ -179,15 +179,10 @@ html{
         font-size:3.4rem;
     }
     /* menu */
-    #menu ul li a{
-        margin:0 1rem;
-    }
-    #menu ul li{
-        padding:0 .55rem;
-    }
+
     /* books */   
     /* download */
-    #download .col-12 p{
+    #download p{
         font-size:2.8rem;
     }
 }
@@ -219,7 +214,7 @@ html{
         padding:1rem;
     }
     /* download */
-    #download .col-12 p{
+    #download p{
         font-size:2rem;
     }
 }
@@ -249,7 +244,7 @@ html{
     }
 
     /* download */
-    #download .col-12 p{
+    #download p{
         font-size:1.6rem;
     }
     .book-img{
