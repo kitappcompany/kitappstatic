@@ -14,6 +14,7 @@ html{
     position:relative;
     transition:all .1s;
     cursor:pointer;
+    min-height:8.7rem;
 }
 
 .new-message-count{
@@ -110,7 +111,7 @@ html{
     height:64rem;
     margin-left:3rem;
     overflow-y:scroll;
-    direction: rtl;
+    /* direction: rtl; */
     scroll-margin-block-start: -50px;
 }
 .write-messages::-webkit-scrollbar{

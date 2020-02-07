@@ -3,7 +3,7 @@ let locationInputTemp = Handlebars.compile(`<div class="delivery d-flex align-it
             <input value="{{loc_name}}" list="suggestionsholder" type="text" class = "input-val" oninput="SuggestPlace(event)">
             <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/Path 413.svg" alt="" class = "ml-3 plas-delivery" onclick = "addDelivery();return false;">
 
-            <ul id="suggestionsholder" class = "drop-down-list list-unstyled text-left text-capitalize">
+            <ul class = "drop-down-list list-unstyled text-left text-capitalize">
 
             </ul>
 
@@ -33,8 +33,7 @@ function SuggestPlace(event) {
                 dataAll = res["results"],
                 optionsPlace = document.querySelector("#suggestionsholder");
 
-                // const temp = Handlebars.compile('{{#each names}} {{#if this.id}} <option data-position="{{this.position}}" data-pk="{{this.id}}" value="{{this.title}}"> {{this.vicinity}} </option>{{/if}} {{/each}}')
-                const temp = Handlebars.compile('{{#each names}} {{#if this.id}} <li class="display:block" data-position="{{this.position}}" data-pk="{{this.id}}" value="{{this.title}}"> {{this.vicinity}} </li>{{/if}} {{/each}}')
+                const temp = Handlebars.compile('{{#each names}} {{#if this.id}} <option data-position="{{this.position}}" data-pk="{{this.id}}" value="{{this.title}}"> {{this.vicinity}} </option>{{/if}} {{/each}}')
                 // fill datalist with options suggested by API HERE
                 optionsPlace.innerHTML = temp({"names":dataAll});
 

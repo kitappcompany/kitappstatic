@@ -8,7 +8,7 @@ html{
             }
             .book-card{
                 border-radius:1rem;
-                width:25.5rem;
+                width:60rem;
                 transition:all .2s;
                 z-index:5;
             }
@@ -18,10 +18,13 @@ html{
             .book-img{
                 min-height:33.3rem;
                 max-height:33.3rem;
-                border-radius:10px;
-                width:22rem;
+                border-radius:10px !important;
+                width:100%;
                 background-size:cover;
                 position:relative;
+            }
+            #new-books{
+                padding-top:5rem;
             }
             #new-books .book-img{
                 max-width:100%;
@@ -42,15 +45,16 @@ html{
                 font-size:1.2rem;
             }
             .book-img img{
-                min-width:50%;
-                max-width:100%;
+                width:100%;
                 max-height:33.3rem;
-                border-radius:10px;
+                border-radius:10px !important;
             }
             .book-bg{
                 position:absolute;
                 top:0;
-                height:100%;
+                left:0;
+                height:99%;
+                margin-top:1%;
                 width:22rem;
                 border-radius:10px;
                 opacity:0;
@@ -117,6 +121,7 @@ html{
 
             .load-more{
                 border:none;
+                cursor:pointer;
                 background:#5AB5F1;
                 border-radius:40px;
                 font-size:1.5rem;
@@ -163,4 +168,49 @@ html{
         opacity:0;
         cursor:pointer;
     }
+.row{
+    width:100%;
+}
 /* -------------------------------------------------------------------- */
+@media screen and (max-width:1200px){
+    .book-img{
+        min-height: 38rem;  
+    }
+    .book-img img{
+        min-height: 38rem;
+    }
+
+    #menu ul li{
+        margin:0 1rem;
+    }
+    #menu ul li{
+        padding:0 .20rem !important;
+    }
+}
+@media screen and (max-width:992px){
+    .book-img{
+        min-height: 45rem;  
+    }
+    .book-img img{
+        min-height: 45rem;
+    }
+}
+@media screen and (max-width:768px){
+    .book-img{
+        min-height: 52rem;  
+    }
+    .book-img img{
+        min-height: 52rem;
+    }
+}
+@media screen and (max-width:576px){
+    .book-card{
+        width:160px;
+    }
+    .book-img{
+        min-height: 32rem;  
+    }
+    .book-img img{
+        min-height: 32rem;
+    }
+}
