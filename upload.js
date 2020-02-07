@@ -23,12 +23,18 @@ function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api
         if (name[i]==='locations') {
             try{
                 listElement = inputs[i].parentElement.querySelector('.selected').children[0].children[0];
+                if (listElement.dataset.title === undefined & method==="POST") {
+                    return;
+                } else if (listElement.dataset.title === undefined & method==="PATCH") {
+                    continue;
+                }
                 let loc_data = {"title":listElement.dataset.title,"pk":listElement.dataset.key, "position":listElement.dataset.position} ;
                 data.append(name[i], JSON.stringify(loc_data) );
                 continue;
             }catch(e){
-                inputs[i].style.borderColor = 'red';
-                return
+                    return;
+                }
+
             }
         }
 
