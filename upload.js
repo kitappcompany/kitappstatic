@@ -6,7 +6,7 @@ function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api
     adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Elanınız yayınlanır ..."
     adPlacePopup.style.display = "block";
 
-        let csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+    let csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
     let user_token = document.querySelector("#user_token").value;
 
     let sellbook = document.querySelector("#sell-book");
@@ -20,11 +20,11 @@ function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api
         if (name.length <= i) name.push("locations"); // add location, last elements are location
         if (name[i]==='price' && radioBtnOnclick) {data.append(name[i], 0); continue}
 
-        // if (name[i]==='locations' && radioBtnOnclick) {
-        //     let loc_data = {"title":inputs[i].value, "position":inputs[i].dataset.position} ;
-        //     data.append(name[i],  );
-        //     continue;
-        // }
+        if (name[i]==='locations') {
+            let loc_data = {"title":inputs[i].dataset.title,"pk":inputs[i].dataset.key, "position":inputs[i].dataset.position} ;
+            data.append(name[i], JSON.stringify(loc_data) );
+            continue;
+        }
 
         if (name[i]!="image") data.append(name[i], inputs[i].value);
         else{
