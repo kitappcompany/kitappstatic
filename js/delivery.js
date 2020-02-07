@@ -1,14 +1,31 @@
 let deliveryContainer = document.querySelector('.delivery-container');
 let locationInputTemp = Handlebars.compile(`<div class="delivery d-flex align-items-center py-2">
-            <input value="{{loc_name}}" list="suggestionsholder" type="text" class = "input-val" oninput="SuggestPlace(event)">
+            <input value="{{loc_name}}" list="suggestionsholder" type="text" class = "input-val">
             <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/Path 413.svg" alt="" class = "ml-3 plas-delivery" onclick = "addDelivery();return false;">
             </div>`);
 
 
 function addDelivery(loc_name=null){
     deliveryContainer.insertAdjacentHTML('beforeend', locationInputTemp({'loc_name':loc_name}) ) ;
+    autoCompleteJS();
 }
 
+function autoCompleteJS() {
+    // body...
+    var options = {
+          url: function(phrase) {
+            		return "https://places.sit.ls.hereapi.com/places/v1/autosuggest?in=40%2C49%3Br%3D500000&size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&q=" + phrase + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM";
+            	},
+          getValue: "title",
+          list: {
+            match: {
+              enabled: true
+            }
+          },
+          theme: "square"
+        };
+        $(".locations").easyAutocomplete(options);
+}
 
 // /MAPS PLACE API
 function SuggestPlace(event) {
@@ -16,12 +33,10 @@ function SuggestPlace(event) {
         return
     }
     else{
-        console.log("AAAAAAAA")
-        let input = event.target;
-        let urls = "https://places.sit.ls.hereapi.com/places/v1/autosuggest?in=40%2C49%3Br%3D500000&size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&";
-        let parameters = "q="+ input.value + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM"
         var options = {
-          url: urls+parameters,
+          url: function(phrase) {
+            		return "https://places.sit.ls.hereapi.com/places/v1/autosuggest?in=40%2C49%3Br%3D500000&size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&q=" + phrase + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM";
+            	},
           getValue: "title",
           list: {
             match: {
