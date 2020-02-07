@@ -30,9 +30,12 @@ function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api
                      if (method==="POST") {
                         adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/404.svg";
                         adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Error"
+                        inputs[i].style.borderColor = "red";
                         return;
                      } else if (method==="PATCH") {  data.append(name[i], JSON.stringify({"title":inputs[i].value}) );  continue; }
-                }
+
+                adPlaceButton.disabled = false;
+            }
         }
 
         if (name[i]!="image") data.append(name[i], inputs[i].value);
