@@ -21,9 +21,15 @@ function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api
         if (name[i]==='price' && radioBtnOnclick) {data.append(name[i], 0); continue}
 
         if (name[i]==='locations') {
-            let loc_data = {"title":inputs[i].dataset.title,"pk":inputs[i].dataset.key, "position":inputs[i].dataset.position} ;
-            data.append(name[i], JSON.stringify(loc_data) );
-            continue;
+            try{
+                listElement = inputs[i].parentElement.querySelector('.selected').children[0].children[0];
+                let loc_data = {"title":listElement.dataset.title,"pk":listElement.dataset.key, "position":listElement.dataset.position} ;
+                data.append(name[i], JSON.stringify(loc_data) );
+                continue;
+            }catch(e){
+                inputs[i].style.borderColor = 'red';
+                return
+            }
         }
 
         if (name[i]!="image") data.append(name[i], inputs[i].value);
