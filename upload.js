@@ -31,7 +31,7 @@ function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api
                         adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/404.svg";
                         adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Error"
                         return;
-                     } else if (method==="PATCH") {    continue; }
+                     } else if (method==="PATCH") {  data.append(name[i], JSON.stringify({"title":inputs[i].value}) );  continue; }
                 }
         }
 
