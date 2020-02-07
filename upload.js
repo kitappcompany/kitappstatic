@@ -22,19 +22,21 @@ function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api
 
         if (name[i]==='locations') {
             try{
+                inputs[i].style.borderColor = "";
+                add_style('::placeholder { color: rgb(245, 76, 110); }');
                 listElement = inputs[i].parentElement.querySelector('.selected').children[0].children[0];
                 let loc_data = {"title":listElement.dataset.title,"pk":listElement.dataset.key, "position":listElement.dataset.position} ;
                 data.append(name[i], JSON.stringify(loc_data) );
                 continue;
             }catch(e){
+                    adPlaceButton.disabled = false;
                      if (method==="POST") {
                         adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/404.svg";
                         adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Error"
                         inputs[i].style.borderColor = "red";
                         return;
-                     } else if (method==="PATCH") {  data.append(name[i], JSON.stringify({"title":inputs[i].value}) );  continue; }
-
-                adPlaceButton.disabled = false;
+                     } else if (method==="PATCH"  & inputs[i].value.length != 0) {  data.append(name[i], JSON.stringify({"title":inputs[i].value}) );  continue; }
+                      else {continue; }
             }
         }
 
