@@ -34,8 +34,6 @@ function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api
             }catch(e){
                     return;
                 }
-
-            }
         }
 
         if (name[i]!="image") data.append(name[i], inputs[i].value);
