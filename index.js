@@ -94,6 +94,7 @@ function search(event) {
     if (event.type !="click") {
         if (event.code != "Enter" ) {
             // still word is typeing for search
+
             return
         }
     }
@@ -116,4 +117,34 @@ function search(event) {
     }
     request.send()
 
+}
+
+// AutoComplete functions
+
+autoCompleteSearch();
+function autoCompleteSearch() {
+    // body...
+    var options = {
+          url: function(phrase) {
+                    return "/catalog-api/search?search="+phrase;
+            	},
+          getValue: "title",
+          listLocation:"results",
+          requestDelay: 900,
+          list: {
+                match: {enabled: true},
+
+        	},
+
+          template: {
+                type: "custom",
+                method: function(value, item) {
+                    return `<span> ${item.title} <br> ${item.author.full_name} </span>`;
+                }
+            },
+
+
+          theme: "square"
+        };
+        $(".search_box_au").easyAutocomplete(options);
 }
