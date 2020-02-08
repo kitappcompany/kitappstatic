@@ -91,10 +91,13 @@ function bookdetail(id, popup) {
 // SEARCH Functions
 
 function search(event) {
-    if (event.code != "Enter" || event.type !="click") {
-        // still word is typeing for search
-        return
+    if (event.type !="click") {
+        if (event.code != "Enter" ) {
+            // still word is typeing for search
+            return
+        }
     }
+
     let url = "/catalog-api/search?search=" + event.target.parentElement.querySelector('input').value;
     const request = new XMLHttpRequest();
     request.open("GET", url, true)
