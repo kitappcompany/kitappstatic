@@ -98,6 +98,7 @@ function search(event) {
             return
         }
     }
+    shimmerE.style.display = "inline-block";
 
     let url = "/catalog-api/search?search=" + event.target.parentElement.querySelector('input').value;
     const request = new XMLHttpRequest();
@@ -121,7 +122,6 @@ function search(event) {
 
 // AutoComplete functions
 
-autoCompleteSearch();
 function autoCompleteSearch() {
     // body...
     var options = {
