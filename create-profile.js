@@ -6,7 +6,11 @@ function Update_User_Info() {
     for (let i = 0; i < inputs.length; i++) {
         if (inputs[i].name.length === 0) continue;
         if (inputs[i].name === 'interests') {
-            data.append('interests', parseInt(inputs[i].value))
+            data.append('interests', inputs[i].value)
+        }
+        if (inputs[i].name === 'location') {
+            let dataset = inputs[i].querySelector('.selected').dataset;
+            data.append('location', JSON.stringify({"title":inputs[i].value, "position":dataset.position, "key":dataset.key}))
         }
         else json_data[inputs[i].name] = inputs[i].value;
     }
@@ -16,7 +20,6 @@ function Update_User_Info() {
     request.setRequestHeader("Authorization", "Token " + json_data["user_token"])
 
     request.onload = ()=>{
-        res = JSON.parse(request.responseText)
         window.location.href = '/accounts/profile-complete'
     }
 
@@ -57,3 +60,28 @@ function Get_Genres() {
 
 }
 
+function autoCompletePC(event) {
+    var options = {
+          url: function(phrase) {
+            		return "https://places.sit.ls.hereapi.com/places/v1/autosuggest?in=40%2C49%3Br%3D500000&size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&q=" + phrase + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM";
+            	},
+          getValue: "title",
+          listLocation:"results",
+          requestDelay: 850,
+          list: {
+                match: {enabled: true},
+
+        	},
+
+          template: {
+                type: "custom",
+                method: function(value, item) {
+                    return `<span data-key="${item.id}" data-position="${item.position}" data-title="${item.title}"> ${item.title} </span>`;
+                }
+            },
+
+
+          theme: "square"
+        };
+        $(".locations").easyAutocomplete(options);
+}
