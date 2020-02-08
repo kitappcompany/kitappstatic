@@ -9,9 +9,14 @@ function Update_User_Info() {
             data.append('interests', inputs[i].value)
         }
         if (inputs[i].name === 'location') {
-            let dataset = inputs[i].parentElement.querySelector('.selected').dataset;
-            data.append('location', JSON.stringify({"title":inputs[i].value, "position":dataset.position, "key":dataset.key}))
-        }
+            try{
+                let dataset = inputs[i].parentElement.querySelector('.selected').dataset;
+                data.append('location', JSON.stringify({"title":inputs[i].value, "position":dataset.position, "key":dataset.key}))
+            }catch(e){
+                data.append('location', JSON.stringify({"title":inputs[i].value}))
+            }
+
+            }
         else json_data[inputs[i].name] = inputs[i].value;
     }
     const request = new XMLHttpRequest();
@@ -25,7 +30,6 @@ function Update_User_Info() {
 
     data.append('full_name', json_data["full_name"])
     data.append('birthday', json_data["birthday"])
-    data.append('location', json_data["location"])
     data.append('password', json_data["password"]),
     data.append('re_password', json_data["re_password"])
     request.send(data)
