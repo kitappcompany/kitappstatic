@@ -86,3 +86,31 @@ function bookdetail(id, popup) {
     request.send()
 
 }
+
+
+// SEARCH Functions
+
+function search(event) {
+    if (event.code != "Enter" || event.type !="click") {
+        // still word is typeing for search
+        return
+    }
+    let url = "/catalog-api/search?search=" + event.target.parentElement.querySelector('input').value;
+    const request = new XMLHttpRequest();
+    request.open("GET", url, true)
+    request.onload = ()=>{
+        let res = JSON.parse(request.responseText)
+        next_page_books = res['next']
+        const temp = Handlebars.compile(document.querySelector("#book-instance").innerHTML);
+        document.querySelector("#books").children[0].innerHTML +=temp({"book":res.results})
+        bookmark(); // add bookmark functionality to book cards (bookmark.js)
+
+        popup(); //add popup functionality to book cards (popup.js)
+
+        loadingBar[0].style.display = "none";
+        loadMore[0].style.display = "inline-block";
+        shimmerE.style.display = "none";
+    }
+    request.send()
+
+}
