@@ -1,6 +1,7 @@
 var next_page_books = '/catalog-api/listbooks';
 // load more -- loading
 let loadMore = document.querySelectorAll(".load-more"), loadingBar = document.querySelectorAll(".loading-bar");
+let shimmerE = document.querySelector("#shimmer-effect");
 
 //for Location Map
 var all_locations_obj;
@@ -22,7 +23,6 @@ function BooksList() {
         loadingBar[0].style.display = "none";
         return
     }
-    let shimmerE = document.querySelector("#shimmer-effect");
     shimmerE.style.display = "inline-block";
 
     const request = new XMLHttpRequest();
@@ -102,7 +102,7 @@ function search(event) {
         let res = JSON.parse(request.responseText)
         next_page_books = res['next']
         const temp = Handlebars.compile(document.querySelector("#book-instance").innerHTML);
-        document.querySelector("#books").children[0].innerHTML +=temp({"book":res.results})
+        document.querySelector("#books").children[0].innerHTML =temp({"book":res.results})
         bookmark(); // add bookmark functionality to book cards (bookmark.js)
 
         popup(); //add popup functionality to book cards (popup.js)
