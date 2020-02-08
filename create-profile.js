@@ -9,7 +9,7 @@ function Update_User_Info() {
             data.append('interests', inputs[i].value)
         }
         if (inputs[i].name === 'location') {
-            let dataset = inputs[i].querySelector('.selected').dataset;
+            let dataset = inputs[i].parentElement.querySelector('.selected').dataset;
             data.append('location', JSON.stringify({"title":inputs[i].value, "position":dataset.position, "key":dataset.key}))
         }
         else json_data[inputs[i].name] = inputs[i].value;
