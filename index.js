@@ -144,7 +144,7 @@ function autoCompleteSearch() {
             },
 
 
-          theme: "square"
+          theme: "round"
         };
         $(".search_box_au").easyAutocomplete(options);
 }
