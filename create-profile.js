@@ -10,8 +10,7 @@ function Update_User_Info() {
         }
         if (inputs[i].name === 'location') {
             try{
-                let dataset = inputs[i].parentElement.querySelector('.selected').dataset;
-
+                let dataset = inputs[i].parentElement.querySelector('.selected').children[0].children[0].dataset;
                 data.append('location', JSON.stringify({"title":inputs[i].value, "position":dataset.position, "key":dataset.key}))
             }catch(e){
                 // error happened
