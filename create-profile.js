@@ -11,16 +11,17 @@ function Update_User_Info() {
         if (inputs[i].name === 'location') {
             try{
                 let dataset = inputs[i].parentElement.querySelector('.selected').dataset;
+
                 data.append('location', JSON.stringify({"title":inputs[i].value, "position":dataset.position, "key":dataset.key}))
             }catch(e){
-                data.append('location', JSON.stringify({"title":inputs[i].value}))
+                // error happened
             }
 
             }
         else json_data[inputs[i].name] = inputs[i].value;
     }
     const request = new XMLHttpRequest();
-    request.open("PUT", '/accounts-api/updateuser/'+json_data["user_id"], true)
+    request.open("PATCH", '/accounts-api/updateuser/'+json_data["user_id"], true)
     request.setRequestHeader("X-CSRFToken", json_data["csrf_token"])
     request.setRequestHeader("Authorization", "Token " + json_data["user_token"])
 
