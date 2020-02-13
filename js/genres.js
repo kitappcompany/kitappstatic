@@ -56,7 +56,7 @@ function genres_js() {
         '<span class="genre-content">' +
         genresContent[i].textContent +
         '</span>' +
-        '<img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic/static/icons/close.svg" alt="" class = "genre-close">' +
+        '<img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic/icons/close.svg" alt="" class = "genre-close">' +
         '<input name="interests" type="hidden" value="'+ genresContent[i].parentElement.querySelector('input').value + '">'+ //added new
         '</div>';
     }
