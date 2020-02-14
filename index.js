@@ -143,7 +143,10 @@ function autoCompleteSearch() {
                 }
             },
 
-
+          onChooseEvent:function () {
+              // body...
+              document.querySelector('.fa-search').click()
+          },
           theme: "round"
         };
         $(".search_box_au").easyAutocomplete(options);
