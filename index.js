@@ -139,7 +139,7 @@ function autoCompleteSearch() {
           template: {
                 type: "custom",
                 method: function(value, item) {
-                    return `<span> ${item.title} <br> ${item.author.full_name} </span>`;
+                    return `<span> ${item.title} ( ${item.author.full_name} )</span>`;
                 }
             },
 
