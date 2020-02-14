@@ -81,4 +81,19 @@ let sendButton = document.querySelector('.send-button'),popupForgetContainer = d
 sendButton.onclick = function(){
     popupForgetContainer.style.display = "none";
     doneContainer.style.display = "block";
+    sendMagicLink(sendButton.parentElement.querySelector('input').value);
+}
+
+function sendMagicLink(email) {
+    // body...
+    const data = new FormData();
+    data.append('email', email);
+
+    const request = new XMLHttpRequest();
+    request.open("POST", '/accounts-api/forgot-password', true);
+    request.onload = ()=>{
+        console.log(request.responseText)
+    }
+    request.send(data)
+
 }
