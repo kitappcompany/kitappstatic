@@ -130,7 +130,7 @@ function autoCompleteSearch() {
             	},
           getValue: "title",
           listLocation:"results",
-          requestDelay: 900,
+          requestDelay: 750,
           list: {
                 match: {enabled: true},
 
