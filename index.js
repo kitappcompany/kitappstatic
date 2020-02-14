@@ -132,13 +132,14 @@ function autoCompleteSearch() {
           listLocation:"results",
           requestDelay: 750,
           list: {
+                maxNumberOfElements: 3,
                 match: {enabled: true},
                 onChooseEvent:function () {
                       // body...
                     document.querySelector('.fa-search').click()
                 },
         	},
-
+          placeholder: "Kitab Axtar",
           template: {
                 type: "custom",
                 method: function(value, item) {
