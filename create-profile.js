@@ -3,7 +3,7 @@ function Update_User_Info() {
     const data = new FormData();
 
     let json_data = {}
-    for (let i = 0; i < inputs.length; i++) {
+    for (let i = 1; i < inputs.length; i++) {
         if (inputs[i].name.length === 0) continue;
         if (inputs[i].name === 'interests') {
             data.append('interests', inputs[i].value)
