@@ -4,7 +4,7 @@ function Update_User_Info() {
 
     let json_data = {}
     for (let i = 0; i < inputs.length; i++) {
-        if (inputs[i].name.length === 0 || inputs[i].name = 'email') continue;
+        if (inputs[i].name.length === 0 || inputs[i].name === 'email') continue;
         if (inputs[i].name === 'interests') {
             data.append('interests', inputs[i].value)
         }
