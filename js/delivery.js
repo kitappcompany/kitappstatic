@@ -2,12 +2,24 @@ let deliveryContainer = document.querySelector('.delivery-container');
 let locationInputTemp = Handlebars.compile(`<div class="delivery d-flex align-items-center py-2">
             <input  value="{{loc_name}}" type="text" class = "input-val locations">
             <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/Path 413.svg" alt="" class = "ml-3 plas-delivery" onclick = "addDelivery();return false;">
+            <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/minus.svg" alt="" class = "ml-3 minus-delivery" onclick = "closeDelivery(this)">
             </div>`);
-
 
 function addDelivery(loc_name=null){
     deliveryContainer.insertAdjacentHTML('beforeend', locationInputTemp({'loc_name':loc_name}) ) ;
     autoCompleteJS();
+    headDelivery();
+}
+
+function closeDelivery(thisDelivery){
+    thisDelivery.parentElement.remove();
+    headDelivery();
+}
+
+function headDelivery(){
+    let headD = document.querySelector('.head-d');
+    if(deliveryContainer.children.length < 3) headD.style.display = "inline-block";
+    else headD.style.display = "none";
 }
 
 function autoCompleteJS() {
