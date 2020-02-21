@@ -16,6 +16,40 @@ messageButton.onclick = function(){
     }
 }
 
+document.addEventListener('keydown',function(event){
+    if(event.keyCode == 13){
+        incoming = false; // it is outgoing msg ,in chat.js
+        message = JSON.stringify({
+            "type":2,
+            "text":messageInput.value,
+        })
+        socket.send(message) //socket in chat.js
+        messageInput.value = '';
+        messageInput.style.height = "4.6rem";
+    }
+}); // send with enter
+
+messageInput.oninput = function(){
+    plasLineHeight();
+}
+
+// laynin hundurluyunu artirmaq
+function plasLineHeight(){
+    let hiddenDiv = document.querySelector('.hidden-div');
+    hiddenDiv.innerHTML = messageInput.value;
+    if(hiddenDiv.clientWidth < 210){
+        messageInput.style.height = "4.6rem"
+    }
+    if(hiddenDiv.clientWidth > 210){
+        messageInput.style.height = "7rem"
+    }
+    if(hiddenDiv.clientWidth > 410){
+        messageInput.style.height = "9.5rem"
+    }
+    if(hiddenDiv.clientWidth > 610){
+        messageInput.style.height = "11rem"
+    }
+}
 
 // mesajlasmadaki scrolun asaqidan baslamasi
 $(document).ready(function() {
@@ -25,13 +59,13 @@ $(document).ready(function() {
     }, 1000);
 });
 
-// eger mesaj 40 simvoldan azdirsa padding bottomu artit
-paddingBottom();
-function paddingBottom(){
-    messageBottomPadding = document.querySelectorAll('.incoming-message, .outgoing-message')
-    for(let i = 0;i < messageBottomPadding.length;i++){
-        if(messageBottomPadding[i].textContent.length < 40){
-            messageBottomPadding[i].style.paddingBottom = "2.4rem";
-        }
-    }
-}
+// // eger mesaj 40 simvoldan azdirsa padding bottomu artit
+// paddingBottom();
+// function paddingBottom(){
+//     messageBottomPadding = document.querySelectorAll('.incoming-message, .outgoing-message')
+//     for(let i = 0;i < messageBottomPadding.length;i++){
+//         if(messageBottomPadding[i].textContent.length < 40){
+//             messageBottomPadding[i].style.paddingBottom = "2.4rem";
+//         }
+//     }
+// }

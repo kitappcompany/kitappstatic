@@ -63,8 +63,6 @@ function checkNewMessageZero(i){
     }
 }
 
-
-
 function checkLastMessageLength(i){
         lastMessage[i].textContent = lastMessage[i].textContent.slice(0, 55);
         if(lastMessage[i].textContent.length > 54)
@@ -89,44 +87,4 @@ function newMessageItemNot(message){
     message.children[0].children[1].children[1].style.color = "#B5B5B5";
     message.children[0].children[0].children[0].setAttribute('src',"https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@86533c246ffefcf391a9c56d7ba6e19954728e9a/icons/man-black.svg");
 }
-
-
-// mesajlara  click olunmasi
-// for(let i = 0;i < messagesItem.length;i++){
-//     messagesItem[i].onclick = function(){
-//         clickMessages();
-//         messagesItem[i].style.background = "#5CB4F1";
-//         ownerNameMessage[i].style.fontFamily = "DINPro-Bold";
-//         ownerNameMessage[i].style.color = "#fff";
-//         lastMessage[i].style.fontFamily = "DINPro-Medium";
-//         lastMessage[i].style.color = "#fff";
-//         lastMessageDate[i].style.color = "#fff";
-//         manIcon[i].setAttribute('src',"icons/man-white.svg");
-//         // her hansi mesaja click olunanda hemin shexsin mesajlarinin acilmasi
-//         notSelectedMessage.style.display = "none";
-//         selectedMessage.style.display = "block";
-
-        // // mesajlasmadaki scrolun asaqidan baslamasi
-        // $(document).ready(function() {
-        //     $(".write-messages").animate({
-        //         scrollTop: $(
-        //         '.write-messages').get(0).scrollHeight
-        //     }, 1000);
-        // });
-//     }
-// }
-
-// // mesajlarin click olunmasinin legv olunmasi
-// function clickMessages (){
-//     for(let i = 0;i < messagesItem.length;i++){
-//         messagesItem[i].style.background = "#fff";
-//         ownerNameMessage[i].style.fontFamily = "DINPro-Medium";
-//         ownerNameMessage[i].style.color = "#686868";
-//         lastMessage[i].style.fontFamily = "DINPro";
-//         lastMessage[i].style.color = "#B5B5B5";
-//         lastMessageDate[i].style.color = "#B5B5B5";
-//         manIcon[i].setAttribute('src',"icons/man-black.svg")
-//     }
-// }
-
 
