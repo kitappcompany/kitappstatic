@@ -19,7 +19,8 @@
 }
 .ad-place-container{
     width:53.9rem;
-    height:35.433rem;
+    min-height:35.433rem;
+    padding-bottom:2rem;
     position:absolute;
     top:50%;
     border-radius:1.4rem;

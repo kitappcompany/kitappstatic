@@ -120,16 +120,17 @@ button:focus{
     position:absolute;
     display:none;
     top:3rem;
-    cursor:pointer;
     right:3rem;
     width:3rem;
+    cursor:pointer;
 }
 .burger-menu-list{
-    display:block;
-    width:100%;
+    display:none;
+    width:300px;
     position:absolute;
     top:50%;
-    transform:translateY(-50%);
+    left:50%;
+    transform:translate(-50%,-50%);
 }
 .burger-menu-list-item{
     cursor:pointer;

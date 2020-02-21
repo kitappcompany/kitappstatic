@@ -119,6 +119,9 @@
     width:100%;
     padding:1rem;
     outline:none;
+    font-family:DINPro-Medium;
+    color:#686868;
+    font-size:1.5rem;
     height:14.2rem;
     border:.1rem solid #707070;
     border-radius:1rem;
@@ -183,6 +186,7 @@
     border-radius:20px;
 }
 .downloaded .upload-image{
+    width:22px;
     max-height:26.9rem;
     min-height:26.9rem;
 }
@@ -209,17 +213,20 @@
     border:none;
     outline:none;
     font-size:1.3rem;
+    font-family:DINPro-Medium;
+    color:#686868;
     border:.1rem solid #686868;
 }
 .delivery input:focus{
     border:none;
 }
-.plas-delivery{
+.plas-delivery,.minus-delivery{
     cursor:pointer;
     border-radius:50%;
     transition:all .5s;
 }
-.plas-delivery:hover{
+
+.plas-delivery:hover , .minus-delivery:hover{
     background:#dddddd;
 }
 
@@ -286,4 +293,24 @@
     left:50%;
     transform:translate(-50%,-50%);
 }
-  
+.head-d{
+    display: none;
+}
+
+
+@media screen and (max-width:576px){
+    .delivery input{
+        width:90%;
+        height:5rem;
+        font-size:1.9rem;
+    }
+    .input-focus,.input-val{
+        font-size:1.9rem !important;
+    }
+    .input-container,.input-content{
+        height:5rem;
+    }
+    textarea{
+        font-size:1.9rem !important;
+    }
+}

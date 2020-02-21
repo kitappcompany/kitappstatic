@@ -186,6 +186,15 @@ html{
     #menu ul li{
         padding:0 .20rem !important;
     }
+
+    /* bookmarks , #my-announcements */
+    #book-sell .book-img,#book-looking .book-img, #my-announcements .book-img{
+        min-height:42rem;
+    }
+    #book-sell .book-img img,#book-looking .book-img img, #my-announcements .book-img img{
+        min-height:42rem;
+    }
+
 }
 @media screen and (max-width:992px){
     .book-img{
@@ -193,6 +202,13 @@ html{
     }
     .book-img img{
         min-height: 45rem;
+    }
+    /* bookmarks */
+    #book-sell .book-img,#book-looking .book-img, #my-announcements .book-img{
+        min-height:55rem;
+    }
+    #book-sell .book-img img,#book-looking .book-img img, #my-announcements .book-img img{
+        min-height:55rem;
     }
 }
 @media screen and (max-width:768px){
@@ -202,6 +218,13 @@ html{
     .book-img img{
         min-height: 52rem;
     }
+        /* bookmarks */
+        #book-sell .book-img,#book-looking .book-img, #my-announcements .book-img{
+            min-height:45rem;
+        }
+        #book-sell .book-img img,#book-looking .book-img img, #my-announcements .book-img img{
+            min-height:45rem;
+        }
 }
 @media screen and (max-width:576px){
     .book-card{
@@ -212,5 +235,12 @@ html{
     }
     .book-img img{
         min-height: 32rem;
+    }
+    /* bookmarks */
+    #book-sell .book-img,#book-looking .book-img, #my-announcements .book-img{
+        min-height:210px;
+    }
+    #book-sell .book-img img,#book-looking .book-img img, #my-announcements .book-img img{
+        min-height:210px;
     }
 }

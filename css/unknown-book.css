@@ -74,7 +74,12 @@
     .unknown-border{
         height:35.8rem;
     }
-
+    .popup-container .unknown-book{
+        height: 32rem;
+    }
+    .popup-container .unknown-border{
+        height:29.8rem;
+    }
 }
 @media screen and (max-width:992px){
     .unknown-book{

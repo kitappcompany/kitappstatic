@@ -94,7 +94,7 @@
     border-radius:5rem;
     font-size:1.5rem;
     cursor:pointer;
-    height:4rem;
+    height:4.4rem;
 }
 
 .year{
@@ -106,6 +106,7 @@
 .year-input{
     position: absolute;
     top:50%;
+    font-size:1.5rem;
     color:#2D94DB;
     left:50%;
     font-family:DINPro-Medium !important;
@@ -113,6 +114,10 @@
 }
 .icon-in-input{
     height:2.1rem;
+    position:absolute;
+    top:50%;
+    left:2rem;
+    transform:translateY(-50%);
 }
 .input-container{
     padding-bottom:.1rem;
@@ -133,12 +138,23 @@
     left:50%;
     transform:translateX(-50%);
     display:none;
+
 }
 .year-list{
     border:.1rem solid #707070;
     border-radius:1rem;
     padding:.8rem 0;
     background:#fff;
+    overflow-y:scroll;
+    height:180px;
+    scroll-margin-block-start: -50px;
+}
+.year-list::-webkit-scrollbar{
+    width:.5rem;
+}
+.year-list::-webkit-scrollbar-thumb{
+    background:#B5B5B5;
+    border-radius:50rem;
 }
 .year-list-item{
     padding:.2rem 3.3rem;
@@ -156,6 +172,19 @@
     color:#fff;
 }
 
-
-
+/* tarix ucun */
+/* [type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+  [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+input[type="date"]:focus{
+    background:#EFEFEF !important;
+} */
 /* respansive */
+@media screen and (max-width:576px){
+    .data-input{
+        height:5rem;
+    }
+}

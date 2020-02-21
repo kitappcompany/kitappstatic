@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="348.006" height="389.459" viewBox="0 0 348.006 389.459">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="348.006" height="389.459" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Repeat_Grid_1" data-name="Repeat Grid 1" clip-path="url(#clip-path)">
+    <g transform="translate(-494.452 -306.675)">
+      <path id="Path_412" data-name="Path 412" d="M4600.084,3616.553l6.347,8.832-6.347,22.175,19.063,15.111-19.062,13.908,29.117,19.152-22.77,27.69,17.986,10.038-5.271,18.342,17.486,30.61-12.216,25.715v28.562s15.967,11.5,15.1,18.26-15.1,29.344-15.1,29.344l-11.313,25.886,16.1,23.808-4.784,28.292v24.769s80.837-11.385,158.274-11.385,151.476,11.385,151.476,11.385,12.685-84.164,13.833-178.92-9.238-200.105-9.238-200.105-71.4-12.318-156.072-10.185S4600.084,3616.553,4600.084,3616.553Z" transform="translate(-4105.632 -3290.913)" fill="#5cb4f1"/>
+      <path id="Path_410" data-name="Path 410" d="M4549,3801.155s61.612-63.2,143.457,0" transform="translate(-3945.039 -3221.844)" fill="none" stroke="#fff" stroke-width="8"/>
+      <text id="x" transform="translate(605.537 489.473) rotate(-22)" fill="#fff" font-size="74" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">x</tspan></text>
+      <text id="x-2" data-name="x" transform="matrix(-0.927, -0.375, -0.375, 0.927, 747.729, 492.583)" fill="#fff" font-size="74" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">x</tspan></text>
+    </g>
+  </g>
+</svg>

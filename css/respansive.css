@@ -71,13 +71,13 @@ html{
         font-size:2rem;
     }
 }
-@media screen and (max-width:760px){
+@media screen and (max-width:768px){
     #search .col-7 img{
         height:220px;
     }
     /*  */
 }
-@media screen and (max-width:760px){
+@media screen and (max-width:768px){
     html{
         font-size:9px;
     }
@@ -85,7 +85,8 @@ html{
         width:57.6rem;
     }
     #popup .col-7{
-    padding-right:5rem;
+    padding-right:0rem;
+    padding-left:4rem;
     }
     .write-seller button{
         width:14rem;

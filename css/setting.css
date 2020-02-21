@@ -68,3 +68,14 @@
     color:#fff;
 }
 
+
+/* input date */
+  [type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+  [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+input[type="date"]{
+    width:90%;
+}
