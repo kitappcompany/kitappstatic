@@ -70,9 +70,12 @@ function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api
             adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/undraw_done_a34v.svg";
             adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = info
 
+            // after 3 sec take user to home page
+            setInterval(function(){ window.location.href = '/' },1800)
+
         }
         else {
-            adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/404.svg";
+            adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/404.svg";
             adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Error"
             let error_az = {
                 "title":"Kitabın adını daxil edin",
