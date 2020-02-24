@@ -6,10 +6,13 @@ messageButton.onclick = function(){
     var d = new Date();
     if(messageInput.value != ''){
         incoming = false; // it is outgoing msg ,in chat.js
+        let pk = "pk" + new Date().getUTCMilliseconds();
         message = JSON.stringify({
             "type":2,
             "text":messageInput.value,
+            "pk":pk,
         })
+
         socket.send(message) //socket in chat.js
         messageInput.value = '';
 
@@ -20,16 +23,15 @@ document.addEventListener('keydown',function(event){
     if(event.keyCode == 13){
         incoming = false; // it is outgoing msg ,in chat.js
         let pk = "pk" + new Date().getUTCMilliseconds();
-        message = JSON.stringify({
+         message = JSON.stringify({
             "type":2,
             "text":messageInput.value,
             "pk":pk,
         })
 
-
         // show outgoing msg user but Wait svg
         writeMessages.innerHTML += '<div id="' + pk + '" class="outgoing-div clearfix">' +
-            '<p class="outgoing-message float-right">' + res + '</p>' +
+            '<p class="outgoing-message float-right">' + message + '</p>' +
             '<p class="outgoing-date" style = "display:none;">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
              '<img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/message-wait.svg" alt="" class="message-wait">' +
             '</div>';

@@ -135,7 +135,7 @@ function autoCompleteSearch() {
                 maxNumberOfElements: 3,
                 match: {enabled: true},
                 onChooseEvent:function () {
-                      // body...
+                      // click search button to show result
                     document.querySelector('.fa-search').click()
                 },
         	},
