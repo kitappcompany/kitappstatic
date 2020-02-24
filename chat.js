@@ -35,8 +35,10 @@ try {
 
 } catch (e) {}
 
+var sendButton = document.querySelector('.message-button');
 function messageMsg(slug, owner_name) {
     if (last_slug === slug) return;
+    sendButton.disabled = true;
     last_slug = slug;
     document.querySelector(".owner-name").innerHTML = owner_name;
     writeMessages.innerHTML = '<span class = "not-selected-message"> Mesajlar Yüklənir ... </span>';
