@@ -139,7 +139,7 @@ function autoCompleteSearch() {
                     document.querySelector('.fa-search').click()
                 },
         	},
-          placeholder: "Kitab Axtar",
+          placeholder: "Axtar",
           template: {
                 type: "custom",
                 method: function(value, item) {
