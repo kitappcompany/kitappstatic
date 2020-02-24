@@ -6,11 +6,12 @@ messageButton.onclick = function(){
     var d = new Date();
     if(messageInput.value != ''){
         incoming = false; // it is outgoing msg ,in chat.js
-        let pk = "pk" + d.getUTCMilliseconds() + '&' +d.getHours() +'A'+d.getMinutes();
+        let pk = "pk" + d.getUTCMilliseconds() + 'A' +d.getSeconds();
         message = JSON.stringify({
             "type":2,
             "text":messageInput.value,
             "pk":pk,
+
         })
 
 
@@ -42,8 +43,8 @@ document.querySelector('.message-input').addEventListener('keydown',function(eve
     var d = new Date();
     if(event.keyCode == 13){
         incoming = false; // it is outgoing msg ,in chat.js
-        let pk = "pk" + d.getUTCMilliseconds() + '&' +d.getHours() +d.getMinutes();
-         message = JSON.stringify({
+        let pk = "pk" + d.getUTCMilliseconds() + 'A' +d.getSeconds();
+        message = JSON.stringify({
             "type":2,
             "text":messageInput.value,
             "pk":pk,

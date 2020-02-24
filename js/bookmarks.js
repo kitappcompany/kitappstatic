@@ -7,12 +7,12 @@ for(let i = 0;i < bookMark.length;i++) bookMarkIndex[i] = false;
 
 for(let i = 0;i < bookMark.length;i++){
     if(!bookMarkIndex[i]){
-        bookMark[i].setAttribute("src", "/static/icons/bookmark-red.svg");
+        bookMark[i].setAttribute("src", "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/bookmark-red.svg");
         bookMarkIndex[i] = true;
         bookMark[i].style.opacity = "1";
     }
     else{
-        bookMark[i].setAttribute("src", "/static/icons/bookmark.svg");
+        bookMark[i].setAttribute("src", "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/bookmark.svg");
         bookMarkIndex[i] = false;
     }
 
