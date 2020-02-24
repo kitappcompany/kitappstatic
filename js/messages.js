@@ -49,8 +49,8 @@ function for_ui() {
     }
 
     for(let i = 0;i < lastMessage.length;i++){
-        lastMessage[i].textContent = lastMessage[i].textContent.slice(0, 55);
-        if(lastMessage[i].textContent.length > 54)
+        lastMessage[i].textContent = lastMessage[i].textContent.slice(0, 25);
+        if(lastMessage[i].textContent.length > 24)
         lastMessage[i].textContent += '...';
     }
 }
@@ -64,8 +64,8 @@ function checkNewMessageZero(i){
 }
 
 function checkLastMessageLength(i){
-        lastMessage[i].textContent = lastMessage[i].textContent.slice(0, 55);
-        if(lastMessage[i].textContent.length > 54)
+        lastMessage[i].textContent = lastMessage[i].textContent.slice(0, 25);
+        if(lastMessage[i].textContent.length > 24)
         lastMessage[i].textContent += '...';
 }
 // yeni mesajin geldiyini 3 saniyeden b=1 yoxlamaq ve sonuncu mesajin uzunlugunun yoxlanilmasi

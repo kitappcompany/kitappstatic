@@ -59,6 +59,7 @@ html{
     border-right:.1rem solid #B5B5B5;
     padding-right:0;
     padding-bottom:7rem;
+    min-height:45rem;
 
 }
 /* .icon-container{
@@ -73,7 +74,7 @@ html{
     font-size:2.5rem;
     font-family:DINPro-Medium;
     position:absolute;
-    top:200px;
+    top:21rem;
     left:50%;
     transform:translate(-50%,-50%);
 }
@@ -108,7 +109,7 @@ html{
     padding-bottom:1rem;
 }
 .write-messages{
-    height:45rem;
+    height:42rem;
     margin-left:3rem;
     overflow-y:scroll;
     /* direction: rtl; */
@@ -148,6 +149,7 @@ html{
     font-family:DINPro;
     border:.1rem solid #B5B5B5;
     border-radius:2.5rem;
+    overflow: auto;
 }
 .incoming-date, .outgoing-date{
     color:#B5B5B5;
@@ -166,7 +168,25 @@ html{
     font-family:DINPro;
     background:#EFEFEF;
     border-radius:2.5rem;
+    overflow: auto;
 }
+/* // message wait animation */
+
+.message-wait{
+    width:2rem;
+    margin-top:.4rem;
+    animation-name: wait-message;
+    animation-duration: .5s;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+  }
+  
+  @keyframes wait-message {
+    from {transform:rotate(0deg)}
+    to {transform:rotate(360deg)}
+  }
 /* mesaj yazmaq */
 .message-input{
     width:35rem;

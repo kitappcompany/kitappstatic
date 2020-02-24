@@ -19,10 +19,22 @@ messageButton.onclick = function(){
 document.addEventListener('keydown',function(event){
     if(event.keyCode == 13){
         incoming = false; // it is outgoing msg ,in chat.js
+        let pk = "pk" + new Date().getUTCMilliseconds();
         message = JSON.stringify({
             "type":2,
             "text":messageInput.value,
+            "pk":pk,
         })
+
+
+        // show outgoing msg user but Wait svg
+        writeMessages.innerHTML += '<div id="' + pk + '" class="outgoing-div clearfix">' +
+            '<p class="outgoing-message float-right">' + res + '</p>' +
+            '<p class="outgoing-date" style = "display:none;">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
+             '<img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/message-wait.svg" alt="" class="message-wait">' +
+            '</div>';
+
+
         socket.send(message) //socket in chat.js
         messageInput.value = '';
         messageInput.style.height = "4.6rem";
@@ -59,13 +71,3 @@ $(document).ready(function() {
     }, 1000);
 });
 
-// // eger mesaj 40 simvoldan azdirsa padding bottomu artit
-// paddingBottom();
-// function paddingBottom(){
-//     messageBottomPadding = document.querySelectorAll('.incoming-message, .outgoing-message')
-//     for(let i = 0;i < messageBottomPadding.length;i++){
-//         if(messageBottomPadding[i].textContent.length < 40){
-//             messageBottomPadding[i].style.paddingBottom = "2.4rem";
-//         }
-//     }
-// }

@@ -106,25 +106,38 @@ function messageMsg(slug, owner_name) {
                     '.write-messages').get(0).scrollHeight
                 }, 100);
             });
-            paddingBottom();
+            // paddingBottom();
 
+            // not run remaon code below
             return
         }
 
         // load realtime messages type 2
         var d = new Date();
         if (incoming) {
-            writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
-            '<p class="incoming-message">' + res + '</p>' +
-            '<p class="incoming-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
-            '</div>';
+
+            try{
+                // eger sehven outgoing incoming olsa
+                let divEl = writeMessages.querySelector("#"+response['pk']);
+                divEl.querySelector('img').style.display = 'none';
+                divEl.querySelector(".outgoing-date").style.display = 'block';
+                incoming = true;
+            }
+            catch (e){
+                writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
+                '<p class="incoming-message">' + res + '</p>' +
+                '<p class="incoming-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
+                '</div>';
+            }
 
         }else{
-            writeMessages.innerHTML += '<div class="outgoing-div clearfix">' +
-            '<p class="outgoing-message float-right">' + res + '</p>' +
-            '<p class="outgoing-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
-            '</div>';
-
+            // writeMessages.innerHTML += '<div class="outgoing-div clearfix">' +
+            // '<p class="outgoing-message float-right">' + res + '</p>' +
+            // '<p class="outgoing-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
+            // '</div>';
+            let divEl = writeMessages.querySelector("#"+response['pk']);
+            divEl.querySelector('img').style.display = 'none';
+            divEl.querySelector(".outgoing-date").style.display = 'block';
             incoming = true;
         }
 

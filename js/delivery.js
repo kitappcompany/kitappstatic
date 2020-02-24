@@ -12,15 +12,9 @@ function addDelivery(loc_name=null){
 }
 
 function closeDelivery(thisDelivery){
-    thisDelivery.parentElement.remove();
-    headDelivery();
+    if(deliveryContainer.children.length > 3) thisDelivery.parentElement.remove();
 }
 
-function headDelivery(){
-    let headD = document.querySelector('.head-d');
-    if(deliveryContainer.children.length < 3) headD.style.display = "inline-block";
-    else headD.style.display = "none";
-}
 
 function autoCompleteJS() {
     // body...
