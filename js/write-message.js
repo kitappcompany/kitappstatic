@@ -37,7 +37,7 @@ messageButton.onclick = function(){
 }
 
 document.querySelector('.message-input').addEventListener('keydown',function(event){
-    if (document.querySelector('.message-button').disabled) {
+    if (document.querySelector('.message-button').disabled || messageInput.value === '') {
         return
     }
     var d = new Date();
