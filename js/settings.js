@@ -1,3 +1,12 @@
+var pencilAll = document.querySelectorAll('.settings-container .pencil-position'),
+    inputContainer = document.querySelectorAll('.settings-container .input-container'),
+    inputFocus = document.querySelectorAll('.settings-container .input-focus'),
+    pencilPosition = document.querySelectorAll('.settings-container .pencil-position'),
+    replyPasswordContainer = document.querySelector('.replypassword-container');
+    favoriteGenreItem = document.querySelectorAll('.favorite-genre-item'),
+    genrePencil = document.querySelector('.genre-pencil');
+
+
 function addReadonly(i){
         favoriteGenreClose();
         inputContainer[i].style.border = "none";
@@ -27,15 +36,8 @@ function favoriteGenreOpen(){
         genrePencil.style.display = "none";
     }
 
-function settings_js(argument) {
+function settings_js() {
 
-    var pencilAll = document.querySelectorAll('.settings-container .pencil-position'),
-    inputContainer = document.querySelectorAll('.settings-container .input-container'),
-    inputFocus = document.querySelectorAll('.settings-container .input-focus'),
-    pencilPosition = document.querySelectorAll('.settings-container .pencil-position'),
-    replyPasswordContainer = document.querySelector('.replypassword-container');
-    favoriteGenreItem = document.querySelectorAll('.favorite-genre-item'),
-    genrePencil = document.querySelector('.genre-pencil');
     for(let i = 0;i < favoriteGenreItem.length;i++){
         if(i%2==1) favoriteGenreItem[i].style.width = "25.5rem";
         if((i+1)%5==0) favoriteGenreItem[i].style.marginRight = "0";
