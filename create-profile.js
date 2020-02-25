@@ -88,6 +88,6 @@ function autoCompletePC(event) {
           theme: "square"
         };
         $(".locations").easyAutocomplete(options);
-        
-        addReadonly(2) // make location readonly style
+
+        document.querySelector('.easy-autocomplete .eac-square').className = ""; // make location readonly style
 }
