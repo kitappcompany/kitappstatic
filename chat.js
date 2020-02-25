@@ -133,10 +133,6 @@ function messageMsg(slug, owner_name) {
             }
 
         }else{
-            // writeMessages.innerHTML += '<div class="outgoing-div clearfix">' +
-            // '<p class="outgoing-message float-right">' + res + '</p>' +
-            // '<p class="outgoing-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
-            // '</div>';
             let divEl = writeMessages.querySelector("#"+response['pk']);
             divEl.querySelector('img').style.display = 'none';
             divEl.querySelector(".outgoing-date").style.display = 'block';

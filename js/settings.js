@@ -1,3 +1,32 @@
+function addReadonly(i){
+        favoriteGenreClose();
+        inputContainer[i].style.border = "none";
+        inputFocus[i].setAttribute("readonly","readonly");
+        pencilPosition[i].style.display = "block";
+        inputFocus[i].style.color = "#B5B5B5";
+    }
+
+function removeReadonly(i){
+        inputContainer[i].style.border = ".1rem solid #707070";
+        inputFocus[i].style.color = "#686868";
+        inputFocus[i].removeAttribute('readonly');
+        pencilPosition[i].style.display = "none";
+
+    }
+
+function favoriteGenreClose(){
+        genres.classList.remove('d-block');
+        genres.classList.add("d-none");
+        genrePencil.style.display = "block";
+        // qelemin displayi none olmur bax
+    }
+
+function favoriteGenreOpen(){
+        genres.classList.remove('d-none');
+        genres.classList.add("d-block");
+        genrePencil.style.display = "none";
+    }
+
 function settings_js(argument) {
 
     var pencilAll = document.querySelectorAll('.settings-container .pencil-position'),
@@ -16,41 +45,17 @@ function settings_js(argument) {
         pencilAll[i].onclick = function(){
             for(let j = 0;j < inputFocus.length;j++) addReadonly(j);
             removeReadonly(i);
-            if(i==2) replyPasswordContainer.style.display = "block";
+            if(i==3) replyPasswordContainer.style.display = "block";
             else replyPasswordContainer.style.display = "none";
         }
     }
 
-    function addReadonly(i){
-        favoriteGenreClose();
-        inputContainer[i].style.border = "none";
-        inputFocus[i].setAttribute("readonly","readonly");
-        pencilPosition[i].style.display = "block";
-        inputFocus[i].style.color = "#B5B5B5";
-    }
-    function removeReadonly(i){
-        inputContainer[i].style.border = ".1rem solid #707070";
-        inputFocus[i].style.color = "#686868";
-        inputFocus[i].removeAttribute('readonly');
-        pencilPosition[i].style.display = "none";
 
-    }
     genres = document.querySelector('.genres');
 
     genrePencil.onclick = function(){
         for(let j = 0;j < inputFocus.length;j++) addReadonly(j);
         favoriteGenreOpen();
-    }
-    function favoriteGenreClose(){
-        genres.classList.remove('d-block');
-        genres.classList.add("d-none");
-        genrePencil.style.display = "block";
-        // qelemin displayi none olmur bax
-    }
-    function favoriteGenreOpen(){
-        genres.classList.remove('d-none');
-        genres.classList.add("d-block");
-        genrePencil.style.display = "none";
     }
 
 }

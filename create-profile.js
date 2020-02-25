@@ -88,4 +88,6 @@ function autoCompletePC(event) {
           theme: "square"
         };
         $(".locations").easyAutocomplete(options);
+        
+        addReadonly(2) // make location readonly style
 }

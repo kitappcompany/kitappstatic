@@ -31,7 +31,10 @@ messageButton.onclick = function(){
         });
 
         socket.send(message) //socket in chat.js
-        messageInput.value = '';
+        setTimeout(function(){
+            messageInput.value = '';
+        },20)
+        messageInput.style.height = "4.6rem";
 
     }
 }
@@ -67,7 +70,9 @@ document.querySelector('.message-input').addEventListener('keydown',function(eve
 
 
         socket.send(message) //socket in chat.js
-        messageInput.value = '';
+        setTimeout(function(){
+            messageInput.value = '';
+        },20)
         messageInput.style.height = "4.6rem";
     }
 }); // send with enter
