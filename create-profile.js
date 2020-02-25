@@ -89,5 +89,5 @@ function autoCompletePC(event) {
         };
         $(".locations").easyAutocomplete(options);
 
-        document.querySelector('.easy-autocomplete .eac-square').className = ""; // make location readonly style
+        document.querySelector('.easy-autocomplete').className = ""; // make location readonly style
 }
