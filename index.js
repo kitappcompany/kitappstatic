@@ -151,5 +151,5 @@ function autoCompleteSearch() {
           theme: "round"
         };
         $(".search_box_au").easyAutocomplete(options);
-        document.querySelector(".easy-autocomplet").className = ""; //no need design change
+        document.querySelector(".easy-autocomplete").className = ""; //no need design change
 }
