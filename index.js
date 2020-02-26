@@ -139,7 +139,7 @@ function autoCompleteSearch() {
                     document.querySelector('.fa-search').click()
                 },
         	},
-          placeholder: "Axtar",
+
           template: {
                 type: "custom",
                 method: function(value, item) {
@@ -151,4 +151,5 @@ function autoCompleteSearch() {
           theme: "round"
         };
         $(".search_box_au").easyAutocomplete(options);
+        document.querySelector(".easy-autocomplet").className = ""; //no need design change
 }
