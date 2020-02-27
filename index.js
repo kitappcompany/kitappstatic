@@ -126,13 +126,14 @@ function autoCompleteSearch() {
     // body...
     var options = {
           url: function(phrase) {
+                    phrase = ph = document.querySelector(".search_box_au").querySelector('input').value;
                     return "/catalog-api/search?search="+phrase;
             	},
           getValue: "title",
           listLocation:"results",
           requestDelay: 750,
           list: {
-                maxNumberOfElements: 3,
+                maxNumberOfElements: 5,
                 match: {enabled: true},
                 onChooseEvent:function () {
                       // click search button to show result
