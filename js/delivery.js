@@ -8,7 +8,6 @@ let locationInputTemp = Handlebars.compile(`<div class="delivery d-flex align-it
 function addDelivery(loc_name=null){
     deliveryContainer.insertAdjacentHTML('beforeend', locationInputTemp({'loc_name':loc_name}) ) ;
     autoCompleteJS();
-    headDelivery();
 }
 
 function closeDelivery(thisDelivery){
