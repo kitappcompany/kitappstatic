@@ -126,7 +126,6 @@ function autoCompleteSearch() {
     // body...
     var options = {
           url: function(phrase) {
-                    phrase = ph = document.querySelector(".search_box_au").querySelector('input').value;
                     return "/catalog-api/search?search="+phrase;
             	},
           getValue: "title",
@@ -138,9 +137,7 @@ function autoCompleteSearch() {
                 onChooseEvent:function () {
                       // click search button to show result
                     document.querySelector('.fa-search').click();
-                    // let ul = document.querySelector('.easy-autocomplete-container').querySelector("ul");
-                    // ul.innerHTML = "";
-                    // ul.style.display = "none";
+
                 },
         	},
 
