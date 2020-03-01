@@ -16,10 +16,14 @@ function layouts_js() {
     }
     let burgerButton = document.querySelector('#burger-menu-button'),
     burgerMenu = document.querySelector('#burger-menu'),
-    burgerMenuClose = document.querySelector('.burger-menu-close');
+    burgerMenuClose = document.querySelector('.burger-menu-close'),
+    burgerMenuList = document.querySelector('.burger-menu-list');
 
     burgerButton.onclick = function(){
         burgerMenu.style.width = "100%";
+        setTimeout(function(){
+            burgerMenuList.style.display = "inline-block";
+        },150);
         setTimeout(function(){
             burgerMenuClose.style.display = "block";
         },500);
@@ -27,7 +31,8 @@ function layouts_js() {
     burgerMenuClose.onclick = function(){
         burgerMenu.style.width = "0";
         setTimeout(function(){
-            burgerMenuClose.style.display = "none";
-        },500);
+            burgerMenuList.style.display = "none";
+        },350);
     }
+    //end
 }
