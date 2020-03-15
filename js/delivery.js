@@ -19,7 +19,7 @@ function autoCompleteJS() {
     // body...
     var options = {
           url: function(phrase) {
-            		return "https://places.sit.ls.hereapi.com/places/v1/autosuggest?size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&q=" + phrase + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM";
+            		return "https://places.sit.ls.hereapi.com/places/v1/autosuggest?in=40%2C49%3Br%3D500000&size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&q=" + phrase + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM";
             	},
           getValue: "title",
           listLocation:"results",
