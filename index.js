@@ -65,13 +65,13 @@ function bookdetail(id, popup) {
 
     //if user is authenticated
     try {
-        let user_token = document.querySelector("#user_token").value,
-        myemail = document.querySelector("#user_email").value;
+        let user_token = document.querySelector("#user_token").value;
         request.setRequestHeader("Authorization", "Token " + user_token)
     } catch (e) {}
 
     request.onload = ()=>{
         let res = JSON.parse(request.responseText)
+        let myemail = document.querySelector("#user_email").value;
 
         const temp = Handlebars.compile(document.querySelector("#book-detail").innerHTML); // book detail HTML
         const msgStartTemp = Handlebars.compile(document.querySelector("#message-start-box").innerHTML) // msg start for this book
