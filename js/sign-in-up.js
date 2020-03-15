@@ -92,7 +92,7 @@ function sendMagicLink(email) {
     const request = new XMLHttpRequest();
     request.open("POST", '/accounts-api/forgot-password', true);
     request.onload = ()=>{
-        console.log(request.responseText)
+        // console.log(request.responseText)
     }
     request.send(data)
 

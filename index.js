@@ -65,15 +65,17 @@ function bookdetail(id, popup) {
 
     //if user is authenticated
     try {
-        let user_token = document.querySelector("#user_token").value
+        let user_token = document.querySelector("#user_token").value,
+        myemail = document.querySelector("#user_email").value;
         request.setRequestHeader("Authorization", "Token " + user_token)
     } catch (e) {}
 
     request.onload = ()=>{
         let res = JSON.parse(request.responseText)
+
         const temp = Handlebars.compile(document.querySelector("#book-detail").innerHTML); // book detail HTML
         const msgStartTemp = Handlebars.compile(document.querySelector("#message-start-box").innerHTML) // msg start for this book
-        popup.querySelector('span').innerHTML = (temp({"book":res, "img":res.img[0]}))// book detailHTML rendered
+        popup.querySelector('span').innerHTML = (temp({"book":res, "img":res.img[0], 'myemail':myemail } ))// book detailHTML rendered
         document.querySelector("#message-popup .row").innerHTML = msgStartTemp({"book":res, "img":res.img[0]}) //message popup temp
 
         popupchangeimage(res.img);
