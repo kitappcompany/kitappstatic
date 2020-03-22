@@ -22,9 +22,13 @@ function bookmark() {
             }
 
         }
+
         if(bookMarkIndex[i]){
             bookMark[i].style.top = "100%";
+            bookMark[i].setAttribute("src", "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/bookmark-red.svg");
+
         }
+
         bookCard[i].onmouseover = function(){
             bookMark[i].style.top = "0";
             bookMark[i].style.opacity = "1";
