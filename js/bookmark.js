@@ -12,7 +12,7 @@ function bookmark() {
 
             MarkUnMark(bookMark[i].dataset.unique);
 
-            if(!bookMarkIndex[i]){
+            if(bookMarkIndex[i]==="true"){
                 bookMark[i].setAttribute("src", "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/bookmark-red.svg");
                 bookMarkIndex[i] = true;
             }
@@ -23,11 +23,17 @@ function bookmark() {
 
         }
 
-        if(bookMarkIndex[i]){
-            bookMark[i].style.top = "100%";
-            bookMark[i].setAttribute("src", "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/bookmark-red.svg");
 
-        }
+
+        if(bookMarkIndex[i]==="true"){
+                bookMark[i].setAttribute("src", "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/bookmark-red.svg");
+                bookMarkIndex[i] = true;
+                bookMark[i].style.top = "100%";
+            }
+        else{
+                bookMark[i].setAttribute("src", "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/bookmark.svg");
+                bookMarkIndex[i] = false;
+            }
 
         bookCard[i].onmouseover = function(){
             bookMark[i].style.top = "0";
@@ -36,7 +42,7 @@ function bookmark() {
 
         bookCard[i].onmouseout = function(){
                 bookMark[i].style.opacity = "0";
-                if(bookMarkIndex[i]){
+                if(bookMarkIndex[i]=== "true" ){
                 bookMark[i].style.top = "100%";
                 bookMark[i].style.opacity = "1";
                 }
