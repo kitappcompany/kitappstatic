@@ -9,10 +9,11 @@ function ListBooks() {
         loadingBar[0].style.display = "none";
         return
     }
+    loadingBar[0].style.display = "none";
+    loadingBar[0].parentElement.children[1].style.display = "block";
 
     const request = new XMLHttpRequest();
     request.open("GET", next_page_books, true);
-
 
     request.onload = ()=>{
 
