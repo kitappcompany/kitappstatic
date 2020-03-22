@@ -95,6 +95,6 @@ function MarkUnMark(id){
     request.onload = ()=>{
 
     }
-    req.send()
+    request.send()
 
 }
