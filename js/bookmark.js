@@ -27,7 +27,7 @@ function bookmark() {
             bookMark[i].style.opacity = "1";
         }
 
-            bookCard[i].onmouseout = function(){
+        bookCard[i].onmouseout = function(){
                 bookMark[i].style.opacity = "0";
                 if(bookMarkIndex[i]){
                 bookMark[i].style.top = "100%";
