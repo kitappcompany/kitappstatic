@@ -5,7 +5,7 @@ function bookmark() {
 
     let bookMark = document.querySelectorAll(".bookmark"),bookCard = document.querySelectorAll(".book-card");
     let bookMarkIndex = [];
-    for(let i = 0;i < bookMark.length;i++) bookMarkIndex[i] = bookMark.dataset.indexvalue;
+    for(let i = 0;i < bookMark.length;i++) bookMarkIndex[i] = bookMark[i].dataset.indexvalue;
 
     for(let i = 0;i < bookMark.length;i++){
         bookMark[i].onclick = function(){
