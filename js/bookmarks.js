@@ -2,7 +2,7 @@ let loadMore = document.querySelectorAll(".load-more"),
 loadingBar = document.querySelectorAll(".loading-bar");
 
 var next_page_books = '/bookmark-api/listbooks';
-
+ListBooks();
 function ListBooks() {
     // body...
     if (!next_page_books) {
