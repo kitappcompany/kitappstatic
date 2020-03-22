@@ -7,9 +7,11 @@ function ListBooks() {
     // body...
     if (!next_page_books) {
         loadingBar[0].style.display = "none";
+        loadMore[0].style.display = "none";
         return
     }
-    loadingBar[0].style.display = "none";
+
+    loadMore[0].style.display = "none";
     loadingBar[0].parentElement.children[1].style.display = "block";
 
     const request = new XMLHttpRequest();
