@@ -8,12 +8,11 @@ function bookmark() {
     for(let i = 0;i < bookMark.length;i++) {
         if (bookMark[i].dataset.indexvalue === "false") {
                 bookMarkIndex[i] = false;
-                bookMark[i].setAttribute("src", "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/bookmark.svg");
-
         }
         else {
                 bookMarkIndex[i] = true;
                 bookMark[i].setAttribute("src", "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/bookmark-red.svg");
+                bookMarkIndex[i].style.opacity = 1;
         }
     }
 
