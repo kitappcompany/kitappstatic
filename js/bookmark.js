@@ -5,14 +5,14 @@ function bookmark() {
 
     let bookMark = document.querySelectorAll(".bookmark"),bookCard = document.querySelectorAll(".book-card");
     let bookMarkIndex = [];
-    for(let i = 0;i < bookMark.length;i++) bookMarkIndex[i] = bookMark[i].dataset.indexvalue;
+    for(let i = 0;i < bookMark.length;i++) bookMarkIndex[i] = false;
 
     for(let i = 0;i < bookMark.length;i++){
         bookMark[i].onclick = function(){
 
             MarkUnMark(bookMark[i].dataset.unique);
 
-            if(bookMarkIndex[i]==="true"){
+            if(!bookMarkIndex[i]){
                 bookMark[i].setAttribute("src", "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/bookmark-red.svg");
                 bookMarkIndex[i] = true;
             }
@@ -22,19 +22,9 @@ function bookmark() {
             }
 
         }
-
-
-
-        if(bookMarkIndex[i]==="true"){
-                bookMark[i].setAttribute("src", "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/bookmark-red.svg");
-                bookMarkIndex[i] = true;
-                bookMark[i].style.top = "100%";
-            }
-        else{
-                bookMark[i].setAttribute("src", "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/bookmark.svg");
-                bookMarkIndex[i] = false;
-            }
-
+        if(bookMarkIndex[i]){
+            bookMark[i].style.top = "100%";
+        }
         bookCard[i].onmouseover = function(){
             bookMark[i].style.top = "0";
             bookMark[i].style.opacity = "1";
@@ -42,7 +32,7 @@ function bookmark() {
 
         bookCard[i].onmouseout = function(){
                 bookMark[i].style.opacity = "0";
-                if(bookMarkIndex[i]=== "true" ){
+                if(bookMarkIndex[i]){
                 bookMark[i].style.top = "100%";
                 bookMark[i].style.opacity = "1";
                 }
@@ -50,7 +40,6 @@ function bookmark() {
     }
 
 }//function end
-
 
 function MarkUnMark(id){
     const request = new XMLHttpRequest();
