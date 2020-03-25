@@ -6,7 +6,7 @@ function bookmark() {
     let bookMark = document.querySelectorAll(".bookmark"),bookCard = document.querySelectorAll(".book-card");
     let bookMarkIndex = [];
     for(let i = 0;i < bookMark.length;i++) {
-        if (bookMark.dataset.indexvalue === "false") {
+        if (bookMark[i].dataset.indexvalue === "false") {
                 bookMarkIndex[i] = false;
         }
         else {
