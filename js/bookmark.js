@@ -12,7 +12,7 @@ function bookmark() {
         else {
                 bookMarkIndex[i] = true;
                 bookMark[i].setAttribute("src", "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/bookmark-red.svg");
-                bookMarkIndex[i].style.opacity = 1;
+                bookMark[i].style.opacity = 1;
         }
     }
 
