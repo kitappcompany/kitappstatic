@@ -21,6 +21,7 @@ function bookmark() {
             }
 
         }
+       
         if(bookMarkIndex[i]){
             bookMark[i].style.top = "100%";
         }

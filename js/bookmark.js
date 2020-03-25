@@ -5,7 +5,15 @@ function bookmark() {
 
     let bookMark = document.querySelectorAll(".bookmark"),bookCard = document.querySelectorAll(".book-card");
     let bookMarkIndex = [];
-    for(let i = 0;i < bookMark.length;i++) bookMarkIndex[i] = false;
+    for(let i = 0;i < bookMark.length;i++) {
+        if (bookMark.dataset.indexvalue === "false") {
+                bookMarkIndex[i] = false;
+        }
+        else {
+                bookMarkIndex[i] = true;
+        }
+    }
+
 
     for(let i = 0;i < bookMark.length;i++){
         bookMark[i].onclick = function(){
@@ -22,6 +30,7 @@ function bookmark() {
             }
 
         }
+
         if(bookMarkIndex[i]){
             bookMark[i].style.top = "100%";
         }
