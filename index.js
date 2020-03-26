@@ -76,7 +76,7 @@ function bookdetail(id, popup) {
     request.onload = ()=>{
         let res = JSON.parse(request.responseText)
 
-        let myemail="none";
+        let myemail=null;
         try {
             myemail = document.querySelector("#user_email").value;
             /* code */

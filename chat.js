@@ -24,11 +24,6 @@ function messageStart() {
     }
 }
 
-// Message HTML below
-Handlebars.registerHelper('if_value', function (a, b) {
-	if (a === b ) return true
-  	else return false
-})
 try {
     /* code */
     var socket, incoming=true, user_email= document.querySelector("#user_email").value, last_slug=false;
