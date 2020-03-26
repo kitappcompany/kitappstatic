@@ -1,6 +1,4 @@
 
-
-
 function bookmark() {
 
     let bookMark = document.querySelectorAll(".bookmark"),bookCard = document.querySelectorAll(".book-card");
@@ -21,7 +19,7 @@ function bookmark() {
             }
 
         }
-       
+
         if(bookMarkIndex[i]){
             bookMark[i].style.top = "100%";
         }
@@ -47,12 +45,12 @@ function bookmark() {
 let loadMore = document.querySelectorAll(".load-more"),
 loadingBar = document.querySelectorAll(".loading-bar");
 
-var next_page_books = '/bookmark-api/listbooks';
+var next_page_markedbooks = '/bookmark-api/listbooks';
 ListBooks();
 
 function ListBooks() {
     // body...
-    if (!next_page_books) {
+    if (!next_page_markedbooks) {
         loadingBar[0].style.display = "none";
         loadMore[0].style.display = "none";
         return
@@ -62,7 +60,7 @@ function ListBooks() {
     loadingBar[0].parentElement.children[1].style.display = "block";
 
     const request = new XMLHttpRequest();
-    request.open("GET", next_page_books, true);
+    request.open("GET", next_page_markedbooks, true);
 
     request.onload = ()=>{
 
@@ -70,7 +68,7 @@ function ListBooks() {
             /* code */
 
             let res = JSON.parse(request.responseText)
-            next_page_books = res['next']
+            next_page_markedbooks = res['next']
 
             const temp = Handlebars.compile(document.querySelector("#bookmark-instance").innerHTML);
             document.querySelector("#book-sell").children[0].innerHTML +=temp({"book":res.results})

@@ -45,6 +45,10 @@ function BooksList() {
         loadingBar[0].style.display = "none";
         loadMore[0].style.display = "inline-block";
         shimmerE.style.display = "none";
+
+        if (!next_page_books) {
+            loadMore[0].style.display = "none";
+        }
     }
     request.send()
 }
