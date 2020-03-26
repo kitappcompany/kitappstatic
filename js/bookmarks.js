@@ -77,6 +77,10 @@ function ListBooks() {
             loadingBar[0].style.display = "none";
             loadMore[0].style.display = "inline-block";
 
+            if (!next_page_books) {
+                loadMore[0].style.display = "none";
+            }
+
         } catch (e) {
             console.log(e)
             loadingBar[0].style.display = "none";
