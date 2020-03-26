@@ -1,12 +1,13 @@
-let inputAll = document.querySelectorAll("input"), labelAll = document.querySelectorAll(".label");
+let inputAll = document.querySelectorAll("input:not([type=hidden])"), labelAll = document.querySelectorAll(".label");
 
 for(let i = 0;i < labelAll.length;i++){
         inputAll[i].onfocus = function(){
             labelAll[i].style.opacity = "1";
         }
-    inputAll[i].onblur = function(){
-        labelAll[i].style.opacity = "0";
-    }
+
+        inputAll[i].onblur = function(){
+            labelAll[i].style.opacity = "0";
+        }
 }
 
 
