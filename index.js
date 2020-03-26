@@ -75,7 +75,12 @@ function bookdetail(id, popup) {
 
     request.onload = ()=>{
         let res = JSON.parse(request.responseText)
-        let myemail = document.querySelector("#user_email").value;
+
+        let myemail;
+        try {
+            myemail = document.querySelector("#user_email").value;
+            /* code */
+        } catch (e) {}
 
         const temp = Handlebars.compile(document.querySelector("#book-detail").innerHTML); // book detail HTML
         const msgStartTemp = Handlebars.compile(document.querySelector("#message-start-box").innerHTML) // msg start for this book
