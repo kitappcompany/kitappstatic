@@ -20,17 +20,21 @@ signUpHeader.onclick = function(){
 }
 function blockSignUp(){
     signUpHeader.style.color = "#686868";
-    signUpBorder.style.borderColor = "#686868";
+    signUpBorder.style.borderBottom = ".2rem solid #686868";
+    signUpBorder.style.fontFamily = "DINPro-Medium"
     signInHeader.style.color = "#B5B5B5";
-    signInBorder.style.borderColor = "#B5B5B5";
+    signInBorder.style.borderBottom = ".1rem solid #B5B5B5";
+    signInBorder.style.fontFamily = "DINPro"
     signUp.style.display = "block";
     signIn.style.display = "none";
 }
 function blockSignIn(){
     signInHeader.style.color = "#686868";
-    signInBorder.style.borderColor = "#686868";
+    signInBorder.style.borderBottom = ".2rem solid #686868";
+    signInBorder.style.fontFamily = "DINPro-Medium"
     signUpHeader.style.color = "#B5B5B5";
-    signUpBorder.style.borderColor = "#B5B5B5";
+    signUpBorder.style.borderBottom = ".1rem solid #B5B5B5";
+    signUpBorder.style.fontFamily = "DINPro"
     signIn.style.display = "block";
     signUp.style.display = "none";
 }
