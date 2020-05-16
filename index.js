@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
 
     document.querySelectorAll(".genre-proven").forEach(li => {
-        li.addEventListener('click', BookList("/catalog-api/listbooks" + "?genre__id="+ li.dataset.genreid) );
+        li.addEventListener('click', BooksList("/catalog-api/listbooks" + "?genre__id="+ li.dataset.genreid) );
     })
 
 })
