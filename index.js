@@ -17,9 +17,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     let lis = document.querySelectorAll(".genre-proven");
 
-    for (var i = 0; i < lis.length; i++) {
-        lis[i].addEventListener('click',BooksList("/catalog-api/listbooks" + "?genre__id="+ lis[i].dataset.genreid), false);
-    }
 })
 
 // List Out Books
