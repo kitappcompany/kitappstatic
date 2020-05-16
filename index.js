@@ -15,10 +15,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
         BooksList()
     }
 
+    document.querySelectorAll(".genre-proven").forEach(li => {
+        li.addEventListener('click', BookList("/catalog-api/listbooks" + "?genre__id="+ li.dataset.genreid) );
+    })
+
 })
 
 // List Out Books
-function BooksList() {
+function BooksList(filter_url=false) {
+
+    if (filter_url) {
+        next_page_books = filter_url;
+        document.querySelector("#books").children[0].innerHTML = "";
+    }
+
     if (!next_page_books) {
         loadingBar[0].style.display = "none";
         return

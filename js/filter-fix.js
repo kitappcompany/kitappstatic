@@ -1,23 +1,7 @@
 let inputValue = document.querySelectorAll(".input-val"),dropDownList = document.querySelectorAll(".drop-down-list");
 // input contentin bg sini deyisme ve borderini deyisme
 let inputContent = document.querySelectorAll(".input-content");
-// for(let i = 0;i < inputValue.length;i++){
-//     inputValue[i].onfocus = function(){
-//         inputContent[i].style.backgroundColor = "#EFEFEF";
-//         inputContent[i].style.border = ".1rem solid #EFEFEF";
-//         for(let k = 0;k < dropDownList.length;k++){
-//             for(let j = 0;j < dropDownList[i].children.length;j++){
-//                 dropDownList[k].children[j].style.display = "none";
-//                 dropDownList[k].style.border = "none"
-//             }
-//         }
-//     }
-//     inputValue[i].onblur = function(){
-//         inputContent[i].style.backgroundColor = "#fff";
-//         inputContent[i].style.border = ".1rem solid #B5B5B5";
-//         dropDownList[i].style.border = "none";
-//     }
-// }
+
 
 // down up iconunun deysimesi
 function changeUp(itemUp,i){
@@ -80,7 +64,7 @@ for(let i = 0;i < downUp.length;i++){
             showPlaceholder(i);
         }
     }
-    
+
 }
 
 // li ye click olunduqda value ni inputa yazmaq
