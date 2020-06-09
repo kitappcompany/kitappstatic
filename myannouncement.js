@@ -24,7 +24,7 @@ function LoadMyBooks() {
         next_page_mybooks = res['next'];
         const temp = Handlebars.compile(document.querySelector("#mybook-instance").innerHTML);
         document.querySelector("#i-sold").children[0].innerHTML +=temp({"book":res.results})
-
+        console.log(res.results)
         check_price_zero();
 
         loadingBar[0].style.display = "none";

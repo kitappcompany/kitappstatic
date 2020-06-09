@@ -5,7 +5,7 @@ function add_place_popup(page=true, book_id=null) {
 
     for(let i = 0;i< adPlaceButton.length;i++){
         adPlaceButton[i].onclick = function(){
-            if (i===1) {//post book button
+            if (i===0) {//post book button
                 if (page) {//for post a new book
                     PostABook(adPlacePopup, adPlaceButton[i]);// selling book vs searching
                 }else{//for edit a book info
