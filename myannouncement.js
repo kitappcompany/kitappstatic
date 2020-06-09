@@ -7,6 +7,7 @@ function LoadMyBooks() {
 
     if (!next_page_mybooks) {
         loadingBar[0].style.display = "none";
+        loadMore[0].style.display = "none";
         return
     }
     const request = new XMLHttpRequest();
@@ -31,6 +32,7 @@ function LoadMyBooks() {
 
         if (!next_page_mybooks) {
             loadingBar[0].style.display = "none";
+            loadMore[0].style.display = "none";
             return
         }
 
