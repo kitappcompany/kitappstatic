@@ -298,6 +298,13 @@
 }
 
 
+
+#ad-place .coming-soon-img{
+    margin: 2.25rem 0 3rem 0;
+}
+
+
+
 @media screen and (max-width:576px){
     .delivery input{
         width:90%;

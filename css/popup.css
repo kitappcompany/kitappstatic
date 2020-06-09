@@ -16,6 +16,7 @@
 }
 #popup{
     color:#686868;
+    z-index:15;
 }
 .courier-icon{
     height:3rem;
@@ -113,25 +114,31 @@
     font-family:DINPro;
 }
 .popup-footer{
+    padding:0 4.5rem;
     font-size:1.9rem;
-    margin-bottom:4.4rem;
+    margin-bottom:3.2rem;
     color: #686868;
     font-family:DINPro-Medium;
+}
+.popup-map{
+    display:none;
+    padding:4.2rem;
+    padding-bottom:3.6rem;
+    padding-top:0;
 }
 #gmap_canvas{
     border-radius:3.3rem;
     height:34.5rem;
-    width:105%;
+    width:100%;
 }
 .delivery-button{
     cursor:pointer;
 }
-.map-container{
-    padding:0 5rem !important;
-    display:none;
+.popup-bookmark{
+    cursor:pointer;
 }
 
-        @media screen and (max-width:760px){
+        @media screen and (max-width:768px){
             html{
                 font-size:9px;
             }
@@ -147,6 +154,10 @@
             }
             .popup-footer{
                 margin-top:2rem;
+                padding-right:0;
+            }
+            #search-popup .popup-footer{
+                padding:0 2rem;
             }
             .popup-book{
                 width:18.964rem;

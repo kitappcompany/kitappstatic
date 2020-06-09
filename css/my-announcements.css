@@ -16,17 +16,22 @@ html{
     font-size:2.5rem;
     cursor:pointer;
     color:#B5B5B5;
+    transition: all .2s;
+
 }
 .i-looking-h, .i-sold-h{
     text-align:center;
     border-bottom:.1rem solid #B5B5B5;
     font-family:DINPro;
+    transition: all .2s;
 }
 .i-sold-h{
     border-bottom:.2rem solid #686868;
+    transition: all .2s;
     font-family:DINPro-Medium;
 }
 .i-sold-h p {
+    transition: all .2s;
     color:#686868;
 }
 /* kitablara kolge */
@@ -69,4 +74,29 @@ html{
     transition:all .2s;
 }
 
-/* respansive */
+
+
+/*  dont active announcements */
+
+.announcements-container{
+    display:none;
+}
+
+.not-active-announcements{
+    padding: 12rem 0;
+    text-align:center;
+}
+
+.not-active-announcements button{
+    font-size: 1.5rem;
+    margin: 2.9rem 0;
+}
+
+
+.not-active-announcements span{
+    padding: 12rem 0;
+    text-align:center;
+    font-size: 3.4rem;
+    font-family: DINPro;
+}
+
