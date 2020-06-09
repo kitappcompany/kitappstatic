@@ -1,4 +1,4 @@
-@import "css/respansive.css";
+@import "css/respansive.css"; 
 button:focus{
     outline:none !important;
 }
@@ -46,10 +46,10 @@ button:focus{
     font-weight: normal;
     font-style: normal;
   }
-
-
-
-
+  
+   
+  
+    
 body{
     color:#686868 !important;
     font-family:DINPro !important;
@@ -86,12 +86,14 @@ body{
     padding:1.6rem;
     left:50%;
     transform:translateX(-50%);
+    z-index:15;
 }
 #search-box input[type="text"]{
     width:90%;
     outline:none;
     position:absolute;
-    top:50%;
+    top:40%;
+    color:#686868;
     font-size:1.3rem;
     left:2.8rem;
     transform:translateY(-50%);
@@ -101,7 +103,7 @@ body{
 }
 .search-book-title{
     font-size:2rem;
-    font-family:DINPro-Medium;
+    font-family:DINPro-Medium;  
 }
 #search .fa-search{
     position:absolute;
@@ -135,12 +137,13 @@ body{
     margin:0 -.35rem;
 }
 #menu ul li{
-    padding:0 .72rem;
+    padding:0 .551rem;
+    z-index:2;
 }
 #menu ul li:last-child{
     padding-right:0;
 }
-#menu ul li a{
+#menu ul li{
     cursor:pointer;
     font-size:1.8rem;
     margin:0 1.9rem;
@@ -148,7 +151,7 @@ body{
     transition:all .2s;
     font-family:DINPro-Medium;
 }
-#menu ul li a:hover{
+#menu ul li:hover{
     color:#5AB5F1;
     transition:all .2s;
 }
@@ -255,19 +258,36 @@ body{
 } */
 
 /* download */
-#download .col-12{
+#download{
     background-image:url(img/download-bg.png);
     position:relative;
-    height:120px;
+    height:17rem;
 }
-#download .col-12 p{
+#download p{
     position:absolute;
     font-size:3.5rem;
+    font-family:DINPro-Medium;
     top:50%;
     transform:translateY(-50%);
+    z-index:2;
 }
-#download .col-12 img{
-    width:140px;
+#download img{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    right:5.6rem;
+    width:16rem;
+    z-index:2;
+}
+.download-bg{
+    width:100%;
+    height:17rem;
+    background:#000;
+    opacity:.5;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
 }
 /* owlCarusel */
 .position-relative{
@@ -332,7 +352,7 @@ body{
 /* Search Books */
 /* .i-have-button{
     background:#5AB5F1;
-    color:#fff;
+    color:#fff; 
     font-size:1.5rem;
     border-radius:40px;
 }
@@ -434,8 +454,8 @@ body{
     font-weight:normal;
 }
 .popup-about{
-    font-size:1.6rem;
-    line-height:1.8rem;
+    font-size:1.6rem;  
+    line-height:1.8rem;     
 }
 .popup-footer{
     font-size:1.9rem;
@@ -499,7 +519,11 @@ body{
     transform:translateX(-50%);
 } */
 
-
+@media screen and (max-width:576px){
+    #search input{
+        font-size:1.7rem !important;
+    }
+}
 
 
 

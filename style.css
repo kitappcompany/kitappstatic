@@ -112,6 +112,17 @@ body{
     right:2.8rem;
     transform:translateY(-50%);
 }
+.book-not-found
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 12rem;
+    color:#cdcdcd;
+    font-size: 2.5rem;
+    font-family: DINPro-Medium;
+}
 /* Menu */
 .filter{
     border-radius:40px;
