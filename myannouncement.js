@@ -29,6 +29,10 @@ function LoadMyBooks() {
         loadingBar[0].style.display = "none";
         loadMore[0].style.display = "inline-block";
 
+        if (!next_page_mybooks) {
+            loadingBar[0].style.display = "none";
+            return
+        }
 
     }
 

@@ -78,7 +78,9 @@ function ListBooks() {
             loadMore[0].style.display = "inline-block";
 
             if (!next_page_markedbooks) {
+                loadingBar[0].style.display = "none";
                 loadMore[0].style.display = "none";
+                return
             }
 
         } catch (e) {
