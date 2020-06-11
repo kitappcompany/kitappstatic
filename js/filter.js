@@ -97,7 +97,7 @@ function filter() {
                 inputValue[i].dataset.info = dropDownList[i].children[j].dataset.info ;
 
                 let filter_url = makeURLS();
-                console.log(filter_url)
+                console.log(filter_url, "A")
                 BooksList(filter_url);
             }
         }
