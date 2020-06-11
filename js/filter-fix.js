@@ -74,7 +74,8 @@ for(let i = 0;i < dropDownList.length;i++){
             changeDown(downUp[i],i);
             inputBlurBg(i)
             inputValue[i].value = dropDownList[i].children[j].textContent;
-            
+            inputValue[i].dataset.info = dropDownList[i].children[j].dataset.info ;
+
             // added by NEW
             let filter_url = makeURLS(inputValue, dropDownList);
             console.log(filter_url, "A")

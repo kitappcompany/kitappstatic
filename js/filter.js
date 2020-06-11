@@ -94,7 +94,6 @@ function filter() {
             dropDownList[i].children[j].onclick = function(){
                 changeDown(downUp[i],i);
                 inputValue[i].value = dropDownList[i].children[j].textContent;
-                inputValue[i].dataset.info = dropDownList[i].children[j].dataset.info ;
 
             }
         }
