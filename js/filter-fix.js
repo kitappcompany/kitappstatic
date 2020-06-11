@@ -74,6 +74,11 @@ for(let i = 0;i < dropDownList.length;i++){
             changeDown(downUp[i],i);
             inputBlurBg(i)
             inputValue[i].value = dropDownList[i].children[j].textContent;
+            
+            // added by NEW
+            let filter_url = makeURLS(inputValue, dropDownList);
+            console.log(filter_url, "A")
+            BooksList(filter_url);
         }
     }
 }
@@ -117,4 +122,14 @@ filterButton.onclick = function(){
         filterPage.style.display = "none";
         check = true;
     }
+}
+
+// added by NEW
+function makeURLS(inputValue, dropDownList) {
+    // body...
+    let url = "/catalog-api/listbooks?"
+    for (var i = 0; i < inputValue.length; i++) {
+        url  =  url  + inputValue[i].dataset.name + "=" + inputValue[i].dataset.info + '&';
+    }
+    return url
 }

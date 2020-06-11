@@ -96,21 +96,9 @@ function filter() {
                 inputValue[i].value = dropDownList[i].children[j].textContent;
                 inputValue[i].dataset.info = dropDownList[i].children[j].dataset.info ;
 
-                let filter_url = makeURLS(inputValue, dropDownList);
-                console.log(filter_url, "A")
-                BooksList(filter_url);
             }
         }
     }
 
 
-}
-
-function makeURLS(inputValue, dropDownList) {
-    // body...
-    let url = "/catalog-api/listbooks?"
-    for (var i = 0; i < inputValue.length; i++) {
-        url  =  url  + inputValue[i].dataset.name + "=" + inputValue[i].dataset.info + '&';
-    }
-    return url
 }
