@@ -1,8 +1,8 @@
-let inputValue = document.querySelectorAll(".input-val"),
-    dropDownList = document.querySelectorAll(".drop-down-list");
 
 
 function filter() {
+    let inputValue = document.querySelectorAll(".input-val"),
+    dropDownList = document.querySelectorAll(".drop-down-list");
 
     // axtaris sistemi
     for(let i=0;i < inputValue.length;i++){
@@ -96,7 +96,7 @@ function filter() {
                 inputValue[i].value = dropDownList[i].children[j].textContent;
                 inputValue[i].dataset.info = dropDownList[i].children[j].dataset.info ;
 
-                let filter_url = makeURLS();
+                let filter_url = makeURLS(inputValue, dropDownList);
                 console.log(filter_url, "A")
                 BooksList(filter_url);
             }
@@ -106,7 +106,7 @@ function filter() {
 
 }
 
-function makeURLS() {
+function makeURLS(inputValue, dropDownList) {
     // body...
     let url = "/catalog-api/listbooks?"
     for (var i = 0; i < inputValue.length; i++) {
