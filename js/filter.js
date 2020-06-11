@@ -1,5 +1,8 @@
+let inputValue = document.querySelectorAll(".input-val"),
+    dropDownList = document.querySelectorAll(".drop-down-list");
+
+
 function filter() {
-    let inputValue = document.querySelectorAll(".input-val"),dropDownList = document.querySelectorAll(".drop-down-list");
 
     // axtaris sistemi
     for(let i=0;i < inputValue.length;i++){
@@ -91,7 +94,23 @@ function filter() {
             dropDownList[i].children[j].onclick = function(){
                 changeDown(downUp[i],i);
                 inputValue[i].value = dropDownList[i].children[j].textContent;
+                inputValue[i].dataset.info = dropDownList[i].children[j].dataset.info ;
+
+                let filter_url = makeURLS();
+                console.log(filter_url)
+                BooksList(filter_url);
             }
         }
     }
+
+
+}
+
+function makeURLS() {
+    // body...
+    let url = "/catalog-api/listbooks?"
+    for (var i = 0; i < inputValue.length; i++) {
+        url  =  url  + inputValue[i].dataset.name + "=" + inputValue[i].dataset.info + '&';
+    }
+    return url
 }
