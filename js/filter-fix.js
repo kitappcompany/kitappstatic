@@ -130,13 +130,14 @@ function makeURLS(inputValue, dropDownList) {
     // body...
     let url = "/catalog-api/listbooks?"
     for (var i = 0; i < inputValue.length; i++) {
-        if (inputValue[i].dataset.info != undefined) {
-                url  =  url  + inputValue[i].dataset.name + "=" + inputValue[i].dataset.info;
 
-            if (i != inputValue.length -1 ) {
-                url = url + '&'
+        if (i != inputValue.length -1 & i != 0 ) {
+                if (inputValue[i].dataset.info != undefined) {
+                    url = url + '&';
+                    url  =  url  + inputValue[i].dataset.name + "=" + inputValue[i].dataset.info;
+                }
+
             }
-        }
 
     }
     return url
