@@ -25,7 +25,19 @@ function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api
                 inputs[i].style.borderColor = "";
                 add_style('::placeholder { color: rgb(245, 76, 110); }');
                 listElement = inputs[i].parentElement.querySelector('.selected').children[0].children[0];
-                let loc_data = {"title":listElement.dataset.title,"pk":listElement.dataset.key, "position":listElement.dataset.position} ;
+
+                let city_name = ""
+                try {
+                    city_name = listElement.dataset.city.split(',');
+                    city_name = city_name[city_name.length-1];
+                } catch (e) {
+                    city_name = listElement.dataset.city;
+
+                }
+
+                console.log(city_name)
+
+                let loc_data = {"title":listElement.dataset.title,"pk":listElement.dataset.key, "position":listElement.dataset.position, "city":city_name} ;
                 data.append(name[i], JSON.stringify(loc_data) );
                 continue;
             }catch(e){
