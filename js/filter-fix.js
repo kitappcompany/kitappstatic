@@ -125,7 +125,7 @@ filterButton.onclick = function(){
     }
 }
 
-// added by NEW
+// added by NEW filter
 function makeURLS(inputValue, dropDownList) {
     let url = "/catalog-api/listbooks?"
     if (inputValue[0].dataset.info != undefined) {
