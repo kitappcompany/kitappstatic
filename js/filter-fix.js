@@ -129,20 +129,15 @@ filterButton.onclick = function(){
 function makeURLS(inputValue, dropDownList) {
     // body...
     let url = "/catalog-api/listbooks?"
-    for (var i = 0; i < inputValue.length; i++) {
-
-        if (i == 0 & inputValue[i].dataset.info != undefined) {
-            url  =  url  + inputValue[i].dataset.name + "=" + inputValue[i].dataset.info;
+    if (inputValue[0].dataset.info != undefined) {
+            url  =  url  + inputValue[0].dataset.name + "=" + inputValue[0].dataset.info;
         }
 
-        if (i != inputValue.length -1 & i != 0 ) {
-                if (inputValue[i].dataset.info != undefined) {
-                    url = url + '&';
-                    url  =  url  + inputValue[i].dataset.name + "=" + inputValue[i].dataset.info;
-                }
-
-            }
-
+    for (var i = 1; i < inputValue.length; i++) {
+        if (inputValue[i].dataset.info != undefined) {
+            url = url + '&';
+            url  =  url  + inputValue[i].dataset.name + "=" + inputValue[i].dataset.info;
+        }
     }
     return url
 }
