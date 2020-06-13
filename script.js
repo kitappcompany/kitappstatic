@@ -1,5 +1,5 @@
 // owlCarusel
-$('.carousel2').owlCarousel({
+jQuery_3_4_1('.carousel2').owlCarousel({
     loop:true,
     margin:10,
 
@@ -16,11 +16,11 @@ $('.carousel2').owlCarousel({
         }
     }
 })
-$('.owl-carousel').owlCarousel({
+jQuery_3_4_1('.owl-carousel').owlCarousel({
     loop:true,
     margin:10,
     nav:true,
-    navText: [$('.arrow-left'),$('.arrow-right')],
+    navText: [jQuery_3_4_1('.arrow-left'),jQuery_3_4_1('.arrow-right')],
     dots:false,
     responsive:{
         0:{
@@ -40,10 +40,10 @@ $('.owl-carousel').owlCarousel({
         }
     }
 })
-$('.owl-nav').removeClass('disabled');
+jQuery_3_4_1('.owl-nav').removeClass('disabled');
 
-$('.owl-nav').click(function(event) {
-    $(this).removeClass('disabled');
+jQuery_3_4_1('.owl-nav').click(function(event) {
+    jQuery_3_4_1(this).removeClass('disabled');
   });
 
 
