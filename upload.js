@@ -27,14 +27,8 @@ function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api
                 listElement = inputs[i].parentElement.querySelector('.selected').children[0].children[0];
 
                 let city_name = ""
-                try {
-                    city_name = listElement.dataset.city.split(',');
-                    city_name = city_name[city_name.length-1];
-                } catch (e) {
-                    city_name = listElement.dataset.city;
-
-                }
-
+                city_name = listElement.dataset.city.split(',');
+                city_name = city_name[city_name.length-1]
                 console.log(city_name)
 
                 let loc_data = {"title":listElement.dataset.title,"pk":listElement.dataset.key, "position":listElement.dataset.position, "city":city_name} ;

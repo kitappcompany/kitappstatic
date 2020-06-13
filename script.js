@@ -2,7 +2,7 @@
 $('.carousel2').owlCarousel({
     loop:true,
     margin:10,
-    
+
     dots:false,
     responsive:{
         0:{
@@ -46,26 +46,7 @@ $('.owl-nav').click(function(event) {
     $(this).removeClass('disabled');
   });
 
-let filterButton = document.querySelector(".filter"),filterPage = document.querySelector("#filter");
-// filter buttonu ucun
-let check = true;
-filterButton.onclick = function(){
-    if(check){
-        filterButton.style.background = "#5AB5F1";
-        filterButton.style.color = "#fff";
-        filterButton.style.border = ".1rem solid #5AB5F1";
-        filterPage.style.display = "block";
 
-        check = false;
-    }
-    else{
-        filterButton.style.background = "#fff";
-        filterButton.style.color = "#686868";
-        filterButton.style.border = ".1rem solid #686868";
-        filterPage.style.display = "none";
-        check = true;
-    }
-}
 
 // en çox baxilanlar - en yeni elanlar
 let newAdBook = document.querySelector(".new-ad-book"), mostViewedBook = document.querySelector(".most-viewed-book");
@@ -85,7 +66,7 @@ mostViewedBook.onclick = function(){
 //     bodyScroll.style.overflowY = "scroll";
 
 // }
-// 
+//
 // setTimeout(function(){
 //     downloadPage.style.display = "none";
 // },3000)
