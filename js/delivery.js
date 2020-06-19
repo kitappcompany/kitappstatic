@@ -17,9 +17,18 @@ function closeDelivery(thisDelivery){
 
 function autoCompleteJS() {
     // body...
+
+    let mypos = document.getElementById('mypos').dataset.mypos;
+    let comp = encodeURIComponent('40,49;r=50000')
+    if (mypos != '' | mypos==null) {
+        let d = JSON.parse(mypos)
+        // {"Latitude": "40.34329", "Longitude": "48.15695"}
+        comp = encodeURIComponent(`${d['Latitude']},${d['Longitude']};r=50000`)
+    }
+
     var options = {
           url: function(phrase) {
-            		return "https://places.sit.ls.hereapi.com/places/v1/autosuggest?Accept-Language=q%3D0.9%3Bq%3D0.8%2Caz%3Bq%3D0.7&in=40%2C49%3Br%3D500000&size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&q=" + phrase + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM";
+            		return "https://places.sit.ls.hereapi.com/places/v1/autosuggest?Accept-Language=q%3D0.9%3Bq%3D0.8%2Caz%3Bq%3D0.7&in=" + comp + "&size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&q=" + phrase + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM";
             	},
           getValue: "title",
           listLocation:"results",
