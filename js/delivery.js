@@ -19,11 +19,10 @@ function autoCompleteJS() {
     // body...
 
     let mypos = document.getElementById('mypos').dataset.mypos;
-    let comp = encodeURIComponent('40,49;r=50000')
+    let comp = encodeURIComponent('40,49;r=500000')
     if (mypos != '' | mypos==null) {
         let d = JSON.parse(mypos)
-        // {"Latitude": "40.34329", "Longitude": "48.15695"}
-        comp = encodeURIComponent(`${d['Latitude']},${d['Longitude']};r=50000`)
+        comp = encodeURIComponent(`${d['Latitude']},${d['Longitude']};r=500000`)
     }
 
     var options = {
