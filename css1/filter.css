@@ -1,0 +1,85 @@
+@import "respansive.css"; 
+@import "fonts.css";
+        #filter{
+            color:#686868 !important;
+            font-family:DINPro-Medium !important;
+            display:none;
+        }
+        #filter input:focus{
+            background:#fff;
+        }
+        .down-up{
+            width:13%;
+            font-size:1.3rem;
+            cursor:pointer;
+            color:#686868;
+        }
+        .input-content{
+            position:relative;
+            width:16rem;
+            border:1px solid #B5B5B5;
+            border-radius:1rem;
+            background:#fff;
+            padding:.1rem;  
+        }
+        .input-content input::-webkit-calendar-picker-indicator {
+            opacity: 1  ;
+        }
+        .input-content input{
+            width:87%;
+            font-size:1.3rem;
+            color:#686868;
+            outline:none;
+            border:none;
+            border-radius:1rem;
+            height:4rem;
+            padding-left:1.1rem;
+        }
+        #filter span{
+            font-size:1.8rem;
+        }
+        .drop-down-list{
+            position:absolute;
+            width:100%;
+            top:108%;
+            left:0;
+            border-radius:1rem;
+            font-size:1.3rem;
+            color:#B5B5B5;
+            font-family:DINPro-Medium !important;
+            z-index:50;
+            background:#fff;
+        }
+        .drop-down-list li{
+            padding-left:1.6rem;
+            padding-bottom:.3rem;
+            padding-top:.2rem;
+            margin:.5rem 0;
+            display:none;
+            z-index:55;
+            cursor:pointer;
+        }
+        .drop-down-list li:hover{
+            color:#686868;
+            background:#EFEFEF;
+            transition:all .4s;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: #B5B5B5;
+        }
+
+        ::-ms-input-placeholder { /* Microsoft Edge */
+            color: #B5B5B5;
+        }
+        input:focus::-webkit-input-placeholder {
+            opacity: 0;
+        }
+        #filter input:focus::-webkit-input-placeholder {
+            opacity: 1;
+        }
+        input:focus{
+            background:#EFEFEF;
+        }
+        #filter hr{
+            border:.5px solid #B5B5B5;
+        }

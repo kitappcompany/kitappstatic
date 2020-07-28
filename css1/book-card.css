@@ -109,9 +109,11 @@ html{
                 display:inline-block;
             }
             .price{
-                font-weight:bold;
+                font-weight:normal;
                 color:#686868;
-                padding-right: .4rem;
+            }
+            .book-card:hover .price{
+                font-weight:bold;
             }
             .book-card:hover .bookmark{
                 top:0;

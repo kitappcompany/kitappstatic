@@ -1,0 +1,49 @@
+/*
+ * easy-autocomplete
+ * jQuery plugin for autocompletion
+ * 
+ * @author Łukasz Pawełczak (http://github.com/pawelczak)
+ * @version 1.3.5
+ * Copyright  License: 
+ */
+
+ /*# sourceMappingURL=easy-autocomplete.min.css.map */
+
+ .easy-autocomplete, .eac-round {
+    color:inherit;
+    margin:5px;
+    width:inherit;
+}
+.easy-autocomplete-container{
+    position:absolute !important;
+    top:82%;
+    left:50%;
+    transform:translateX(-50%);
+    width:53.9rem !important;
+}
+@media screen and (max-width:992px){
+    .easy-autocomplete-container{
+        width:40.9rem !important;
+    }
+}
+.search_box_au {
+    color:inherit;
+    border:none;
+    width:inherit;
+}
+.easy-autocomplete-container, .border-0 {
+    color:inherit;
+    width:inherit;
+}
+.easy-autocomplete-container > ul > li {
+    padding:10px;
+    background-color:inherit;
+    transition:all .5s;
+}
+.easy-autocomplete-container > ul > li:hover{
+    transition:all .5s;
+    background: #ecf5fc;
+    cursor:pointer;
+}
+
+
