@@ -13,7 +13,7 @@ function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api
     let inputs = sellbook.querySelectorAll("input");
     let summary = sellbook.querySelector('textarea');
 
-    var name = ['title', 'author.full_name', 'genre.name', 'condition', 'price', 'image', 'image', 'image', 'locations'];
+    var name = ['title', 'author.full_name', 'genre.name', 'condition', 'price','language.name', 'image', 'image', 'image', 'locations'];
     const data = new FormData();
     let images_place =  []
     for (var i = 0; i < inputs.length; i++) {
