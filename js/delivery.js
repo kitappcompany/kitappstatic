@@ -40,7 +40,7 @@ function autoCompleteJS() {
           template: {
                 type: "custom",
                 method: function(value, item) {
-                    return `<span data-key="${item.id}" data-city="${item.vicinity}" data-position="${item.position}" data-title="${item.title}"> ${item.title} </span>`;
+                    return `<span name="sell_locations" data-key="${item.id}" data-city="${item.vicinity}" data-position="${item.position}" data-title="${item.title}"> ${item.title} </span>`;
                 }
             },
 
