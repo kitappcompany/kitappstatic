@@ -253,7 +253,7 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
 
     // check that all fields are OK
     let errors =  validate() ;
-    if ( errors ) {popupError( adPlacePopup, adPlaceButton); show_errors(errors); return;}
+    if ( errors[0] ) {popupError( adPlacePopup, adPlaceButton); show_errors(errors[1]); return;}
 
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/////////////////
     // UPLOAD STAFF
@@ -338,7 +338,7 @@ function validate() {
 
     // make images normal
     show_error_images(false);
-    return errors;
+    return [is_error, errors];
 
 }
 
