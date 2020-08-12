@@ -170,11 +170,11 @@ function PostABookPro(images_data, adPlacePopup, adPlaceButton, method="POST", u
     let language = document.getElementsByName("sell_language")[0].value;
 
     let pictures = document.getElementsByName("sell_pictures");
-    let locations = document.getElementsByName("sell_locations");
+    let locations = document.getElementsByName("sell_location");
 
     // Get locations as JSON for request
-    let locations_data = make_location(locations, adPlacePopup);
-    if (!locations_data) return;
+    let locations_data = make_location(locations, adPlacePopup, adPlaceButton);
+    if (!locations_data.length) return;
 
     // data to request
     let datam = {
@@ -209,7 +209,7 @@ function PostABookPro(images_data, adPlacePopup, adPlaceButton, method="POST", u
     request.send(JSON.stringify(datam));
 }
 
-function make_location(locations, adPlacePopup) {
+function make_location(locations, adPlacePopup, adPlaceButton) {
     // body...
     locations_data = [];
 
@@ -231,15 +231,19 @@ function make_location(locations, adPlacePopup) {
             loc_data_pro = JSON.stringify(loc_data)
             loc_data['data'] = loc_data_pro
 
-            if (!location) {locations_data=false; break;};
-                locations_data.push(location)
+            if (!location) {
+                popupError( adPlacePopup, adPlaceButton);
+                location.style.borderColor = "red";
+                return []
+            };
+
+            locations_data.push(location)
 
 
         }catch(e){
-            adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/404.svg";
-            adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Error"
+            popupError( adPlacePopup, adPlaceButton);
             location.style.borderColor = "red";
-            return false;
+            return [];
         }
     }
 
@@ -390,7 +394,7 @@ function popupError( adPlacePopup, adPlaceButton) {
 function popupSuccess(adPlacePopup, adPlaceButton, method) {
     // body...
 
-             let info = "Elanınız yayınlandı";
+            let info = "Elanınız yayınlandı";
             if (method==="PATCH") {
                 info = "Məlumatlar uğurla dəyişdirildi."
             }
@@ -398,7 +402,7 @@ function popupSuccess(adPlacePopup, adPlaceButton, method) {
             adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = info
 
             // after 3 sec take user to home page
-            setInterval(function(){ window.location.href = '/' },1800)
+            setInterval(function(){ window.location.href = '' },1800)
 
 
 }
