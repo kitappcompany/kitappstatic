@@ -205,6 +205,7 @@ function PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, m
 }
 
 function make_location(locations, adPlacePopup, adPlaceButton) {
+    document.getElementsByName("sell_locations")[0].style.borderColor = "";
     // body...
     locations_data = [];
 
@@ -242,6 +243,12 @@ function make_location(locations, adPlacePopup, adPlaceButton) {
         }
     }
 
+    // if nothing for loop means one location field
+    if (!locations_data.length) {
+        popupError( adPlacePopup, adPlaceButton);
+        document.getElementsByName("sell_locations")[0].style.borderColor = "red";
+        return []
+    };
     return locations_data
 }
 
