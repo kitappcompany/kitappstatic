@@ -353,7 +353,7 @@ function show_errors(errors) {
     let fields = ['title', 'author', 'genre', 'condition', 'price',  'summary', 'locations', 'language'];
 
     // for some fields
-    for (var j = 0; j < fields.length; j++) {
+    for (var i = 0; i < fields.length; i++) {
          let input = document.getElementsByName("sell_"+fields[i])[0];
          if (errors[fields[i]]!=undefined & errors[fields[i]]!=null){
              input.value = "";input.placeholder = errors[fields[i]];
