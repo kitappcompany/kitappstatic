@@ -148,7 +148,6 @@ function add_style(argument, idName) {
 
 
 // UPLOAD PRO
-
 function PostABookPro(images_data, adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook") {
 
     // if no images uploaded
@@ -337,14 +336,14 @@ function validate() {
     if (!summary) { errors['summary'] = "Boş buraxıla bilməz",  is_error = true };
 
     if (is_error)  return errors;
-    else return false
+    else return true
 
 }
 
 // show errors to user
 function show_errors(errors) {
     // body...
-    if (!errors) return true;
+    // if (!errors) return true;
 
     // add style to placeholder
     add_style('::placeholder { color: rgb(245, 76, 110); }');
