@@ -196,7 +196,7 @@ function PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, m
         if (request.status === 201 || request.status === 200) popupSuccess(adPlacePopup, adPlaceButton, method);
         else {
             popupError( adPlacePopup, adPlaceButton);
-            errors = JSON.parse(request.responseText);
+            let errors = JSON.parse(request.responseText);
             show_errors(errors)
         }
 
@@ -349,19 +349,21 @@ function validate() {
 
     // make images normal
     show_error_images(false);
+    console.log(is_error, errors)
     return [is_error, errors];
 
 }
 
 // show errors to user
 function show_error_images(action) {
+    console.log("SHOW ERRORS")
     let img = document.querySelector('.upload-container');
     if (action) img.style.borderColor= "red";
     else img.style.borderColor= "";
 }
 function show_errors(errors) {
     // body...
-    // if (!errors) return true;
+    console.log("SHOW ERRORS")
 
     // add style to placeholder
     add_style('::placeholder { color: rgb(245, 76, 110); }');
@@ -372,6 +374,8 @@ function show_errors(errors) {
     // for some fields
     for (var i = 0; i < fields.length; i++) {
          let input = document.getElementsByName("sell_"+fields[i])[0];
+         if (input === undefined) continue;
+
          if (errors[fields[i]]!=undefined & errors[fields[i]]!=null){
              input.value = "";input.placeholder = errors[fields[i]];
              input.style = "border: 0.1rem solid rgb(245, 76, 110);";
@@ -379,13 +383,14 @@ function show_errors(errors) {
              if (fields[i] === 'locations') input.placeholder = "Bir məkan daxil edin.";
          }
          else {
-             if (input === undefined) continue;
              input.style = "";input.placeholder = "";
          }
     }
 
 }
 function show_popup(adPlacePopup, adPlaceButton) {
+        console.log("SHOW ERRORS")
+
     adPlaceButton.disabled = true;
     adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/myicons/comment.svg"
     adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Elanınız yayınlanır ..."
