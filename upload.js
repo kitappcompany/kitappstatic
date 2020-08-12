@@ -150,17 +150,10 @@ function add_style(argument, idName) {
 // UPLOAD PRO
 
 function PostABookPro(images_data, adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook") {
-    // FOR USER EXPERIENCE
-    adPlaceButton.disabled = true;
-    adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/myicons/comment.svg"
-    adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Elanınız yayınlanır ..."
-    adPlacePopup.style.display = "block";
 
     // if no images uploaded
     if (!images_data) {
-        adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/404.svg";
-        adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Error"
-        // Sekil yuklenmedi
+        popupError( adPlacePopup, adPlaceButton);
         return
     }
 
@@ -199,11 +192,19 @@ function PostABookPro(images_data, adPlacePopup, adPlaceButton, method="POST", u
     // REQUEST STAFF
     const request = new XMLHttpRequest();
     request.open(method, url);
-    request.setRequestHeader("Authorization", "Token " + user_token)
-    request.setRequestHeader("X-CSRFToken", csrf)
+    request.setRequestHeader("Authorization", "Token " + user_token);
+    request.setRequestHeader("X-CSRFToken", csrf);
+    request.setRequestHeader('Content-Type', 'application/json');
 
     request.onload = ()=>{
         console.log(request.responseText,"RESPONSE")
+        if (request.status === 201 || request.status === 200) popupSuccess(adPlacePopup, adPlaceButton, method);
+        else {
+            popupError( adPlacePopup, adPlaceButton);
+            errors = JSON.parse(request.responseText);
+            show_errors(errors)
+        }
+
     }
     request.send(JSON.stringify(datam));
 }
@@ -250,14 +251,15 @@ function make_location(locations, adPlacePopup) {
 function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook"){
     // Show user that uploading
     // FOR USER EXPERIENCE
-    adPlaceButton.disabled = true;
-    adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/myicons/comment.svg"
-    adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Elanınız yayınlanır ..."
-    adPlacePopup.style.display = "block";
+    show_popup(adPlacePopup, adPlaceButton);
 
-    let images = document.getElementsByName("sell_pictures");
+    // check that all fields are OK
+    let errors =  validate() ;
+    if ( errors ) {popupError( adPlacePopup, adPlaceButton); show_errors(errors); return;}
 
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/////////////////
     // UPLOAD STAFF
+    let images = document.getElementsByName("sell_pictures");
     let images_data = []
     let count_imgs=0;
 
@@ -266,9 +268,8 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
     }
 
     if (count_imgs === 0) {
-        PostABookPro(false, adPlacePopup, adPlaceButton, method, url);
+        popupError( adPlacePopup, adPlaceButton);
         return
-
     }
 
     for (var i = 0; i < images.length; i++) {
@@ -300,15 +301,95 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
 
                 if ( images_data.length === count_imgs) {
                     PostABookPro(images_data, adPlacePopup, adPlaceButton, method, url);
-                    // dont go to end
                 }
             },
             function(err) {
-              PostABookPro(false, adPlacePopup, adPlaceButton, method, url);
+              popupError( adPlacePopup, adPlaceButton);
             }
           );
 
     }
 
     return images_data;
+}
+
+// VALIDATIONS
+function validate() {
+    // validate fields that cant be blank
+
+     let title = document.getElementsByName("sell_title")[0].value.length,
+     author = document.getElementsByName("sell_author")[0].value.length,
+     genre = document.getElementsByName("sell_genre")[0].value.length,
+     price = document.getElementsByName("sell_price")[0].value.length,
+     condition = document.getElementsByName("sell_condition")[0].value.length,
+     summary = document.getElementsByName("sell_summary")[0].value.length,
+     language = document.getElementsByName("sell_language")[0].value.length;
+
+    let errors = {"title":null,"author":null,"genre":null,"price":null,"condition":null, "language":null, "summary":null };
+    let is_error = false;
+
+    if (!title) { errors['title'] = "Boş buraxıla bilməz", is_error = true };
+    if (!author) { errors['author'] = "Boş buraxıla bilməz",  is_error = true };
+    if (!genre) { errors['genre'] = "Boş buraxıla bilməz",  is_error = true };
+    if (!price) { errors['price'] = "Boş buraxıla bilməz",  is_error = true };
+    if (!condition) { errors['condition'] = "Boş buraxıla bilməz",  is_error = true };
+    if (!language) { errors['language'] = "Boş buraxıla bilməz",  is_error = true };
+    if (!summary) { errors['summary'] = "Boş buraxıla bilməz",  is_error = true };
+
+    if (is_error)  return errors;
+    else return false
+
+}
+
+// show errors to user
+function show_errors(errors) {
+    // body...
+    if (!errors) return true;
+
+    // add style to placeholder
+    add_style('::placeholder { color: rgb(245, 76, 110); }');
+
+    // show errors
+    let fields = ['title', 'author', 'genre', 'condition', 'price',  'summary', 'locations'];
+
+    // for some fields
+    for (var j = 0; j < fields.length; j++) {
+         let input = document.getElementsByName("sell_"+fields[i])[0];
+         if (errors[fields[i]]!=undefined & errors[fields[i]]!=null){
+             input.value = "";input.placeholder = errors[fields[i]];
+             input.style = "border: 0.1rem solid rgb(245, 76, 110);";
+
+             if (fields[i] === 'locations') input.placeholder = "Bir məkan daxil edin.";
+         }
+         else { input.style = "";input.placeholder = ""; }
+    }
+
+}
+function show_popup(adPlacePopup, adPlaceButton) {
+    adPlaceButton.disabled = true;
+    adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/myicons/comment.svg"
+    adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Elanınız yayınlanır ..."
+    adPlacePopup.style.display = "block";
+
+}
+function popupError( adPlacePopup, adPlaceButton) {
+    // body...
+    adPlaceButton.disabled = false;
+    adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/404.svg";
+    adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Error"
+}
+function popupSuccess(adPlacePopup, adPlaceButton, method) {
+    // body...
+
+             let info = "Elanınız yayınlandı";
+            if (method==="PATCH") {
+                info = "Məlumatlar uğurla dəyişdirildi."
+            }
+            adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/undraw_done_a34v.svg";
+            adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = info
+
+            // after 3 sec take user to home page
+            setInterval(function(){ window.location.href = '/' },1800)
+
+
 }

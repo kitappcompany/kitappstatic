@@ -7,9 +7,9 @@ function add_place_popup(page=true, book_id=null) {
         adPlaceButton[i].onclick = function(){
             if (i===0) {//post book button
                 if (page) {//for post a new book
-                    PostABook(adPlacePopup, adPlaceButton[i]);// selling book vs searching
+                    PostABookPro(adPlacePopup, adPlaceButton[i]);// selling book vs searching
                 }else{//for edit a book info
-                    PostABook(adPlacePopup, adPlaceButton[i], "PATCH", "/accounts-api/mybooks/"+book_id + "/");// selling book vs searching
+                    PostABookPro(adPlacePopup, adPlaceButton[i], "PATCH", "/accounts-api/mybooks/"+book_id + "/");// selling book vs searching
                 }
 
             }
