@@ -149,12 +149,20 @@ function add_style(argument, idName) {
 
 // UPLOAD PRO
 
-function PostABookPro(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook") {
+function PostABookPro(images_data, adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook") {
     // FOR USER EXPERIENCE
     adPlaceButton.disabled = true;
     adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/myicons/comment.svg"
     adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Elanınız yayınlanır ..."
     adPlacePopup.style.display = "block";
+
+    // if no images uploaded
+    if (!images_data) {
+        adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/404.svg";
+        adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Error"
+        // Sekil yuklenmedi
+        return
+    }
 
     // DATA FOR REQUEST
     let csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
@@ -175,11 +183,6 @@ function PostABookPro(adPlacePopup, adPlaceButton, method="POST", url="/catalog-
     let locations_data = make_location(locations, adPlacePopup);
     if (!locations_data) return;
 
-    // IMAGES STAFF
-    ConfigS3();
-    let images_data = upload_image(pictures)
-    if (!images_data) return;
-
     // data to request
     let datam = {
         "title": title, "condition": condition,
@@ -193,6 +196,16 @@ function PostABookPro(adPlacePopup, adPlaceButton, method="POST", url="/catalog-
 
     console.log(datam);
 
+    // REQUEST STAFF
+    const request = new XMLHttpRequest();
+    request.open(method, url);
+    request.setRequestHeader("Authorization", "Token " + user_token)
+    request.setRequestHeader("X-CSRFToken", csrf)
+
+    request.onload = ()=>{
+        console.log(request.responseText,"RESPONSE")
+    }
+    request.send(JSON.stringify(datam));
 }
 
 function make_location(locations, adPlacePopup) {
@@ -234,40 +247,28 @@ function make_location(locations, adPlacePopup) {
 
 }
 
-function ConfigS3() {
-    // body...
-    // CONFIGURATION
-    var albumBucketName = "kitapp-medias";
-	var bucketRegion = "eu-central-1";
+function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook"){
+    // Show user that uploading
+    // FOR USER EXPERIENCE
+    adPlaceButton.disabled = true;
+    adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/myicons/comment.svg"
+    adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Elanınız yayınlanır ..."
+    adPlacePopup.style.display = "block";
 
-	AWS.config.update({
-  	region: bucketRegion,
-  	credentials:  new AWS.CognitoIdentityCredentials({
-	    		IdentityPoolId: "eu-central-1:f0eaa730-ea4b-4e38-84d9-7a5769431c07"
-		})
-	});
-
-	var s3 = new AWS.S3({
-  	apiVersion: "2006-03-01",
-  	params: { Bucket: albumBucketName }
-	});
-}
-
-function upload_image(images){
+    let images = document.getElementsByName("sell_pictures");
 
     // UPLOAD STAFF
     let images_data = []
     for (var i = 0; i < images.length; i++) {
           var files = images[i].files;
           if (!files.length) {
-            images_data = false; break ;
+            continue ;
           }
           var file = files[0];
           var fileName = file.name;
-          var albumPhotosKey = encodeURIComponent(albumName) + "/";
+          var albumPhotosKey = encodeURIComponent(albumBucketName) + "/";
 
           var photoKey = albumPhotosKey + fileName;
-          let photoUrl;
           // Use S3 ManagedUpload class as it supports multipart uploads
           var upload = new AWS.S3.ManagedUpload({
             params: {
@@ -276,29 +277,26 @@ function upload_image(images){
               Body: file,
               ACL: "public-read"
             }
-          },
-
-            function (err, data) {
-                // body...
-                var href = this.request.httpRequest.endpoint.href;
-                var bucketUrl = href + albumBucketName + "/";
-                photoUrl  = bucketUrl+encodeURIComponent(photoKey)
-            }
-
-          );
+          });
 
           var promise = upload.promise();
 
           promise.then(
             function(data) {
-                images_data.push({"img":photoUrl, "opt_img":photoUrl})
+                console.log(photoKey)
+                console.log(data)
+                images_data.push({"img":photoKey, "opt_img":photoKey})
+
+                if (i === images.length -1) {
+                    PostABookPro(images_data, adPlacePopup, adPlaceButton, method, url);
+                    // dont go to end
+                }
             },
             function(err) {
-              images_data = false;
+              PostABookPro(false, adPlacePopup, adPlaceButton, method, url);
             }
           );
 
-          if (!images_data) break;
     }
 
     return images_data;
