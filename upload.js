@@ -148,7 +148,7 @@ function add_style(argument, idName) {
 
 
 // UPLOAD PRO
-function PostABookPro(images_data, adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook") {
+function PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook") {
 
     // if no images uploaded
     if (!images_data) {
@@ -168,13 +168,8 @@ function PostABookPro(images_data, adPlacePopup, adPlaceButton, method="POST", u
     let condition = document.getElementsByName("sell_condition")[0].value;
     let summary = document.getElementsByName("sell_summary")[0].value;
     let language = document.getElementsByName("sell_language")[0].value;
-
     let pictures = document.getElementsByName("sell_pictures");
-    let locations = document.getElementsByName("sell_location");
 
-    // Get locations as JSON for request
-    let locations_data = make_location(locations, adPlacePopup, adPlaceButton);
-    if (!locations_data.length) return;
 
     // data to request
     let datam = {
@@ -275,6 +270,11 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
         return
     }
 
+    // Get locations as JSON for request
+    let locations = document.getElementsByName("sell_location");
+    let locations_data = make_location(locations, adPlacePopup, adPlaceButton);
+    if (!locations_data.length) return;
+
     for (var i = 0; i < images.length; i++) {
 
           var files = images[i].files;
@@ -303,7 +303,7 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
                 images_data.push({"img":data.Location, "opt_img":data.Location})
 
                 if ( images_data.length === count_imgs) {
-                    PostABookPro(images_data, adPlacePopup, adPlaceButton, method, url);
+                    PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, method, url);
                 }
             },
             function(err) {
