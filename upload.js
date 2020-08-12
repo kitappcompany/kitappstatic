@@ -259,7 +259,20 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
 
     // UPLOAD STAFF
     let images_data = []
+    let count_imgs=0;
+
     for (var i = 0; i < images.length; i++) {
+        if (images[i].files.length) count_imgs++;
+    }
+
+    if (count_imgs === 0) {
+        PostABookPro(false, adPlacePopup, adPlaceButton, method, url);
+        return
+
+    }
+
+    for (var i = 0; i < images.length; i++) {
+
           var files = images[i].files;
           if (!files.length) {
             continue ;
@@ -283,11 +296,9 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
 
           promise.then(
             function(data) {
-                console.log(photoKey)
-                console.log(data)
-                images_data.push({"img":photoKey, "opt_img":photoKey})
+                images_data.push({"img":data.Location, "opt_img":data.Location})
 
-                if (i === images.length -1) {
+                if ( images_data.length === count_imgs) {
                     PostABookPro(images_data, adPlacePopup, adPlaceButton, method, url);
                     // dont go to end
                 }
