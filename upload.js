@@ -210,40 +210,40 @@ function PostABookPro(images_data, adPlacePopup, adPlaceButton, method="POST", u
 
 function make_location(locations, adPlacePopup) {
     // body...
-        locations_data = [];
+    locations_data = [];
+
+
+    for (var i = 0; i < locations.length; i++) {
+        location = locations[i];
         try{
+            location.style.borderColor = "";
+            add_style('::placeholder { color: rgb(245, 76, 110); }');
+            let listElement = location.parentElement.querySelector('.selected').children[0].children[0];
 
-                for (var i = 0; i < locations.length; i++) {
-                    location = locations[i];
+            let position = listElement.dataset.position.split(",");
 
-                    location.style.borderColor = "";
-                    add_style('::placeholder { color: rgb(245, 76, 110); }');
-                    let listElement = location.parentElement.querySelector('.selected').children[0].children[0];
+            let loc_data = {
+                "locations.name":listElement.dataset.title,
+                "locations.displayLocation":{"Latitude":position[0], "Longitude":position[1]},
+                "lat":1, "lng":2
+            } ;
 
-                    let position = listElement.dataset.position.split(",");
+            loc_data_pro = JSON.stringify(loc_data)
+            loc_data['data'] = loc_data_pro
 
-                    let loc_data = {
-                        "locations.name":listElement.dataset.title,
-                        "locations.displayLocation":{"Latitude":position[0], "Longitude":position[1]},
-                        "lat":1, "lng":2
-                    } ;
+            if (!location) {locations_data=false; break;};
+                locations_data.push(location)
 
-                    loc_data_pro = JSON.stringify(loc_data)
-                    loc_data['data'] = loc_data_pro
 
-                    if (!location) {locations_data=false; break;};
-                    locations_data.push(location)
-                }
-
-                return locations_data
-
-            }catch(e){
-                adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/404.svg";
-                adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Error"
-                location.style.borderColor = "red";
-                location.value="";
-                return false;
-            }
+        }catch(e){
+            adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/404.svg";
+            adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Error"
+            location.style.borderColor = "red";
+            location.value="";
+            return false;
+        }
+    }
+        return locations_data
 
 }
 
@@ -268,6 +268,7 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
 
     if (count_imgs === 0) {
         popupError( adPlacePopup, adPlaceButton);
+        show_error_images(true);
         return
     }
 
@@ -304,6 +305,7 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
             },
             function(err) {
               popupError( adPlacePopup, adPlaceButton);
+              show_error_images(true);
             }
           );
 
@@ -325,7 +327,6 @@ function validate() {
      language = document.getElementsByName("sell_language")[0].value.length;
 
     let errors = {"title":null,"author":null,"genre":null,"price":null,"condition":null, "language":null, "summary":null };
-    let is_error = false;
 
     if (!title) { errors['title'] = "Boş buraxıla bilməz" };
     if (!author) { errors['author'] = "Boş buraxıla bilməz" };
@@ -335,11 +336,17 @@ function validate() {
     if (!language) { errors['language'] = "Boş buraxıla bilməz" };
     if (!summary) { errors['summary'] = "Boş buraxıla bilməz" };
 
-    if (is_error)  return errors;
-    else return false
+    // make images normal
+    show_error_images(false);
+    return errors;
 
 }
 
+function show_error_images(action) {
+    let img = document.querySelector('.upload-container');
+    if (action) img.style="border-color:red";
+    else img.style= "";
+}
 // show errors to user
 function show_errors(errors) {
     // body...
