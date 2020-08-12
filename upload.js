@@ -210,11 +210,11 @@ function make_location(locations, adPlacePopup, adPlaceButton) {
     locations_data = [];
 
     for (var i = 0; i < locations.length; i++) {
-        location = locations[i];
+        let location_ = locations[i];
         try{
-            location.style.borderColor = "";
+            location_.style.borderColor = "";
             add_style('::placeholder { color: rgb(245, 76, 110); }');
-            let listElement = location.parentElement.querySelector('.selected').children[0].children[0];
+            let listElement = location_.parentElement.querySelector('.selected').children[0].children[0];
 
             let position = listElement.dataset.position.split(",");
 
@@ -227,18 +227,18 @@ function make_location(locations, adPlacePopup, adPlaceButton) {
             loc_data_pro = JSON.stringify(loc_data)
             loc_data['data'] = loc_data_pro
 
-            if (!location) {
+            if (!location_) {
                 popupError( adPlacePopup, adPlaceButton);
-                location.style.borderColor = "red";
+                location_.style.borderColor = "red";
                 return []
             };
 
-            locations_data.push(location)
+            locations_data.push(location_)
 
 
         }catch(e){
             popupError( adPlacePopup, adPlaceButton);
-            location.style.borderColor = "red";
+            location_.style.borderColor = "red";
             return [];
         }
     }
@@ -409,7 +409,7 @@ function popupSuccess(adPlacePopup, adPlaceButton, method) {
             adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = info
 
             // after 3 sec take user to home page
-            setInterval(function(){ window.location.href = '' },1800)
+            // setInterval(function(){ window.location.href = '' },1800)
 
 
 }
