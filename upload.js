@@ -350,7 +350,7 @@ function show_errors(errors) {
     add_style('::placeholder { color: rgb(245, 76, 110); }');
 
     // show errors
-    let fields = ['title', 'author', 'genre', 'condition', 'price',  'summary', 'locations'];
+    let fields = ['title', 'author', 'genre', 'condition', 'price',  'summary', 'locations', 'language'];
 
     // for some fields
     for (var j = 0; j < fields.length; j++) {
@@ -361,7 +361,10 @@ function show_errors(errors) {
 
              if (fields[i] === 'locations') input.placeholder = "Bir məkan daxil edin.";
          }
-         else { input.style = "";input.placeholder = ""; }
+         else {
+             if (input === undefined) continue;
+             input.style = "";input.placeholder = "";
+         }
     }
 
 }
