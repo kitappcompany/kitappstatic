@@ -356,10 +356,10 @@ function validate() {
 
 // show errors to user
 function show_error_images(action) {
-    console.log("SHOW ERRORS")
+    console.log("SHOW ERRORS image", action)
     let img = document.querySelector('.upload-container');
     if (action) img.style.borderColor= "red";
-    else img.style.borderColor= "";
+    else img.style = "";
 }
 function show_errors(errors) {
     // body...
@@ -374,8 +374,9 @@ function show_errors(errors) {
     // for some fields
     for (var i = 0; i < fields.length; i++) {
          let input = document.getElementsByName("sell_"+fields[i])[0];
+         console.log("BEFORE", input)
          if (input === undefined) continue;
-
+         console.log("after", input)
          if (errors[fields[i]]!=undefined & errors[fields[i]]!=null){
              input.value = "";input.placeholder = errors[fields[i]];
              input.style = "border: 0.1rem solid rgb(245, 76, 110);";
@@ -389,7 +390,7 @@ function show_errors(errors) {
 
 }
 function show_popup(adPlacePopup, adPlaceButton) {
-        console.log("SHOW ERRORS")
+        console.log("SHOW POPUP")
 
     adPlaceButton.disabled = true;
     adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/myicons/comment.svg"
