@@ -327,16 +327,16 @@ function validate() {
     let errors = {"title":null,"author":null,"genre":null,"price":null,"condition":null, "language":null, "summary":null };
     let is_error = false;
 
-    if (!title) { errors['title'] = "Boş buraxıla bilməz", is_error = true };
-    if (!author) { errors['author'] = "Boş buraxıla bilməz",  is_error = true };
-    if (!genre) { errors['genre'] = "Boş buraxıla bilməz",  is_error = true };
-    if (!price) { errors['price'] = "Boş buraxıla bilməz",  is_error = true };
-    if (!condition) { errors['condition'] = "Boş buraxıla bilməz",  is_error = true };
-    if (!language) { errors['language'] = "Boş buraxıla bilməz",  is_error = true };
-    if (!summary) { errors['summary'] = "Boş buraxıla bilməz",  is_error = true };
+    if (!title) { errors['title'] = "Boş buraxıla bilməz" };
+    if (!author) { errors['author'] = "Boş buraxıla bilməz" };
+    if (!genre) { errors['genre'] = "Boş buraxıla bilməz" };
+    if (!price) { errors['price'] = "Boş buraxıla bilməz" };
+    if (!condition) { errors['condition'] = "Boş buraxıla bilməz" };
+    if (!language) { errors['language'] = "Boş buraxıla bilməz" };
+    if (!summary) { errors['summary'] = "Boş buraxıla bilməz" };
 
     if (is_error)  return errors;
-    else return true
+    else return false
 
 }
 
