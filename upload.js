@@ -153,6 +153,7 @@ function PostABookPro(images_data, adPlacePopup, adPlaceButton, method="POST", u
     // if no images uploaded
     if (!images_data) {
         popupError( adPlacePopup, adPlaceButton);
+        show_error_images(true);
         return
     }
 
@@ -212,7 +213,6 @@ function make_location(locations, adPlacePopup) {
     // body...
     locations_data = [];
 
-
     for (var i = 0; i < locations.length; i++) {
         location = locations[i];
         try{
@@ -239,12 +239,11 @@ function make_location(locations, adPlacePopup) {
             adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/404.svg";
             adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Error"
             location.style.borderColor = "red";
-            location.value="";
             return false;
         }
     }
-        return locations_data
 
+    return locations_data
 }
 
 function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook"){
@@ -327,14 +326,15 @@ function validate() {
      language = document.getElementsByName("sell_language")[0].value.length;
 
     let errors = {"title":null,"author":null,"genre":null,"price":null,"condition":null, "language":null, "summary":null };
+    let is_error = false;
 
-    if (!title) { errors['title'] = "Boş buraxıla bilməz" };
-    if (!author) { errors['author'] = "Boş buraxıla bilməz" };
-    if (!genre) { errors['genre'] = "Boş buraxıla bilməz" };
-    if (!price) { errors['price'] = "Boş buraxıla bilməz" };
-    if (!condition) { errors['condition'] = "Boş buraxıla bilməz" };
-    if (!language) { errors['language'] = "Boş buraxıla bilməz" };
-    if (!summary) { errors['summary'] = "Boş buraxıla bilməz" };
+    if (!title) { errors['title'] = "Boş buraxıla bilməz", is_error=true };
+    if (!author) { errors['author'] = "Boş buraxıla bilməz", is_error=true };
+    if (!genre) { errors['genre'] = "Boş buraxıla bilməz", is_error=true };
+    if (!price) { errors['price'] = "Boş buraxıla bilməz", is_error=true };
+    if (!condition) { errors['condition'] = "Boş buraxıla bilməz", is_error=true };
+    if (!language) { errors['language'] = "Boş buraxıla bilməz", is_error=true };
+    if (!summary) { errors['summary'] = "Boş buraxıla bilməz", is_error=true };
 
     // make images normal
     show_error_images(false);
@@ -342,12 +342,12 @@ function validate() {
 
 }
 
+// show errors to user
 function show_error_images(action) {
     let img = document.querySelector('.upload-container');
-    if (action) img.style="border-color:red";
-    else img.style= "";
+    if (action) img.style.borderColor= "red";
+    else img.style.borderColor= "";
 }
-// show errors to user
 function show_errors(errors) {
     // body...
     // if (!errors) return true;
