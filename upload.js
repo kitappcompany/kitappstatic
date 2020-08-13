@@ -220,7 +220,7 @@ function make_location(locations, adPlacePopup, adPlaceButton) {
 
             let loc_data = {
                 "name":listElement.dataset.title,
-                "displayLocation":{"Latitude":position[0], "Longitude":position[1]},
+                "displayLocation": JSON.stringify({"Latitude":position[0], "Longitude":position[1]}),
                 "lat":1, "lng":2
             } ;
 
