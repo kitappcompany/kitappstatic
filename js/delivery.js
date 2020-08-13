@@ -1,6 +1,6 @@
 let deliveryContainer = document.querySelector('.delivery-container');
 let locationInputTemp = Handlebars.compile(`<div class="delivery d-flex align-items-center py-2">
-            <input  value="{{loc_name}}" data-loc_data='{{loc_data|safe}}' name="sell_locations" type="text" class = "input-val locations">
+            <input  value="{{loc_name}}" data-loc_data='{{loc_data}}' name="sell_locations" type="text" class = "input-val locations">
             <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/Path 413.svg" alt="" class = "ml-3 plas-delivery" onclick = "addDelivery();return false;">
             <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/minus.svg" alt="" class = "ml-3 minus-delivery" onclick = "closeDelivery(this)">
             </div>`);
