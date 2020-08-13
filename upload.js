@@ -259,7 +259,10 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
 
     // check that all fields are OK
     let errors =  validate() ;
-    if ( errors[0] ) {popupError( adPlacePopup, adPlaceButton); show_errors(errors[1]); return;}
+    popupError( adPlacePopup, adPlaceButton);
+
+    let result = show_errors(errors);
+    if (result ) return ;//if there was error not continue
 
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/////////////////
     // UPLOAD STAFF
@@ -349,8 +352,7 @@ function validate() {
 
     // make images normal
     show_error_images(false);
-    console.log(is_error, errors)
-    return [is_error, errors];
+    return  errors;
 
 }
 
@@ -371,6 +373,7 @@ function show_errors(errors) {
     // show errors
     let fields = ['title', 'author', 'genre', 'condition', 'price',  'summary', 'locations', 'language'];
 
+    let result = false;
     // for some fields
     for (var i = 0; i < fields.length; i++) {
          let input = document.getElementsByName("sell_"+fields[i])[0];
@@ -382,11 +385,15 @@ function show_errors(errors) {
              input.style = "border: 0.1rem solid rgb(245, 76, 110);";
 
              if (fields[i] === 'locations') input.placeholder = "Bir məkan daxil edin.";
+             result = true;
          }
          else {
              input.style = "";input.placeholder = "";
          }
     }
+
+    // result means continue or not continue
+    return result;
 
 }
 function show_popup(adPlacePopup, adPlaceButton) {
