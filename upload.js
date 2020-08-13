@@ -240,7 +240,7 @@ function make_location(locations, adPlacePopup, adPlaceButton) {
         }catch(e){
             if (location_.dataset.loc_data.length) {
                 console.log(location_.dataset.loc_data)
-                locations_data.push( location_.dataset.loc_data);
+                locations_data.push( JSON.parse(location_.dataset.loc_data) );
             }
             else {
                 popupError( adPlacePopup, adPlaceButton);
@@ -299,7 +299,7 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
             //   following two lines for update only
             if (images[i].dataset.src.length != 0) images_data.push({"img":images[i].dataset.src, "opt_img":images[i].dataset.src});
             // make update when no new image uploaded
-            if (i === images.length-1 && images[i].dataset.src.length != 0 ) {PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, "PATCH", url); return};
+            if (i === images.length-1 && images_data.length != 0 ) {PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, "PATCH", url); return};
 
             continue ;
           }
