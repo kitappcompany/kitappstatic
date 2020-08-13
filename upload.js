@@ -219,8 +219,8 @@ function make_location(locations, adPlacePopup, adPlaceButton) {
             let position = listElement.dataset.position.split(",");
 
             let loc_data = {
-                "locations.name":listElement.dataset.title,
-                "locations.displayLocation":{"Latitude":position[0], "Longitude":position[1]},
+                "name":listElement.dataset.title,
+                "displayLocation":{"Latitude":position[0], "Longitude":position[1]},
                 "lat":1, "lng":2
             } ;
 
@@ -373,9 +373,7 @@ function show_errors(errors) {
     // for some fields
     for (var i = 0; i < fields.length; i++) {
          let input = document.getElementsByName("sell_"+fields[i])[0];
-         console.log("BEFORE", input)
          if (input === undefined) continue;
-         console.log("after", input)
          if (errors[fields[i]]!=undefined & errors[fields[i]]!=null){
              input.value = "";input.placeholder = errors[fields[i]];
              input.style = "border: 0.1rem solid rgb(245, 76, 110);";
