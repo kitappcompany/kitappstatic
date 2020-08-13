@@ -9,7 +9,7 @@ function add_place_popup(page=true, book_id=null) {
                 if (page) {//for post a new book
                     upload_image(adPlacePopup, adPlaceButton[i]);// selling book vs searching
                 }else{//for edit a book info
-                    upload_image(adPlacePopup, adPlaceButton[i], "PATCH", "/accounts-api/mybooks/"+book_id + "/");// selling book vs searching
+                    upload_image(adPlacePopup, adPlaceButton[i], "PATCH", "/catalog-api/createabook/"+book_id + "/");// selling book vs searching
                 }
 
             }

@@ -42,7 +42,8 @@ function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api
                         inputs[i].style.borderColor = "red";
                         inputs[i].value="";
                         return;
-                     } else if (method==="PATCH"  & inputs[i].value.length != 0) {  data.append(name[i], JSON.stringify({"title":inputs[i].value}) );  continue; }
+                     } else if (method==="PATCH"  & inputs[i].value.length != 0) {
+                         data.append(name[i], JSON.stringify({"title":inputs[i].value}) );  continue; }
                       else {continue; }
             }
         }
@@ -227,19 +228,26 @@ function make_location(locations, adPlacePopup, adPlaceButton) {
             loc_data_pro = JSON.stringify(loc_data)
             loc_data['data'] = loc_data_pro
 
-            if (!location_) {
-                popupError( adPlacePopup, adPlaceButton);
-                location_.style.borderColor = "red";
-                return []
-            };
+            // if (!location_) {
+            //     popupError( adPlacePopup, adPlaceButton);
+            //     location_.style.borderColor = "red";
+            //     return []
+            // };
 
             locations_data.push(loc_data)
 
 
         }catch(e){
-            popupError( adPlacePopup, adPlaceButton);
-            location_.style.borderColor = "red";
-            return [];
+            if (location_.dataset.loc_data.length) {
+                console.log(location_.dataset.loc_data)
+                locations_data.push( location_.dataset.loc_data);
+            }
+            else {
+                popupError( adPlacePopup, adPlaceButton);
+                location_.style.borderColor = "red";
+                return [];
+            }
+
         }
     }
 
@@ -266,11 +274,11 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/////////////////
     // UPLOAD STAFF
     let images = document.getElementsByName("sell_pictures");
-    let images_data = []
+    let images_data = [];
     let count_imgs=0;
 
     for (var i = 0; i < images.length; i++) {
-        if (images[i].files.length) count_imgs++;
+        if (images[i].files.length || !images[i].dataset.src.length) count_imgs++;
     }
 
     if (count_imgs === 0) {
@@ -288,6 +296,11 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
 
           var files = images[i].files;
           if (!files.length) {
+            //   following two lines for update only
+            if (!images[i].dataset.src.length) images_data.push({"img":images[i].dataset.src, "opt_img":images[i].dataset.src});
+            // make update when no new image uploaded
+            if (i == images.length-1) {PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, "PATCH", url); return};
+
             continue ;
           }
           var file = files[0];
