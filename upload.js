@@ -176,7 +176,7 @@ function PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, m
     let datam = {
         "title": title, "condition": condition,
         "author": { "full_name": author },
-        "summary": "sd", "price": 1,
+        "summary": "sd", "price": parseFloat(price),
         "genre": { "name": genre },
         "language": { "name": language, "short_name": language},
         "locations": locations_data,
@@ -222,7 +222,7 @@ function make_location(locations, adPlacePopup, adPlaceButton) {
             let loc_data = {
                 "name":listElement.dataset.title,
                 "displayLocation": JSON.stringify({"Latitude":position[0], "Longitude":position[1]}),
-                "lat":1, "lng":2
+                "lat":position[0], "lng":position[1]
             } ;
 
             loc_data_pro = JSON.stringify(loc_data)
