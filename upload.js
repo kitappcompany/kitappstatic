@@ -278,7 +278,7 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
     let count_imgs=0;
 
     for (var i = 0; i < images.length; i++) {
-        if (images[i].files.length || !images[i].dataset.src.length) count_imgs++;
+        if (images[i].files.length || images[i].dataset.src.length != 0) count_imgs++;
     }
 
     if (count_imgs === 0) {
