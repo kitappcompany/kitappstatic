@@ -259,10 +259,9 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
 
     // check that all fields are OK
     let errors =  validate() ;
-    popupError( adPlacePopup, adPlaceButton);
 
     let result = show_errors(errors);
-    if (result ) return ;//if there was error not continue
+    if (result ) {popupError( adPlacePopup, adPlaceButton);return};//if there was error not continue
 
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/////////////////
     // UPLOAD STAFF
