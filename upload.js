@@ -297,9 +297,9 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
           var files = images[i].files;
           if (!files.length) {
             //   following two lines for update only
-            if (!images[i].dataset.src.length) images_data.push({"img":images[i].dataset.src, "opt_img":images[i].dataset.src});
+            if (images[i].dataset.src.length != 0) images_data.push({"img":images[i].dataset.src, "opt_img":images[i].dataset.src});
             // make update when no new image uploaded
-            if (i == images.length-1 && !images[i].dataset.src.length) {PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, "PATCH", url); return};
+            if (i === images.length-1 && images[i].dataset.src.length != 0 ) {PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, "PATCH", url); return};
 
             continue ;
           }
