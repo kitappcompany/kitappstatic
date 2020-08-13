@@ -1,6 +1,6 @@
 
 // Post A Book Function
-function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook") {
+function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook/") {
     adPlaceButton.disabled = true;
     adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/myicons/comment.svg"
     adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Elanınız yayınlanır ..."
@@ -149,7 +149,7 @@ function add_style(argument, idName) {
 
 
 // UPLOAD PRO
-function PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook") {
+function PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook/") {
 
     // if no images uploaded
     if (!images_data) {
@@ -260,7 +260,7 @@ function make_location(locations, adPlacePopup, adPlaceButton) {
     return locations_data
 }
 
-function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook"){
+function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook/"){
     // Show user that uploading
     // FOR USER EXPERIENCE
     show_popup(adPlacePopup, adPlaceButton);
