@@ -233,7 +233,7 @@ function make_location(locations, adPlacePopup, adPlaceButton) {
                 return []
             };
 
-            locations_data.push(location_)
+            locations_data.push(loc_data)
 
 
         }catch(e){
@@ -281,7 +281,7 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
     }
 
     // Get locations as JSON for request
-    let locations = document.getElementsByName("sell_location");
+    let locations = document.getElementsByName("sell_locations");
     let locations_data = make_location(locations, adPlacePopup, adPlaceButton);
     if (!locations_data.length) return;
 
@@ -358,15 +358,11 @@ function validate() {
 
 // show errors to user
 function show_error_images(action) {
-    console.log("SHOW ERRORS image", action)
     let img = document.querySelector('.upload-container');
     if (action) img.style.borderColor= "red";
     else img.style = "";
 }
 function show_errors(errors) {
-    // body...
-    console.log("SHOW ERRORS")
-
     // add style to placeholder
     add_style('::placeholder { color: rgb(245, 76, 110); }');
 
@@ -397,8 +393,6 @@ function show_errors(errors) {
 
 }
 function show_popup(adPlacePopup, adPlaceButton) {
-        console.log("SHOW POPUP")
-
     adPlaceButton.disabled = true;
     adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/myicons/comment.svg"
     adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Elanınız yayınlanır ..."
