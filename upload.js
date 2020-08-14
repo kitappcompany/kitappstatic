@@ -171,7 +171,7 @@ function PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, m
     let language = document.getElementsByName("sell_language")[0].value;
     let pictures = document.getElementsByName("sell_pictures");
 
-
+    if (radioBtnOnclick) price=0;
     // data to request
     let datam = {
         "title": title, "condition": condition,
@@ -183,7 +183,6 @@ function PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, m
         "img": images_data
         }
 
-    console.log(datam);
 
     // REQUEST STAFF
     const request = new XMLHttpRequest();
@@ -193,7 +192,6 @@ function PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, m
     request.setRequestHeader('Content-Type', 'application/json');
 
     request.onload = ()=>{
-        console.log(request.responseText,"RESPONSE")
         if (request.status === 201 || request.status === 200) popupSuccess(adPlacePopup, adPlaceButton, method);
         else {
             popupError( adPlacePopup, adPlaceButton);
@@ -228,18 +226,12 @@ function make_location(locations, adPlacePopup, adPlaceButton) {
             loc_data_pro = JSON.stringify(loc_data)
             loc_data['data'] = loc_data_pro
 
-            // if (!location_) {
-            //     popupError( adPlacePopup, adPlaceButton);
-            //     location_.style.borderColor = "red";
-            //     return []
-            // };
 
             locations_data.push(loc_data)
 
 
         }catch(e){
             if (location_.dataset.loc_data.length) {
-                console.log(location_.dataset.loc_data)
                 locations_data.push( JSON.parse(location_.dataset.loc_data) );
             }
             else {
@@ -292,6 +284,8 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
     let locations_data = make_location(locations, adPlacePopup, adPlaceButton);
     if (!locations_data.length) return;
 
+    // if new images want upload
+    let new_imgs = false;
     for (var i = 0; i < images.length; i++) {
 
           var files = images[i].files;
@@ -299,12 +293,12 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
             //   following two lines for update only
             if (images[i].dataset.src.length != 0) images_data.push({"img":images[i].dataset.src, "opt_img":images[i].dataset.src});
             // make update when no new image uploaded
-            if (i === images.length-1 && images_data.length != 0 ) {PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, "PATCH", url); return};
-
+            if (i === images.length-1 && images_data.length != 0 && !new_imgs ) {PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, "PATCH", url); return};
+            new_imgs = true;
             continue ;
           }
           var file = files[0];
-          var fileName = file.name;
+          var fileName = file.name + Math.random().toString(36).substr(2, 9) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
           var albumPhotosKey = encodeURIComponent(albumBucketName) + "/";
 
           var photoKey = albumPhotosKey + fileName;
@@ -426,7 +420,7 @@ function popupSuccess(adPlacePopup, adPlaceButton, method) {
             adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = info
 
             // after 3 sec take user to home page
-            // setInterval(function(){ window.location.href = '' },1800)
+            setInterval(function(){ window.location.href = '/' },1800)
 
 
 }
