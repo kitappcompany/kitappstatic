@@ -19,18 +19,18 @@ function autoCompleteJS() {
     // body...
 
     let mypos = document.getElementById('mypos').dataset.mypos;
-    let comp = encodeURIComponent('40,49;r=500000')
+    let comp = encodeURIComponent('40,49')
     if (mypos != '' | mypos==null) {
         let d = JSON.parse(mypos)
-        comp = encodeURIComponent(`${d['Latitude']},${d['Longitude']};r=500000`)
+        comp = encodeURIComponent(`${d['Latitude']},${d['Longitude']}`)
     }
 
     var options = {
           url: function(phrase) {
-            		return "https://places.sit.ls.hereapi.com/places/v1/autosuggest?Accept-Language=q%3D0.9%3Bq%3D0.8%2Caz%3Bq%3D0.7&in=" + comp + "&size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&q=" + phrase + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM";
+            		return "https://autosuggest.search.hereapi.com/v1/autosuggest?Accept-Language=q%3D0.9%3Bq%3D0.8%2Caz%3Bq%3D0.7&at=" + comp + "&size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&q=" + phrase + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM";
             	},
           getValue: "title",
-          listLocation:"results",
+          listLocation:"items",
           requestDelay: 500,
           list: {
                 match: {enabled: true},
@@ -40,7 +40,7 @@ function autoCompleteJS() {
           template: {
                 type: "custom",
                 method: function(value, item) {
-                    return `<span name="sell_location" data-key="${item.id}" data-city="${item.vicinity}" data-position="${item.position}" data-title="${item.title}"> ${item.title} </span>`;
+                    return `<span name="sell_location" data-key="${item.id}"  data-position="${item.position}" data-title="${item.title}"> ${item.title} </span>`;
                 }
             },
 
