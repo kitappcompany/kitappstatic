@@ -8,7 +8,7 @@ function readURL1(input) {
 
             reader.readAsDataURL(input.files[0]);
         }
-        input.dataset.src = null;
+
     }
 function readURL2(input) {
         if (input.files && input.files[0]) {
@@ -20,7 +20,7 @@ function readURL2(input) {
 
             reader.readAsDataURL(input.files[0]);
         }
-        input.dataset.src = null;
+
     }
 function readURL3(input) {
         if (input.files && input.files[0]) {
@@ -32,7 +32,7 @@ function readURL3(input) {
 
             reader.readAsDataURL(input.files[0]);
         }
-        input.dataset.src = null;
+
     }
 function readURL4(input) {
         if (input.files && input.files[0]) {
@@ -45,7 +45,7 @@ function readURL4(input) {
             reader.readAsDataURL(input.files[0]);
         }
 
-        input.dataset.src = null;
+
     }
 
 function uploadImage() {
@@ -66,7 +66,10 @@ function uploadImage() {
             checkClicked[i].classList.remove('downloaded');
             checkClicked[i].classList.add('upload-container');
             absolute[i].style.display = "block";
-            uploadImage[i].setAttribute('src','')
+            uploadImage[i].setAttribute('src','');
+
+            // UPDATE
+             uploadImage[i].parentElement.querySelector('input').dataset.src='';
         }
     }
 }
