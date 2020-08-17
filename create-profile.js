@@ -67,7 +67,7 @@ function Get_Genres() {
 function autoCompletePC(event) {
     var options = {
           url: function(phrase) {
-            		return "https://autosuggest.search.hereapi.com/v1/autosuggest?at=40%2C49%3Br%3D500000&size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&q=" + phrase + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM";
+            		return "https://autosuggest.search.hereapi.com/v1/autosuggest?at=40%2C49&size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&q=" + phrase + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM";
             	},
           getValue: "title",
           listLocation:"items",
