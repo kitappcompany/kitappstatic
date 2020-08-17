@@ -8,6 +8,7 @@ function readURL1(input) {
 
             reader.readAsDataURL(input.files[0]);
         }
+        input.dataset.src = null;
     }
 function readURL2(input) {
         if (input.files && input.files[0]) {
@@ -15,11 +16,11 @@ function readURL2(input) {
 
             reader.onload = function (e) {
                 $('#image2').attr('src', e.target.result);
-                document.querySelector('#image2').parentElement.querySelector('input').dataset.src = e.target.result;
             };
 
             reader.readAsDataURL(input.files[0]);
         }
+        input.dataset.src = null;
     }
 function readURL3(input) {
         if (input.files && input.files[0]) {
@@ -27,11 +28,11 @@ function readURL3(input) {
 
             reader.onload = function (e) {
                 $('#image3').attr('src', e.target.result);
-                document.querySelector('#image3').parentElement.querySelector('input').dataset.src = e.target.result;
             };
 
             reader.readAsDataURL(input.files[0]);
         }
+        input.dataset.src = null;
     }
 function readURL4(input) {
         if (input.files && input.files[0]) {
@@ -39,11 +40,12 @@ function readURL4(input) {
 
             reader.onload = function (e) {
                 $('#image4').attr('src', e.target.result);
-                document.querySelector('#image4').parentElement.querySelector('input').dataset.src = e.target.result;
             };
 
             reader.readAsDataURL(input.files[0]);
         }
+
+        input.dataset.src = null;
     }
 
 function uploadImage() {
