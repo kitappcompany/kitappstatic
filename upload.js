@@ -416,16 +416,18 @@ function popupSuccess(adPlacePopup, adPlaceButton, method) {
             // body...
 
     let info = "Elanınız yayınlandı";
+    let redirect = '/';
+
     if (method==="PATCH") {
             info = "Məlumatlar uğurla dəyişdirildi.";
-                adPlaceButton.disabled = true;
-
+            adPlaceButton.disabled = true;
+            redirect = window.location.pathname;
         }
     adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/undraw_done_a34v.svg";
     adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = info
 
             // after 3 sec take user to home page
-    setInterval(function(){ window.location.href = '/' },1800)
+    setInterval(function(){ window.location.href = redirect },2000)
 
 
 }
