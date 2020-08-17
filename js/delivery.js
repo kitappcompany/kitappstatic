@@ -22,12 +22,14 @@ function autoCompleteJS() {
     let comp = encodeURIComponent('40,49')
     if (mypos != '' | mypos==null) {
         let d = JSON.parse(mypos)
-        comp = encodeURIComponent(`${d['Latitude']},${d['Longitude']}`)
+        let lat =  parseFloat(d['Latitude']);
+        let lng = parseFloat(d['Longitude']);
+        comp = encodeURIComponent(`${lat},${lng}`)
     }
 
     var options = {
           url: function(phrase) {
-            		return "https://autosuggest.search.hereapi.com/v1/autosuggest?Accept-Language=q%3D0.9%3Bq%3D0.8%2Caz%3Bq%3D0.7&at=" + comp + "&size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&q=" + phrase + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM"; 
+            		return "https://autosuggest.search.hereapi.com/v1/autosuggest?Accept-Language=q%3D0.9%3Bq%3D0.8%2Caz%3Bq%3D0.7&at=" + comp + "&size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&q=" + phrase + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM";
             	},
           getValue: "title",
           listLocation:"items",
