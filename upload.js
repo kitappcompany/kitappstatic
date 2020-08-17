@@ -176,7 +176,7 @@ function PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, m
     let datam = {
         "title": title, "condition": condition,
         "author": { "full_name": author },
-        "summary": "sd", "price": parseFloat(price),
+        "summary": summary, "price": parseFloat(price),
         "genre": { "name": genre },
         "language": { "name": language, "short_name": language},
         "locations": locations_data,
