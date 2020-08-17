@@ -289,14 +289,16 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
     for (var i = 0; i < images.length; i++) {
 
           var files = images[i].files;
+
           if (!files.length) {
             //   following two lines for update only
             if (images[i].dataset.src.length != 0) images_data.push({"img":images[i].dataset.src, "opt_img":images[i].dataset.src});
             // make update when no new image uploaded
             if (i === images.length-1 && images_data.length != 0 && !new_imgs ) {PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, "PATCH", url); return};
-            new_imgs = true;
+
             continue ;
           }
+          new_imgs = true;
           var file = files[0];
           var fileName = file.name + Math.random().toString(36).substr(2, 9) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
           var albumPhotosKey = encodeURIComponent(albumBucketName) + "/";
