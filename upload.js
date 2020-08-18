@@ -421,7 +421,7 @@ function popupSuccess(adPlacePopup, adPlaceButton, method) {
     if (method==="PATCH") {
             info = "Məlumatlar uğurla dəyişdirildi.";
             adPlaceButton.disabled = true;
-            redirect = window.location.pathname;
+            redirect = "/accounts/myposts";
         }
     adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/undraw_done_a34v.svg";
     adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = info
