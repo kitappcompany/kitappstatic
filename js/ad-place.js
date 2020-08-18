@@ -30,15 +30,18 @@ function ad_place() {
     // radio button
     let radioButton = document.querySelector(".radio-button"), radioContent = document.querySelector('.radio-content'),checkRadio = false;
     radioButton.onclick = function(){
+         let bookValue = document.querySelector('.book-value')
         if(!checkRadio){
             radioContent.style.display = "inline-block";
             checkRadio = true;
             radioBtnOnclick = true
+            bookValue.disabled = true;
         }
         else{
             radioContent.style.display = "none";
             checkRadio = false;
             radioBtnOnclick = false
+            bookValue.disabled = false;
 
         }
     }
