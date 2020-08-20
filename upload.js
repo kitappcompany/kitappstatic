@@ -301,9 +301,15 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
           new_imgs = true;
           var file = files[0];
           var fileName = file.name + Math.random().toString(36).substr(2, 9) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+          var fileNameOpt = file.name + Math.random().toString(36).substr(2, 9) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
           var albumPhotosKey = encodeURIComponent(albumBucketName) + "/";
 
           var photoKey = albumPhotosKey + fileName;
+          var photoKeyOpt = albumPhotosKey + fileNameOpt;
+
+          // OPTIMIZE image
+          let fileOpt = process(file);
+
           // Use S3 ManagedUpload class as it supports multipart uploads
           var upload = new AWS.S3.ManagedUpload({
             params: {
@@ -314,15 +320,40 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
             }
           });
 
+          var uploadOpt = new AWS.S3.ManagedUpload({
+            params: {
+              Bucket: albumBucketName,
+              Key: photoKeyOpt,
+              Body: fileOpt,
+              ACL: "public-read"
+            }
+          });
+
           var promise = upload.promise();
 
           promise.then(
             function(data) {
-                images_data.push({"img":data.Location, "opt_img":data.Location})
 
-                if ( images_data.length === count_imgs) {
-                    PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, method, url);
-                }
+                // when original file uploaded, then upload resied version
+                var promiseOpt = uploadOpt.promise();
+                let img_data = data.Location;
+
+                promiseOpt.then(
+                  function (data) {
+                    images_data.push({"img":img_data, "opt_img":data.Location})
+                    console.log("Success on OPTIMIZE",{"img":img_data, "opt_img":data.Location}, images_data.length , count_imgs)
+
+                    if ( images_data.length === count_imgs) {
+                        PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, method, url);
+                    }
+                  },
+                  function (error) {
+                    console.log("ERROR on OPTIMIZE")
+                    popupError( adPlacePopup, adPlaceButton);
+                    show_error_images(true);
+                  }
+                )
+
             },
             function(err) {
               popupError( adPlacePopup, adPlaceButton);
@@ -333,6 +364,39 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
     }
 
     return images_data;
+}
+
+// compress images
+function process(file) {
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.readAsDataURL(file);
+
+    reader.onload = function (event) {
+    const imgElement = document.createElement("img");
+    imgElement.src = event.target.result;
+
+
+    imgElement.onload = function (e) {
+      const canvas = document.createElement("canvas");
+      const MAX_WIDTH = 300;
+      const MAX_HEIGHT = 700;
+      // const scaleSize = MAX_WIDTH / e.target.width;
+      canvas.width = MAX_WIDTH;
+      canvas.height = MAX_HEIGHT;
+
+      const ctx = canvas.getContext("2d");
+
+      ctx.drawImage(e.target, 0, 0, canvas.width, canvas.height);
+
+      const srcEncoded = ctx.canvas.toDataURL(e.target, "image/jpeg");
+
+      // you can send srcEncoded to the server
+      return srcEncoded;
+    };
+  };
 }
 
 // VALIDATIONS
