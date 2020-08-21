@@ -300,7 +300,9 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
           }
           new_imgs = true;
           var file = files[0];
-          var fileName =  Math.random().toString(36).substr(2, 9) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + file.name;
+          let format = file.name.split('.')
+          format = format[format.length-1]
+          var fileName =  Math.random().toString(36).substr(2, 9) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + "." + format;
           var albumPhotosKey = encodeURIComponent(albumBucketName) + "/";
 
           var photoKey = fileName;
