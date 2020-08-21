@@ -33,7 +33,7 @@ function autoCompleteJS() {
             	},
           getValue: "title",
           listLocation:"items",
-          requestDelay: 500,
+          requestDelay: 120,
           list: {
                 match: {enabled: true},
 
