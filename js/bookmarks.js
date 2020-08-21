@@ -90,6 +90,54 @@ function ListBooks() {
             loadMore[0].style.display = "inline-block";
         }
     }
+    
+    
+    // Book detail Function
+function bookdetail(id, popup) {
+
+    // if the same book needed to show dont request to load
+    try {
+        if (popup.querySelector('span').querySelector('#previous_book_id').value === id) {
+            return
+        }
+    } catch (e) {}
+    shimmer =  Handlebars.compile(document.querySelector("#book-detail-shimmer").innerHTML);
+    popup.querySelector('span').innerHTML = shimmer()
+    const request = new XMLHttpRequest();
+    request.open("GET", "/catalog-api/detailbook/"+id, true);
+
+    //if user is authenticated
+    try {
+        let user_token = document.querySelector("#user_token").value;
+        request.setRequestHeader("Authorization", "Token " + user_token)
+    } catch (e) {}
+
+    request.onload = ()=>{
+        let res = JSON.parse(request.responseText)
+
+        let myemail=null;
+        try {
+            myemail = document.querySelector("#user_email").value;
+            /* code */
+        } catch (e) {}
+
+        const temp = Handlebars.compile(document.querySelector("#book-detail").innerHTML); // book detail HTML
+        const msgStartTemp = Handlebars.compile(document.querySelector("#message-start-box").innerHTML) // msg start for this book
+        popup.querySelector('span').innerHTML = (temp({"book":res, "img":res.img[0], 'myemail':myemail } ))// book detailHTML rendered
+        document.querySelector("#message-popup .row").innerHTML = msgStartTemp({"book":res, "img":res.img[0]}) //message popup temp
+
+        popupchangeimage(res.img);
+        popupdelivery();
+        all_locations_obj = res.locations;
+        once=true;
+
+        message_js(); // this creates message popup for a book
+    }
+    request.send()
+
+}
+
+
 
     request.send()
 }
