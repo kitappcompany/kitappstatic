@@ -300,10 +300,10 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
           }
           new_imgs = true;
           var file = files[0];
-          var fileName = file.name + Math.random().toString(36).substr(2, 9) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+          var fileName =  Math.random().toString(36).substr(2, 9) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + file.name;
           var albumPhotosKey = encodeURIComponent(albumBucketName) + "/";
 
-          var photoKey = albumPhotosKey + fileName;
+          var photoKey = fileName;
           // Use S3 ManagedUpload class as it supports multipart uploads
           var upload = new AWS.S3.ManagedUpload({
             params: {
@@ -318,7 +318,7 @@ function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog
 
           promise.then(
             function(data) {
-                images_data.push({"img":data.Location, "opt_img":data.Location})
+                images_data.push({"img":data.Location, "opt_img":data.Location.replace("kitapp-media", "kitapp-media-resized")})
 
                 if ( images_data.length === count_imgs) {
                     PostABookPro(images_data,locations_data, adPlacePopup, adPlaceButton, method, url);
