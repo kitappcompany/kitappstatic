@@ -22,8 +22,8 @@ function popup() {
 }// end function
 
 
-function BookMark(img_bookmark, default=false){
-    if (!default) MarkUnMark(img_bookmark.dataset.unique);
+function BookMark(img_bookmark){
+    MarkUnMark(img_bookmark.dataset.unique);
     
     if(img_bookmark.dataset.indexvalue){
         img_bookmark.src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic/img/bookmark.svg";
