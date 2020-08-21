@@ -90,8 +90,10 @@ function ListBooks() {
             loadMore[0].style.display = "inline-block";
         }
     }
-    
-    
+
+    request.send()
+}
+
     // Book detail Function
 function bookdetail(id, popup) {
 
@@ -135,11 +137,6 @@ function bookdetail(id, popup) {
     }
     request.send()
 
-}
-
-
-
-    request.send()
 }
 
 function MarkUnMark(id){
