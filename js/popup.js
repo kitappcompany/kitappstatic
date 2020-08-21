@@ -23,13 +23,15 @@ function popup() {
 
 
 function BookMark(img_bookmark){
-    MarkUnMark(img_bookmark.dataset.unique);
+    document.getElementById(img_bookmark.dataset.unique).querySelector(".bookmark").click();
     
-    if(img_bookmark.dataset.indexvalue){
+    if(img_bookmark.dataset.indexvalue === "true"){
         img_bookmark.src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic/img/bookmark.svg";
+        img_bookmark.dataset.indexvalue = "false"
     }
     else{
         img_bookmark.src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/img/bookmark-red.svg";
+        img_bookmark.dataset.indexvalue = "true"
     }
     
 
