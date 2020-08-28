@@ -47,6 +47,7 @@
     width:100%;
     height:31.319rem;
     min-height:31.319rem;
+    border-radius: 1rem;
 }
 .popup-bookmark{
     height:3rem;
@@ -84,8 +85,12 @@
 }
 .popup-book-name{
     color:#686868;
-    font-size:2.3rem;
+    font-size:2.3rem;   
+    word-wrap: break-word;
     font-family:DINPro-Bold !important;
+}
+#popup .popup-book-name{
+    width: 25rem; 
 }
 .popup-author{
     color:#B5B5B5;

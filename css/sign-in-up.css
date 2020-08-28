@@ -51,13 +51,20 @@ html{
 body{
     color:#686868 !important;
     font-family:DINPro !important;
+    min-height: 100vh;
+    position: relative;
 }
 
-
+.container{
+    padding-bottom: 0 !important;
+}
 
 /* Sign in Sign up */
 .sign-card{
     border-radius:4.6rem;
+}
+#sign-in-up{
+    min-height: 100vh;
 }
 /* first-col */
 #sign-in-up .first-col{
@@ -76,6 +83,11 @@ body{
     left:50%;
     bottom:8.6%;
     transform:translateX(-50%);
+}
+#sign-in-up .sign-logo{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 #sign-in-up .first-col .path195{
     width:3.788rem;
@@ -102,13 +114,13 @@ body{
     position:absolute;
     cursor:pointer;
     right:4rem;
-    top:3.3rem;
-    width:2.5rem;
-    height:2.5rem;
+    top:33px;
+    width:25px;
+    height:25px;
 }
 .signin-h p, .signup-h p{
     display:inline-block;
-    font-size:2.5rem;
+    font-size:25px;
     cursor:pointer;
     color:#B5B5B5;
 }
@@ -130,9 +142,9 @@ body{
 }
 #sign-in-up form input[type = "text"],#sign-in-up form input[type = "password"],#sign-in-up form input[type = "email"]{
     width:100%;
-    height:4rem;
+    height:40px;
     padding:0 2rem;
-    font-size:1.3rem;
+    font-size:13px;
     border-radius:4rem;
     color:#686868;
     font-family:DINPro-Medium !important;
@@ -140,7 +152,7 @@ body{
     outline:none;
 }
 .label{
-    font-size:1.5rem;
+    font-size:15px;
     font-family:DINPro-Medium !important;
     opacity:0;
     padding-left:2rem;
@@ -180,34 +192,35 @@ input:focus{
     margin-top:4rem;
 }
 #signin .forget-password{
-    font-size:1.3rem;
+    font-size:13px;
     margin-left:1.2rem;
     color:#B5B5B5;
     cursor:pointer;
 }
 .signin-up-button{
-    width:16.624rem;
-    height:5.41rem;
+    min-width:166.24px;
+    height:54.1px;
+    padding: 0 5rem;
     color:#fff;
-    font-size:1.9rem;
+    font-size:19px;
     border:none;
-    border-radius:2.7rem;
+    border-radius:27px;
     background:#5AB5F1;
     margin-top:3rem;
     font-family:DINPro-Medium !important;
 }
 .signin-up-or{
-    font-size:1.3rem;
+    font-size:13px;
     color:#B5B5B5;
     margin:1.7rem 0;
 }
 .signin-up-google, .signin-up-facebook{
-    width:42%;
+    width: 160px;
     border:none;
     margin:1rem 1rem;
-    border-radius:2rem;
-    height:4rem;
-    font-size:1.3rem;
+    border-radius:20px;
+    height:40px;
+    font-size:13px;
     font-family:DINPro !important;
 }
 .signin-up-google{
@@ -220,9 +233,9 @@ input:focus{
     background:#385C8E;
 }
 #signin .not-account{
-    margin-top:4.5rem;
+    margin-top:45px;
     font-family:DINPro-Medium !important;
-    font-size:1.5rem;
+    font-size:15px;
 }
 #signin .not-account span{
     color:#B5B5B5;
@@ -233,7 +246,7 @@ input:focus{
     text-decoration: underline;
 }
 .google-icon, .facebook-icon{
-    height:1.85rem;
+    height:18.4px;
 }
 #signin .forget-password:hover{
     color:#686868;
@@ -245,8 +258,8 @@ input:focus{
 }
 .radio-button{
     display:inline-block;
-    width:1.2rem;
-    height:1.2rem;
+    width:12px;
+    height:12px;
     border:1px solid #B5B5B5;
     border-radius:50%;
     position:relative;
@@ -254,8 +267,8 @@ input:focus{
 }
 .radio-content{
     display:none;
-    width:.8rem;
-    height:.8rem;
+    width:8px;
+    height:8px;
     background:#71DE56;
     border-radius:50%;
     position:absolute;
@@ -265,7 +278,7 @@ input:focus{
 }
 .accept{
     display:inline-block;
-    font-size:1.3rem;
+    font-size:13px;
     color:#B5B5B5;
     position: relative;
     padding-left:1rem;
@@ -283,15 +296,12 @@ input:focus{
     transition:all 1s;
     right:0;
 }
-#signup .signin-up-button{
-    margin-top:5.1rem;
-    width:24.5rem;
-}
 
 #signup .there-is{
     margin-top:4.5rem;
     font-family:DINPro-Medium !important;
-    font-size:1.5rem;
+    font-size:15px;
+    margin-bottom:0;
 }
 #signup .there-is span{
     color:#B5B5B5;
@@ -301,6 +311,10 @@ input:focus{
     color:#686868;
     text-decoration: underline;
 }
+
+#footer {
+    width: 100%;
+    } 
 
 
 

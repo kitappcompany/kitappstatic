@@ -74,12 +74,14 @@ html{
     transition:all .2s;
 }
 
-
+.first-buttons{
+    margin: 0;
+}
 
 /*  dont active announcements */
 
 .announcements-container{
-    display:none;
+
 }
 
 .not-active-announcements{

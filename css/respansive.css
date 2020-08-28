@@ -46,10 +46,6 @@ html{
     #search .col-7 img{
         height:250px;
     }
-    #search-box{
-        width:40.9rem;
-        height:5.3rem;
-    }
     /* books */
     .book{
         width:49.5%;
@@ -62,9 +58,6 @@ html{
     }
     #search a img{
         width:10rem;
-    }
-    #search-box{
-        padding:1rem;
     }
     /* download */
     #download p{
@@ -80,9 +73,6 @@ html{
 @media screen and (max-width:768px){
     html{
         font-size:9px;
-    }
-    .popup-container,.done-container{
-        width:57.6rem;
     }
     #popup .col-7{
     padding-right:0rem;
@@ -109,9 +99,7 @@ html{
     html{
         font-size:5px;
     }
-    .popup-container,.done-container{
-        width:36rem;
-    }
+
 }
 @media screen and (max-width:576px){
     #search .col-7 img{
@@ -156,9 +144,6 @@ html{
     #download img{
         padding:2.5rem;
         padding-top:2rem;
-    }
-    #search-box{
-        padding:.5rem 1.8rem;
     }
     .download-footer{
         bottom:12rem;
@@ -211,9 +196,6 @@ html{
     #search a img{
         width:10rem;
     }
-    #search-box{
-        padding:1rem;
-    }
     /* download */
     #download p{
         font-size:2rem;
@@ -248,13 +230,6 @@ html{
     #download p{
         font-size:1.6rem;
     }
-    .book-img{
-        min-height:31.3rem;
-        max-height:31.3rem;
-    }
-    .book-img img{
-        max-height:31.3rem;
-    }
 
     /* book place */
     .tooltip-remoteness{
@@ -276,19 +251,10 @@ html{
         padding:2.5rem;
         padding-top:2rem;
     }
-    #search-box{
-        padding:.5rem 1.8rem;
-    }
     .download-footer{
         bottom:12rem;
     }
-    .book-img{
-        min-height:32.55rem;
-        max-height:32.55rem;
-    }
-    .book-img img{
-        max-height:32.55rem;
-    }
+
 }
 
 
@@ -331,13 +297,7 @@ html{
     #sign-in-up .sale-buy{
         font-size:2.1rem;
     }
-    #signup .signin-up-button{
-        width:18rem;
-        font-size:1.7rem;
-    }
-    .signin-up-google, .signin-up-facebook{
-        width:60%;
-    }
+
 
     .popup-container{
         width:57.6rem;
@@ -350,9 +310,7 @@ html{
     #sign-in-up .first-col{
         border-radius:4.6rem;
     }
-    .signin-up-google, .signin-up-facebook{
-        width:40%;
-    }
+
     #sign-in-up .sale-buy{
         font-size:2.9rem;
     }

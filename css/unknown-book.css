@@ -28,10 +28,10 @@
     color:#fff;
     font-family:DINPro-Black !important;
     font-size:1.7rem;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
+    position: absolute;
+    top: 45%;
+    text-align: center;
+    transform: translteY(-50%);
 }
 #search-message .unknown-book-name{
     font-size:1.3rem;

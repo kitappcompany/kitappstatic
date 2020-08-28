@@ -8,7 +8,6 @@ html{
             }
             .book-card{
                 border-radius:1rem;
-                width:60rem;
                 transition:all .2s;
                 z-index:5;
             }
@@ -16,10 +15,9 @@ html{
                  opacity:1; 
             } */
             .book-img{
-                min-height:33.3rem;
-                max-height:33.3rem;
+                height:33.3rem;
                 border-radius:10px !important;
-                width:100%;
+                width: 21.7rem;
                 background-size:cover;
                 position:relative;
             }
@@ -171,12 +169,6 @@ html{
 }
 /* -------------------------------------------------------------------- */
 @media screen and (max-width:1200px){
-    .book-img{
-        min-height: 38rem;  
-    }
-    .book-img img{
-        min-height: 38rem;
-    }
 
     #menu ul li{
         margin:0 1rem;
@@ -185,60 +177,13 @@ html{
         padding:0 .20rem !important;
     }
 
-    /* bookmarks , #my-announcements */
-    #book-sell .book-img,#book-looking .book-img, #my-announcements .book-img{
-        min-height:42rem;
-    }
-    #book-sell .book-img img,#book-looking .book-img img, #my-announcements .book-img img{
-        min-height:42rem;
-    }
+}
 
+
+@media screen and (max-width: 576px){
+    #search-book .book-img, #books .book-img, .all-bookmarks .book-img, #my-announcements .book-img{
+    width: 18rem; 
+    height: 27rem;
 }
-@media screen and (max-width:992px){
-    .book-img{
-        min-height: 45rem;  
-    }
-    .book-img img{
-        min-height: 45rem;
-    }
-    /* bookmarks */
-    #book-sell .book-img,#book-looking .book-img, #my-announcements .book-img{
-        min-height:55rem;
-    }
-    #book-sell .book-img img,#book-looking .book-img img, #my-announcements .book-img img{
-        min-height:55rem;
-    }
-}
-@media screen and (max-width:768px){
-    .book-img{
-        min-height: 52rem;  
-    }
-    .book-img img{
-        min-height: 52rem;
-    }
-        /* bookmarks */
-        #book-sell .book-img,#book-looking .book-img, #my-announcements .book-img{
-            min-height:45rem;
-        }
-        #book-sell .book-img img,#book-looking .book-img img, #my-announcements .book-img img{
-            min-height:45rem;
-        }
-}
-@media screen and (max-width:576px){
-    .book-card{
-        width:160px;
-    }
-    .book-img{
-        min-height: 32rem;  
-    }
-    .book-img img{
-        min-height: 32rem;
-    }
-    /* bookmarks */
-    #book-sell .book-img,#book-looking .book-img, #my-announcements .book-img{
-        min-height:210px;
-    }
-    #book-sell .book-img img,#book-looking .book-img img, #my-announcements .book-img img{
-        min-height:210px;
-    }
+
 }
