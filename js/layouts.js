@@ -1,5 +1,5 @@
 function layouts_js() {
-
+    // NEW
     // drop downun acilmasi
     let userIcon = document.querySelector(".user-icon"),
     userDropDown = document.querySelector(".user-dropdown"),
@@ -26,13 +26,17 @@ function layouts_js() {
         },150);
         setTimeout(function(){
             burgerMenuClose.style.display = "block";
-        },500);
+        },300);
     }
     burgerMenuClose.onclick = function(){
         burgerMenu.style.width = "0";
         setTimeout(function(){
             burgerMenuList.style.display = "none";
         },350);
+        setTimeout(function(){
+            burgerMenuClose.style.display = "none";
+        },10);
     }
+
     //end
 }
