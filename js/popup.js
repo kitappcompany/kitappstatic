@@ -7,11 +7,11 @@ function bookAboutBlock(id){
 }
 closeButton.onclick = function(){
     popup.style.display = "none";
-    closeDelivery();
+    // closeDelivery();
 }
 popupBg.onclick = function(){
     popup.style.display = "none";
-    closeDelivery();
+    // closeDelivery();
 }
 
 
