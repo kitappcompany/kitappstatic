@@ -1,6 +1,5 @@
 var once = true;
 function popupdelivery() {
-        closeDelivery(); //brandnew
 
         let deliveryButton = document.querySelector('#popup .delivery-button'),
         popupMap = document.querySelector('#popup .popup-map'),
@@ -37,6 +36,7 @@ function popupdelivery() {
             deliveryButton.style.color = "#5CB4F1";
             clickCheck = false;
         }
+        closeDelivery(); //brandnew
 
 
 }//function end
