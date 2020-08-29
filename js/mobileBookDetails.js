@@ -2,12 +2,14 @@
 
     let mobileBookPopup = document.querySelector("#popup");
 
-    function mobileBookDetails(){
+    function mobileBookDetails(id){
 
         let windowWidth = window.innerWidth;
 
         if(windowWidth <= 576){
             mobileBookPopup.style.display = "block";
+            bookdetail(id, mobileBookPopup);
+
         }
 
     }
