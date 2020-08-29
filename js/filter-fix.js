@@ -73,12 +73,13 @@ for(let i = 0;i < dropDownList.length;i++){
         dropDownList[i].children[j].onclick = function(){
             changeDown(downUp[i],i);
             inputBlurBg(i)
+
             inputValue[i].value = dropDownList[i].children[j].textContent;
             inputValue[i].dataset.info = dropDownList[i].children[j].dataset.info ;
 
             // added by NEW
             let filter_url = makeURLS(inputValue, dropDownList);
-            console.log(filter_url, "A")
+            // console.log(filter_url, "A")
             BooksList(filter_url);
         }
     }
@@ -139,4 +140,9 @@ function makeURLS(inputValue, dropDownList) {
         }
     }
     return url
+}
+
+function fakeclick(input){
+    input.dataset.info = input.value;
+    dropDownList[0].children[1].click()
 }
