@@ -142,21 +142,18 @@ function makeURLS(inputValue, dropDownList) {
     return url
 }
 
-function fakeclick(input){
+function fakeclick(input, ms){
     // input.dataset.info
     let li = input.parentElement.querySelector('ul').children[0];
     li.setAttribute('data-info', input.value);
     li.textContent = input.value;
-    li.click()
+
+    var timer = 0 , delay = ms;
+    clearTimeout(timer);
+
+    timer = setTimeout(function () {
+      li.click();
+    }, ms || 1000);
+    // li.click()
 }
 
-function delay(callback, ms) {
-  var timer = 0;
-  return function() {
-    var context = this, args = arguments;
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-      callback.apply(context, args);
-    }, ms || 0);
-  };
-}
