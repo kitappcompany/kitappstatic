@@ -95,10 +95,9 @@ function bookdetail(id, popup) {
         popup.querySelector('span').innerHTML = (temp({"book":res, "img":res.img[0], 'myemail':myemail } ))// book detailHTML rendered
         document.querySelector("#message-popup .row").innerHTML = msgStartTemp({"book":res, "img":res.img[0]}) //message popup temp
 
-        closeDelivery(); //brandnew
-
         popupchangeimage(res.img);
         popupdelivery();
+
         all_locations_obj = res.locations;
         once=true;
 

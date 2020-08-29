@@ -1,5 +1,7 @@
 var once = true;
 function popupdelivery() {
+        closeDelivery(); //brandnew
+
         let deliveryButton = document.querySelector('#popup .delivery-button'),
         popupMap = document.querySelector('#popup .popup-map'),
         popupContainer = document.querySelector('#popup .popup-container'),clickCheck = false;
