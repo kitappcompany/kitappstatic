@@ -142,13 +142,14 @@ function makeURLS(inputValue, dropDownList) {
     return url
 }
 
+var timer = 0;
 function fakeclick(input, ms){
     // input.dataset.info
     let li = input.parentElement.querySelector('ul').children[0];
     li.setAttribute('data-info', input.value);
     li.textContent = input.value;
 
-    var timer = 0 , delay = ms;
+
     clearTimeout(timer);
 
     timer = setTimeout(function () {
