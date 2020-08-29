@@ -145,8 +145,7 @@ function makeURLS(inputValue, dropDownList) {
 function fakeclick(input){
     // input.dataset.info
     let li = input.parentElement.querySelector('ul').children[0];
-    li.dateset.info = input.value;
-    li.dateset.textContent = input.value;
+    li.setAttribute('data-info', input.value);
+    li.textContent = input.value;
     li.click()
-
 }
