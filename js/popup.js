@@ -2,7 +2,7 @@ let popup = document.querySelector("#popup"),closeButton = document.querySelecto
 
 function bookAboutBlock(id){
     popup.style.display = "block";
-    checkPopupAbout();
+    // checkPopupAbout();
     bookdetail(id, popup);
 }
 closeButton.onclick = function(){

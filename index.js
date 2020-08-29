@@ -54,6 +54,7 @@ function BooksList(filter_url=false) {
         loadMore[0].style.display = "inline-block";
         shimmerE.style.display = "none";
 
+        checkPopupAbout();
         if (!next_page_books) {
             loadMore[0].style.display = "none";
         }
@@ -95,7 +96,7 @@ function bookdetail(id, popup) {
         document.querySelector("#message-popup .row").innerHTML = msgStartTemp({"book":res, "img":res.img[0]}) //message popup temp
 
         popupchangeimage(res.img);
-        popupdelivery();
+        // popupdelivery();
         all_locations_obj = res.locations;
         once=true;
 
