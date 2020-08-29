@@ -1,5 +1,5 @@
 var once = true;
-// function popupdelivery() {
+function popupdelivery() {
         let deliveryButton = document.querySelector('#popup .delivery-button'),
         popupMap = document.querySelector('#popup .popup-map'),
         popupContainer = document.querySelector('#popup .popup-container'),clickCheck = false;
@@ -59,6 +59,6 @@ var once = true;
     //             clickCheck = false;
     //     }
     // }
-// }//function end
+}//function end
 
 

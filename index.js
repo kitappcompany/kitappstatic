@@ -96,7 +96,7 @@ function bookdetail(id, popup) {
         document.querySelector("#message-popup .row").innerHTML = msgStartTemp({"book":res, "img":res.img[0]}) //message popup temp
 
         popupchangeimage(res.img);
-        // popupdelivery();
+        popupdelivery();
         all_locations_obj = res.locations;
         once=true;
 
