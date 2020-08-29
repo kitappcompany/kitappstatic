@@ -143,6 +143,8 @@ function makeURLS(inputValue, dropDownList) {
 }
 
 function fakeclick(input){
-    input.dataset.info = input.value;
-    dropDownList[0].children[1].click()
+    // input.dataset.info
+    dropDownList[4].children[0].dateset.info = input.value;
+    dropDownList[4].children[0].dateset.textContent = input.value;
+    dropDownList[4].children[0].click()
 }
