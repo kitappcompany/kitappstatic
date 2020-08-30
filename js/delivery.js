@@ -126,13 +126,13 @@ function addSubways() {
     for(let sb = 0; sb < subways.length;sb++){
         let newItem = ` <div class="delivery d-flex align-items-center py-2 subwaysdata">
                             <input type="text" name="sell_locations" data-loc_data="${subways[sb][1]}" class = "input-val locations subwaysdata" value = "${subways[sb][0]}">
-                            <img src="icons/Path 413.svg" alt="" class = "ml-3 plas-delivery" onclick = "addDelivery();">
-                            <img src="icons/minus.svg" alt="" class = "ml-3 minus-delivery" onclick = "closeDelivery(this)">
+                            <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/Path 413.svg" alt="" class = "ml-3 plas-delivery" onclick = "addDelivery();">
+                            <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/minus.svg" alt="" class = "ml-3 minus-delivery" onclick = "closeDelivery(this)">
                         </div>`
 
         let newNode = createElementFromHTML(newItem);
 
-        deliveryContainer.insertBefore(newItem, deliveryContainer.childNodes[2])
+        deliveryContainer.insertBefore(newNode, deliveryContainer.childNodes[2])
     }
 
 }
