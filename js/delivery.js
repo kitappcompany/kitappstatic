@@ -72,7 +72,7 @@ function checkPlusMinus(){
             deliveryAll[d].children[1].style.display = "none";
             deliveryAll[d].children[2].style.display = "block";
         }
-        // deliveryAll[deliveryAll.length - 1].children[2].style.display = "none";
+        deliveryAll[deliveryAll.length - 1].children[2].style.display = "block";
     }
 
 }
@@ -105,10 +105,6 @@ subways = [
     ['Metro-Azadlıq Prospekti', {"name":"Metro-Azadlıq Prospekti","displayLocation":"{\"Latitude\":\"40.42531\",\"Longitude\":\" 49.8426\"}","lat":"40.42531","lng":" 49.8426"}]
     ]
 
-
-
-
-
 let SubwayRadioButton = document.querySelector(".subway__radio-button"), SubwayRadioContent = document.querySelector('.subway__radio-content'),SubwayCheckRadio = false;
 SubwayRadioButton.onclick = function(){
     if(!SubwayCheckRadio){
@@ -139,8 +135,8 @@ function addSubways() {
         deliveryContainer.insertBefore(newNode, deliveryContainer.childNodes[2])
     }
 
-    autoCompleteJS();
-
+    // autoCompleteJS();
+    heckPlusMinus()
 }
 
 
