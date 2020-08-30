@@ -79,7 +79,7 @@ function checkPlusMinus(){
 // butun metrolara catdirilir checkbox
 
 subways = [
-    ["Metro-Qara Qarayev", JSON.stringify({"name":"Metro-Qara Qarayev","displayLocation":"{\"Latitude\":\"40.41775\",\"Longitude\":\"49.93287\"}","lat":1,"lng":2})],
+    ["Metro-Qara Qarayev", JSON.stringify({"name":"Metro-Qara Qarayev","displayLocation":"{\"Latitude\":\"40.41775\",\"Longitude\":\"49.93287\"}","lat":"40.41775","lng":"49.93287"})],
     ["Metro-Nizami", JSON.stringify({"name":"Metro-Nizami","displayLocation":"{\"Latitude\":\"40.3792\",\"Longitude\":\" 49.83009\"}","lat":"40.3792","lng":" 49.83009"})],
     ['Metro-İçərişəhər', JSON.stringify({"name":"Metro-İçərişəhər","displayLocation":"{\"Latitude\":\"40.36584\",\"Longitude\":\" 49.83151\"}","lat":"40.36584","lng":" 49.83151"})],
     ['Metro-Dərnəgül', JSON.stringify({"name":"Metro-Dərnəgül","displayLocation":"{\"Latitude\":\"40.42552\",\"Longitude\":\" 49.86303\"}","lat":"40.42552","lng":" 49.86303"})],
