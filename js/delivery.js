@@ -8,12 +8,12 @@ let locationInputTemp = Handlebars.compile(`<div class="delivery d-flex align-it
 function addDelivery(loc_name=null, loc_data=null){
     deliveryContainer.insertAdjacentHTML('beforeend', locationInputTemp({'loc_name':loc_name, 'loc_data':loc_data}) ) ;
     autoCompleteJS();
-    checkPlusMinus
+    checkPlusMinus();
 }
 
 function closeDelivery(thisDelivery){
     if(deliveryContainer.children.length > 3) thisDelivery.parentElement.remove();
-    checkPlusMinus
+    checkPlusMinus();
 }
 
 
@@ -134,6 +134,8 @@ function addSubways() {
 
         deliveryContainer.insertBefore(newNode, deliveryContainer.childNodes[2])
     }
+
+    autoCompleteJS();
 
 }
 
