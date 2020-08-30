@@ -80,30 +80,9 @@ function checkPlusMinus(){
 // butun metrolara catdirilir checkbox
 
 subways = [
-    ["İçərişəhər", "data"],
-    ["Sahil", "data"],
-    ["28 May", "data"],
-    ["Gənclik", "data"],
-    ["Nəriman Nərimanov", "data"],
-    ["Ulduz", "data"],
-    ["Koroğlu", "data"],
-    ["Qara Qarayev", "data"],
-    ["Neftçilər", "data"],
-    ["Bakmil", "data"],
-    ["Xalqlar Dostluğu", "data"],
-    ["Əhmədli", "data"],
-    ["Həzi Aslanov", "data"],
-    ["Xətai", "data"],
-    ["Nizami", "data"],
-    ["Elmlər Akademiyası", "data"],
-    ["İnşaatçılar", "data"],
-    ["20 Yanvar", "data"],
-    ["Memar Əcəmi", "data"],
-    ["Cəfər Cabbarlı", "data"],
-    ["Nəsimi", "data"],
-    ["Azadlıq prospekti", "data"],
-    ["Dərnəgül", "data"],
-    ["Avtovağzal", "data"],
+    ["Metro-Qara Qarayev", JSON.stringify({"name":"Metro-Qara Qarayev","displayLocation":"{\"Latitude\":\"40.41775\",\"Longitude\":\"49.93287\"}","lat":1,"lng":2})],
+    ["Metro-Nizami", JSON.stringify({"name":"Metro-Nizami","displayLocation":"{\"Latitude\":\"40.3792\",\"Longitude\":\" 49.83009\"}","lat":"40.3792","lng":" 49.83009"})],
+    ['Metro-İçərişəhər', JSON.stringify({"name":"Metro-İçərişəhər","displayLocation":"{\"Latitude\":\"40.36584\",\"Longitude\":\" 49.83151\"}","lat":"40.36584","lng":" 49.83151"})],
 ]
 
 
