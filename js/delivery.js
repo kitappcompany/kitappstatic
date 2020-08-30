@@ -1,13 +1,14 @@
 let deliveryContainer = document.querySelector('.delivery-container');
 let locationInputTemp = Handlebars.compile(`<div class="delivery d-flex align-items-center py-2">
-            <input  value="{{loc_name}}" data-loc_data='{{loc_data}}' name="sell_locations" type="text" class = "input-val locations">
+            <input id={{unique}}  value="{{loc_name}}" data-loc_data='{{loc_data}}' name="sell_locations" type="text" class = "input-val locations">
             <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/Path 413.svg" alt="" class = "ml-3 plas-delivery" onclick = "addDelivery();return false;">
             <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/minus.svg" alt="" class = "ml-3 minus-delivery" onclick = "closeDelivery(this)">
             </div>`);
 
 function addDelivery(loc_name=null, loc_data=null){
-    deliveryContainer.insertAdjacentHTML('beforeend', locationInputTemp({'loc_name':loc_name, 'loc_data':loc_data}) ) ;
-    autoCompleteJS();
+    let unique =  Math.random().toString(36).substr(2, 9);
+    deliveryContainer.insertAdjacentHTML('beforeend', locationInputTemp({'unique':unique,'loc_name':loc_name, 'loc_data':loc_data}) ) ;
+    autoCompleteJS('#'+unique);
     checkPlusMinus();
 }
 
@@ -17,8 +18,10 @@ function closeDelivery(thisDelivery){
 }
 
 
-function autoCompleteJS() {
+function autoCompleteJS(id = false) {
     // body...
+    if (!id) id = ".locations";
+
 
     let mypos = document.getElementById('mypos').dataset.mypos;
     let comp = encodeURIComponent('40,49')
@@ -51,7 +54,7 @@ function autoCompleteJS() {
 
           theme: "square"
         };
-        $(".locations").easyAutocomplete(options);
+    $(id).easyAutocomplete(options);
 }
 
 // Brand New
