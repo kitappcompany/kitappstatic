@@ -36,6 +36,7 @@ function ad_place() {
             checkRadio = true;
             radioBtnOnclick = true
             bookValue.disabled = true;
+            document.getElementsByName("sell_price")[0].value = 0;
         }
         else{
             radioContent.style.display = "none";
