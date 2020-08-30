@@ -72,6 +72,7 @@ function checkPlusMinus(){
             deliveryAll[d].children[2].style.display = "block";
         }
         deliveryAll[deliveryAll.length - 1].children[2].style.display = "block";
+        deliveryAll[deliveryAll.length - 1].children[1].style.display = "block";
     }
 
 }
@@ -79,7 +80,7 @@ function checkPlusMinus(){
 // butun metrolara catdirilir checkbox
 
 subways = [
-    ["Metro-Qara Qarayev", JSON.stringify({"name":"Metro-Qara Qarayev","displayLocation":"{\"Latitude\":\"40.41775\",\"Longitude\":\"49.93287\"}","lat":"40.41775","lng":"49.93287"})],
+    ["Metro-Qara Qarayev", JSON.stringify({"name":"Metro-Qara Qarayev","displayLocation":"{\"Latitude\":\"40.41775\",\"Longitude\":\"49.93287\"}","lat":"40.41775","lng":"49.93287"}) ],
     ["Metro-Nizami", JSON.stringify({"name":"Metro-Nizami","displayLocation":"{\"Latitude\":\"40.3792\",\"Longitude\":\" 49.83009\"}","lat":"40.3792","lng":" 49.83009"})],
     ['Metro-İçərişəhər', JSON.stringify({"name":"Metro-İçərişəhər","displayLocation":"{\"Latitude\":\"40.36584\",\"Longitude\":\" 49.83151\"}","lat":"40.36584","lng":" 49.83151"})],
     ['Metro-Dərnəgül', JSON.stringify({"name":"Metro-Dərnəgül","displayLocation":"{\"Latitude\":\"40.42552\",\"Longitude\":\" 49.86303\"}","lat":"40.42552","lng":" 49.86303"})],
@@ -123,8 +124,14 @@ SubwayRadioButton.onclick = function(){
 function addSubways() {
 
     for(let sb = 0; sb < subways.length;sb++){
+
+        let dataPro = subways[sb][1]
+        let DataFinal = JSON.parse(dataPro);
+        DataFinal['data'] = dataPro;
+        DataFinal = JSON.stringify(DataFinal)
+
         let newItem = ` <div class="delivery d-flex align-items-center py-2 subwaysdata">
-                            <input type="text" name="sell_locations" data-loc_data='${subways[sb][1]}' class = "input-val locations subwaysdata" value = "${subways[sb][0]}">
+                            <input type="text" name="sell_locations" data-loc_data='${DataFinal}' class = "input-val locations subwaysdata" value = "${subways[sb][0]}">
                             <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/Path 413.svg" alt="" class = "ml-3 plas-delivery" onclick = "addDelivery();">
                             <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/minus.svg" alt="" class = "ml-3 minus-delivery" onclick = "closeDelivery(this)">
                         </div>`
