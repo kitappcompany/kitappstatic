@@ -58,7 +58,6 @@ function autoCompleteJS(id = false) {
 }
 
 // Brand New
-
 function checkPlusMinus(){
     let deliveryAll = document.querySelectorAll('.delivery');
 
@@ -80,29 +79,29 @@ function checkPlusMinus(){
 // butun metrolara catdirilir checkbox
 
 subways = [
-    ["Metro-Qara Qarayev", {"name":"Metro-Qara Qarayev","displayLocation":"{\"Latitude\":\"40.41775\",\"Longitude\":\"49.93287\"}","lat":1,"lng":2}],
-    ["Metro-Nizami", {"name":"Metro-Nizami","displayLocation":"{\"Latitude\":\"40.3792\",\"Longitude\":\" 49.83009\"}","lat":"40.3792","lng":" 49.83009"}],
-    ['Metro-İçərişəhər', {"name":"Metro-İçərişəhər","displayLocation":"{\"Latitude\":\"40.36584\",\"Longitude\":\" 49.83151\"}","lat":"40.36584","lng":" 49.83151"}],
-    ['Metro-Dərnəgül', {"name":"Metro-Dərnəgül","displayLocation":"{\"Latitude\":\"40.42552\",\"Longitude\":\" 49.86303\"}","lat":"40.42552","lng":" 49.86303"}],
-    ['Metro-Şah İsmail Xətai', {"name":"Metro-Şah İsmail Xətai","displayLocation":"{\"Latitude\":\"40.38303\",\"Longitude\":\" 49.87196\"}","lat":"40.38303","lng":" 49.87196"}],
-    ['Metro-Bakmil', {"name":"Metro-Bakmil","displayLocation":"{\"Latitude\":\"40.41408\",\"Longitude\":\" 49.87932\"}","lat":"40.41408","lng":" 49.87932"}],
-    ['Metro-Ulduz', {"name":"Metro-Ulduz","displayLocation":"{\"Latitude\":\"40.415\",\"Longitude\":\" 49.89236\"}","lat":"40.415","lng":" 49.89236"}],
-    ['Metro-Neftçilər', {"name":"Metro-Neftçilər","displayLocation":"{\"Latitude\":\"40.41052\",\"Longitude\":\" 49.94356\"}","lat":"40.41052","lng":" 49.94356"}],
-    ['Metro-Xalqlar Dostluğu', {"name":"Metro-Xalqlar Dostluğu","displayLocation":"{\"Latitude\":\"40.3982\",\"Longitude\":\" 49.95217\"}","lat":"40.3982","lng":" 49.95217"}],
-    ['Metro-Həzi Aslanov', {"name":"Metro-Həzi Aslanov","displayLocation":"{\"Latitude\":\"40.37395\",\"Longitude\":\" 49.9539\"}","lat":"40.37395","lng":" 49.9539"}],
-    ['Metro-Əhmədli', {"name":"Metro-Əhmədli","displayLocation":"{\"Latitude\":\"40.38442\",\"Longitude\":\" 49.95427\"}","lat":"40.38442","lng":" 49.95427"}],
-    ['Metro-28 May', {"name":"Metro-28 May","displayLocation":"{\"Latitude\":\"40.38255\",\"Longitude\":\" 49.84686\"}","lat":"40.38255","lng":" 49.84686"}],
-    ['Metro-20 Yanvar', {"name":"Metro-20 Yanvar","displayLocation":"{\"Latitude\":\"40.40354\",\"Longitude\":\" 49.80787\"}","lat":"40.40354","lng":" 49.80787"}],
-    ['Metro-Memar Acəmi', {"name":"Metro-Memar Acəmi","displayLocation":"{\"Latitude\":\"40.41045\",\"Longitude\":\" 49.81363\"}","lat":"40.41045","lng":" 49.81363"}],
-    ['Metro-Avtovağzal', {"name":"Metro-Avtovağzal","displayLocation":"{\"Latitude\":\"40.41841\",\"Longitude\":\" 49.79883\"}","lat":"40.41841","lng":" 49.79883"}],
-    ['Metro-Cəfər Cabbarlı', {"name":"Metro-Cəfər Cabbarlı","displayLocation":"{\"Latitude\":\"40.38024\",\"Longitude\":\" 49.85046\"}","lat":"40.38024","lng":" 49.85046"}],
-    ['Metro-Gənclik', {"name":"Metro-Gənclik","displayLocation":"{\"Latitude\":\"40.40113\",\"Longitude\":\" 49.85253\"}","lat":"40.40113","lng":" 49.85253"}],
-    ['Metro-Nərimanov', {"name":"Metro-Nərimanov","displayLocation":"{\"Latitude\":\"40.40273\",\"Longitude\":\" 49.87133\"}","lat":"40.40273","lng":" 49.87133"}],
-    ['Metro-Koroğlu', {"name":"Metro-Koroğlu","displayLocation":"{\"Latitude\":\"40.4211\",\"Longitude\":\" 49.91776\"}","lat":"40.4211","lng":" 49.91776"}],
-    ['Metro-Elmlər Akademiyası',{"name":"Metro-Elmlər Akademiyası","displayLocation":"{\"Latitude\":\"40.37519\",\"Longitude\":\" 49.81234\"}","lat":"40.37519","lng":" 49.81234"}],
-    ['Metro-İnşaatçılar', {"name":"Metro-İnşaatçılar","displayLocation":"{\"Latitude\":\"40.38897\",\"Longitude\":\" 49.80316\"}","lat":"40.38897","lng":" 49.80316"}],
-    ['Metro-Nəsimi', {"name":"Metro-Nəsimi","displayLocation":"{\"Latitude\":\"40.42443\",\"Longitude\":\" 49.8239\"}","lat":"40.42443","lng":" 49.8239"}],
-    ['Metro-Azadlıq Prospekti', {"name":"Metro-Azadlıq Prospekti","displayLocation":"{\"Latitude\":\"40.42531\",\"Longitude\":\" 49.8426\"}","lat":"40.42531","lng":" 49.8426"}]
+    ["Metro-Qara Qarayev", JSON.stringify({"name":"Metro-Qara Qarayev","displayLocation":"{\"Latitude\":\"40.41775\",\"Longitude\":\"49.93287\"}","lat":1,"lng":2})],
+    ["Metro-Nizami", JSON.stringify({"name":"Metro-Nizami","displayLocation":"{\"Latitude\":\"40.3792\",\"Longitude\":\" 49.83009\"}","lat":"40.3792","lng":" 49.83009"})],
+    ['Metro-İçərişəhər', JSON.stringify({"name":"Metro-İçərişəhər","displayLocation":"{\"Latitude\":\"40.36584\",\"Longitude\":\" 49.83151\"}","lat":"40.36584","lng":" 49.83151"})],
+    ['Metro-Dərnəgül', JSON.stringify({"name":"Metro-Dərnəgül","displayLocation":"{\"Latitude\":\"40.42552\",\"Longitude\":\" 49.86303\"}","lat":"40.42552","lng":" 49.86303"})],
+    ['Metro-Şah İsmail Xətai', JSON.stringify({"name":"Metro-Şah İsmail Xətai","displayLocation":"{\"Latitude\":\"40.38303\",\"Longitude\":\" 49.87196\"}","lat":"40.38303","lng":" 49.87196"})],
+    ['Metro-Bakmil', JSON.stringify({"name":"Metro-Bakmil","displayLocation":"{\"Latitude\":\"40.41408\",\"Longitude\":\" 49.87932\"}","lat":"40.41408","lng":" 49.87932"})],
+    ['Metro-Ulduz', JSON.stringify({"name":"Metro-Ulduz","displayLocation":"{\"Latitude\":\"40.415\",\"Longitude\":\" 49.89236\"}","lat":"40.415","lng":" 49.89236"})],
+    ['Metro-Neftçilər', JSON.stringify({"name":"Metro-Neftçilər","displayLocation":"{\"Latitude\":\"40.41052\",\"Longitude\":\" 49.94356\"}","lat":"40.41052","lng":" 49.94356"})],
+    ['Metro-Xalqlar Dostluğu', JSON.stringify({"name":"Metro-Xalqlar Dostluğu","displayLocation":"{\"Latitude\":\"40.3982\",\"Longitude\":\" 49.95217\"}","lat":"40.3982","lng":" 49.95217"})],
+    ['Metro-Həzi Aslanov', JSON.stringify({"name":"Metro-Həzi Aslanov","displayLocation":"{\"Latitude\":\"40.37395\",\"Longitude\":\" 49.9539\"}","lat":"40.37395","lng":" 49.9539"})],
+    ['Metro-Əhmədli', JSON.stringify({"name":"Metro-Əhmədli","displayLocation":"{\"Latitude\":\"40.38442\",\"Longitude\":\" 49.95427\"}","lat":"40.38442","lng":" 49.95427"})],
+    ['Metro-28 May', JSON.stringify({"name":"Metro-28 May","displayLocation":"{\"Latitude\":\"40.38255\",\"Longitude\":\" 49.84686\"}","lat":"40.38255","lng":" 49.84686"})],
+    ['Metro-20 Yanvar', JSON.stringify({"name":"Metro-20 Yanvar","displayLocation":"{\"Latitude\":\"40.40354\",\"Longitude\":\" 49.80787\"}","lat":"40.40354","lng":" 49.80787"})],
+    ['Metro-Memar Acəmi', JSON.stringify({"name":"Metro-Memar Acəmi","displayLocation":"{\"Latitude\":\"40.41045\",\"Longitude\":\" 49.81363\"}","lat":"40.41045","lng":" 49.81363"})],
+    ['Metro-Avtovağzal', JSON.stringify({"name":"Metro-Avtovağzal","displayLocation":"{\"Latitude\":\"40.41841\",\"Longitude\":\" 49.79883\"}","lat":"40.41841","lng":" 49.79883"})],
+    ['Metro-Cəfər Cabbarlı', JSON.stringify({"name":"Metro-Cəfər Cabbarlı","displayLocation":"{\"Latitude\":\"40.38024\",\"Longitude\":\" 49.85046\"}","lat":"40.38024","lng":" 49.85046"})],
+    ['Metro-Gənclik', JSON.stringify({"name":"Metro-Gənclik","displayLocation":"{\"Latitude\":\"40.40113\",\"Longitude\":\" 49.85253\"}","lat":"40.40113","lng":" 49.85253"})],
+    ['Metro-Nərimanov', JSON.stringify({"name":"Metro-Nərimanov","displayLocation":"{\"Latitude\":\"40.40273\",\"Longitude\":\" 49.87133\"}","lat":"40.40273","lng":" 49.87133"})],
+    ['Metro-Koroğlu', JSON.stringify({"name":"Metro-Koroğlu","displayLocation":"{\"Latitude\":\"40.4211\",\"Longitude\":\" 49.91776\"}","lat":"40.4211","lng":" 49.91776"})],
+    ['Metro-Elmlər Akademiyası',JSON.stringify({"name":"Metro-Elmlər Akademiyası","displayLocation":"{\"Latitude\":\"40.37519\",\"Longitude\":\" 49.81234\"}","lat":"40.37519","lng":" 49.81234"})],
+    ['Metro-İnşaatçılar', JSON.stringify({"name":"Metro-İnşaatçılar","displayLocation":"{\"Latitude\":\"40.38897\",\"Longitude\":\" 49.80316\"}","lat":"40.38897","lng":" 49.80316"})],
+    ['Metro-Nəsimi', JSON.stringify({"name":"Metro-Nəsimi","displayLocation":"{\"Latitude\":\"40.42443\",\"Longitude\":\" 49.8239\"}","lat":"40.42443","lng":" 49.8239"})],
+    ['Metro-Azadlıq Prospekti', JSON.stringify({"name":"Metro-Azadlıq Prospekti","displayLocation":"{\"Latitude\":\"40.42531\",\"Longitude\":\" 49.8426\"}","lat":"40.42531","lng":" 49.8426"})]
     ]
 
 let SubwayRadioButton = document.querySelector(".subway__radio-button"), SubwayRadioContent = document.querySelector('.subway__radio-content'),SubwayCheckRadio = false;
@@ -136,7 +135,7 @@ function addSubways() {
     }
 
     // autoCompleteJS();
-    heckPlusMinus()
+    checkPlusMinus()
 }
 
 
