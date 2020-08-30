@@ -130,7 +130,7 @@ function search(event) {
         document.querySelector("#books").children[0].innerHTML =temp({"book":res.results})
         bookmark(); // add bookmark functionality to book cards (bookmark.js)
 
-        popup(); //add popup functionality to book cards (popup.js)
+        // popup(); //add popup functionality to book cards (popup.js)
 
         loadingBar[0].style.display = "none";
         loadMore[0].style.display = "inline-block";

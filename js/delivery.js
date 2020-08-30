@@ -8,10 +8,12 @@ let locationInputTemp = Handlebars.compile(`<div class="delivery d-flex align-it
 function addDelivery(loc_name=null, loc_data=null){
     deliveryContainer.insertAdjacentHTML('beforeend', locationInputTemp({'loc_name':loc_name, 'loc_data':loc_data}) ) ;
     autoCompleteJS();
+    checkPlusMinus
 }
 
 function closeDelivery(thisDelivery){
     if(deliveryContainer.children.length > 3) thisDelivery.parentElement.remove();
+    checkPlusMinus
 }
 
 
@@ -51,3 +53,97 @@ function autoCompleteJS() {
         };
         $(".locations").easyAutocomplete(options);
 }
+
+// Brand New
+
+function checkPlusMinus(){
+    let deliveryAll = document.querySelectorAll('.delivery');
+
+    if(deliveryAll.length == 1) {
+        deliveryAll[0].children[1].classList.remove('none-delivery')
+        deliveryAll[0].children[2].classList.add('none-delivery')
+    }
+
+    if(deliveryAll.length  > 1){
+        for(let d = 0;d < deliveryAll.length-1;d++){
+            deliveryAll[d].children[1].style.display = "none";
+            deliveryAll[d].children[2].style.display = "block";
+        }
+        deliveryAll[deliveryAll.length - 1].children[2].style.display = "none";
+    }
+
+}
+
+// butun metrolara catdirilir checkbox
+
+subways = [
+    ["İçərişəhər", "data"],
+    ["Sahil", "data"],
+    ["28 May", "data"],
+    ["Gənclik", "data"],
+    ["Nəriman Nərimanov", "data"],
+    ["Ulduz", "data"],
+    ["Koroğlu", "data"],
+    ["Qara Qarayev", "data"],
+    ["Neftçilər", "data"],
+    ["Bakmil", "data"],
+    ["Xalqlar Dostluğu", "data"],
+    ["Əhmədli", "data"],
+    ["Həzi Aslanov", "data"],
+    ["Xətai", "data"],
+    ["Nizami", "data"],
+    ["Elmlər Akademiyası", "data"],
+    ["İnşaatçılar", "data"],
+    ["20 Yanvar", "data"],
+    ["Memar Əcəmi", "data"],
+    ["Cəfər Cabbarlı", "data"],
+    ["Nəsimi", "data"],
+    ["Azadlıq prospekti", "data"],
+    ["Dərnəgül", "data"],
+    ["Avtovağzal", "data"],
+]
+
+
+
+let SubwayRadioButton = document.querySelector(".subway__radio-button"), SubwayRadioContent = document.querySelector('.subway__radio-content'),SubwayCheckRadio = false;
+SubwayRadioButton.onclick = function(){
+    if(!SubwayCheckRadio){
+        SubwayRadioContent.style.display = "inline-block";
+        SubwayCheckRadio = true;
+        addSubways();
+        checkPlusMinus();
+    }
+    else{
+        SubwayRadioContent.style.display = "none";
+        SubwayCheckRadio = false;
+        removeSubways();
+        checkPlusMinus();
+    }
+}
+
+function addSubways() {
+
+    for(let sb = 0; sb < subways.length;sb++){
+        let newItem = ` <div class="delivery d-flex align-items-center py-2 subwaysdata">
+                            <input type="text" name="sell_locations" data-loc_data="${subways[sb][1]}" class = "input-val locations subwaysdata" value = "${subways[sb][0]}">
+                            <img src="icons/Path 413.svg" alt="" class = "ml-3 plas-delivery" onclick = "addDelivery();">
+                            <img src="icons/minus.svg" alt="" class = "ml-3 minus-delivery" onclick = "closeDelivery(this)">
+                        </div>`
+
+
+        deliveryContainer.insertBefore(newItem, deliveryContainer.childNodes[2])
+    }
+
+}
+
+
+function removeSubways() {
+    // remove elements that has class subwaysdata
+
+    let all_subeays = document.querySelectorAll('.subwaysdata');
+
+    for (var i = 0; i < all_subeays.length; i++) {
+        all_subeays[i].remove();
+    }
+}
+
