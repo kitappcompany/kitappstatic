@@ -130,6 +130,7 @@ function addSubways() {
                             <img src="icons/minus.svg" alt="" class = "ml-3 minus-delivery" onclick = "closeDelivery(this)">
                         </div>`
 
+        let newNode = createElementFromHTML(newItem);
 
         deliveryContainer.insertBefore(newItem, deliveryContainer.childNodes[2])
     }
@@ -147,3 +148,10 @@ function removeSubways() {
     }
 }
 
+function createElementFromHTML(htmlString) {
+  var div = document.createElement('div');
+  div.innerHTML = htmlString.trim();
+
+  // Change this to div.childNodes to support multiple top-level nodes
+  return div.firstChild;
+}
