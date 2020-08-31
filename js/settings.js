@@ -61,3 +61,39 @@ function settings_js() {
     }
 
 }
+
+
+function autoCompleteJS() {
+    // body...
+    let comp = encodeURIComponent('40,49')
+
+    var options = {
+          url: function(phrase) {
+            		return "https://autosuggest.search.hereapi.com/v1/autosuggest?Accept-Language=q%3D0.9%3Bq%3D0.8%2Caz%3Bq%3D0.7&at=" + comp + "&size=5&result_types=address%2C+place%2C+chain%2C+category&tf=plain&q=" + phrase + "&apikey=y9kQaWgzK5EwZQTAYxYio7sLA1lPIGW013LxMQg_qCM";
+            	},
+          getValue: "title",
+          listLocation:"items",
+          requestDelay: 120,
+          list: {
+                match: {enabled: true},
+
+        	},
+
+          template: {
+                type: "custom",
+                method: function(value, item) {
+                    try {
+                        /* code */
+                        return `<span name="sell_location" data-key="${item.id}"  data-position="${item.position.lat}, ${item.position.lng}" data-title="${item.title}"> ${item.title} </span>`;
+
+                    } catch (e) {
+                        return
+                    }
+                }
+            },
+
+
+          theme: "square"
+        };
+    $(".locations").easyAutocomplete(options);
+}
