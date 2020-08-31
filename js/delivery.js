@@ -64,6 +64,8 @@ function checkPlusMinus(){
     if(deliveryAll.length == 1) {
         deliveryAll[0].children[1].classList.remove('none-delivery')
         deliveryAll[0].children[2].classList.add('none-delivery')
+        deliveryAll[0].children[2].style.display = "none";
+        deliveryAll[0].children[1].style.display = "block";
     }
 
     if(deliveryAll.length  > 1){
