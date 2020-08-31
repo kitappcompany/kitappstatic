@@ -51,7 +51,9 @@ function autoCompleteJS(id = false) {
                         /* code */
                         return `<span name="sell_location" data-key="${item.id}"  data-position="${item.position.lat}, ${item.position.lng}" data-title="${item.title}"> ${item.title} </span>`;
 
-                    } catch (e) {return}
+                    } catch (e) {
+                        return
+                    }
                 }
             },
 
