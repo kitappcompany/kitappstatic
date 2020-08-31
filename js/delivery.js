@@ -47,7 +47,11 @@ function autoCompleteJS(id = false) {
           template: {
                 type: "custom",
                 method: function(value, item) {
-                    return `<span name="sell_location" data-key="${item.id}"  data-position="${item.position.lat}, ${item.position.lng}" data-title="${item.title}"> ${item.title} </span>`;
+                    try {
+                        /* code */
+                        return `<span name="sell_location" data-key="${item.id}"  data-position="${item.position.lat}, ${item.position.lng}" data-title="${item.title}"> ${item.title} </span>`;
+
+                    } catch (e) {return}
                 }
             },
 
