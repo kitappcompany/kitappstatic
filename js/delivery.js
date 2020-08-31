@@ -61,6 +61,7 @@ function autoCompleteJS(id = false) {
 function checkPlusMinus(){
     let deliveryAll = document.querySelectorAll('.delivery');
 
+
     if(deliveryAll.length == 1) {
         deliveryAll[0].children[1].classList.remove('none-delivery')
         deliveryAll[0].children[2].classList.add('none-delivery')
@@ -156,6 +157,10 @@ function removeSubways() {
     for (var i = 0; i < all_subeays.length; i++) {
         all_subeays[i].remove();
     }
+
+    let deliveryAll = document.querySelectorAll('.delivery');
+    if (deliveryAll.length === 0) addDelivery();
+
 }
 
 function createElementFromHTML(htmlString) {
