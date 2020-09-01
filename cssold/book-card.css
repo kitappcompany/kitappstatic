@@ -96,20 +96,6 @@ html{
             .book-card h5{
                 font-size:1.5rem;
                 color:#686868;
-                width: 21.7rem;
-                height: 5rem;
-                margin: 0;
-                display: inline-block;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                display: -webkit-box;
-                -webkit-line-clamp: 2; /* number of lines to show */
-                -webkit-box-orient: vertical;
-            }
-
-            #new-books .book-card h5{
-                width: 15rem;
-
             }
 
             .book-card:hover{

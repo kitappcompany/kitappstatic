@@ -1,0 +1,104 @@
+@import "fonts.css";
+html{
+    font-size:10px;
+}
+#my-announcements{
+    font-family:DINPro-Medium;
+    color: #686868;
+}
+.my-an-title{
+    font-size:2.5rem;
+    color:#5CB4F1;
+}
+/* title */
+.i-looking-h p, .i-sold-h p{
+    display:inline-block;
+    font-size:2.5rem;
+    cursor:pointer;
+    color:#B5B5B5;
+    transition: all .2s;
+
+}
+.i-looking-h, .i-sold-h{
+    text-align:center;
+    border-bottom:.1rem solid #B5B5B5;
+    font-family:DINPro;
+    transition: all .2s;
+}
+.i-sold-h{
+    border-bottom:.2rem solid #686868;
+    transition: all .2s;
+    font-family:DINPro-Medium;
+}
+.i-sold-h p {
+    transition: all .2s;
+    color:#686868;
+}
+/* kitablara kolge */
+#i-sold .book-card{
+    -webkit-box-shadow: 0px 3px 17px -8px rgba(112,112,112,0.69);
+    -moz-box-shadow: 0px 3px 17px -8px rgba(112,112,112,0.69);
+    box-shadow: 0px 3px 17px -8px rgba(112,112,112,0.69);
+}
+/* buttonlar */
+.has-been-sold-button, .fixes-button,.sold-button{
+    font-size:1.5rem;
+    border:none;
+    background:transparent;
+    height:4rem;
+}
+.fixes-button{
+    color:#5CB4F1;
+}
+.has-been-sold-button{
+    color:#fff;
+    background:#5EB3F1;
+    border-radius:2rem;
+}
+.sold-button{
+    background:#B5B5B5;
+    color:#fff;
+    border-radius:2rem;
+    width:11.5rem;
+}
+.second-button{
+    display:none;
+}
+.bg-B5B5B5{
+    position:absolute;
+    top:0;
+    height:100%;
+    border-radius:1rem;
+    opacity:0;
+    background:#B5B5B5;
+    transition:all .2s;
+}
+
+.first-buttons{
+    margin: 0;
+}
+
+/*  dont active announcements */
+
+.announcements-container{
+
+}
+
+.not-active-announcements{
+    padding: 12rem 0;
+    text-align:center;
+}
+
+.not-active-announcements button{
+    font-size: 1.5rem;
+    margin: 2.9rem 0;
+}
+
+
+.not-active-announcements span{
+    padding: 12rem 0;
+    text-align:center;
+    font-size: 3.4rem;
+    font-family: DINPro;
+}
+

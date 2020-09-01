@@ -8,7 +8,7 @@
     width:18rem;
 }  
 #burger-menu-button img{
-    width:40px !important;
+    width:53px !important;
     padding-top: 0;  
     cursor:pointer;
 }
@@ -36,23 +36,6 @@
 
 .book-button{
     display: none !important;
-}
-
-.book-card h5{
-    width: 117px;
-}
-
-@media screen and (max-width: 400px){
-    .book-card h5{
-        width: 108px;
-        height: 4.5rem;
-    }
-}
-
-@media screen and (max-width: 300px){
-    .book-card h5{
-        width: 90px;
-    }
 }
 
 /* --------- LOAD MORE */

@@ -1,0 +1,190 @@
+@import "fonts.css";
+#create-profile{
+    font-family: DINPro-Medium;
+}
+.profile-header{
+    font-size:2.5rem;
+    color:#5CB4F1;
+}
+.favorite-genre-header{
+    font-size:2rem;
+    padding-left:2rem;
+    font-family:DINPro-Bold
+}
+.very-option{
+    font-size:2rem;
+    font-family: DINPro;
+    color:#B5B5B5;
+}
+
+.favorite-genre-item{
+    width:16rem;
+    height:4rem;
+    font-size:1.5rem;
+    display:inline-block;
+    border:.1rem solid #707070;
+    border-radius:5rem;
+    cursor:pointer;
+    margin:.5rem .5rem .5rem 0;
+}
+.genres-item{
+    width:100%;
+    height:9.8rem;
+    font-size:1.5rem;
+    border:.2rem solid #5EB3F1;
+    border-radius:4rem;
+    position:relative;
+    transition:all .4s;
+}
+.genres-item:hover{
+    background:#5EB3F1;
+    transition:all .4s;
+    cursor:pointer;
+}
+.genres-item:hover .genres-content{
+    color:#fff;
+}
+.genres .col-2,.genres .col-4{
+    padding:1.4rem;
+}
+
+.genres-content{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:#686868;
+}
+
+.remember-button{
+    width:16rem;
+    height:4rem;
+    border-radius:2rem;
+    border:none;
+    background:#5AB5F1;
+    font-size:1.5rem;
+    color:#fff;
+}
+/* inputlar */
+#create-profile .input-header{
+    font-size:2rem;
+    margin-bottom:-1rem;
+    padding-left:1.5rem;
+}
+#create-profile{
+    color:#686868;
+}
+#create-profile input{
+    padding-left:2rem;
+    border-radius:5rem;
+}
+#create-profile .input-content,#create-profile .input-container{
+    border-radius:5rem;
+}
+#create-profile .input-container{
+    border:.1rem solid #707070;
+    padding-top:.1rem;
+}
+/* ----  tarix inputu */
+
+.data-input{
+    width:100%;
+    text-align:center;
+    border:.1rem solid #707070;
+    border-radius:5rem;
+    font-size:1.5rem;
+    cursor:pointer;
+    height:4.4rem;
+}
+
+.year{
+    padding-top:3.5rem;
+}
+.relative{
+    position: relative;
+}
+.year-input{
+    position: absolute;
+    top:50%;
+    font-size:1.5rem;
+    color:#2D94DB;
+    left:50%;
+    font-family:DINPro-Medium !important;
+    transform:translate(-50%,-50%);
+}
+.icon-in-input{
+    height:2.1rem;
+    position:absolute;
+    top:50%;
+    left:2rem;
+    transform:translateY(-50%);
+}
+.input-container{
+    padding-bottom:.1rem;
+}
+
+.month-day{
+    position: absolute;
+    color:#2D94DB;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+/* year dropdown */
+.year-dropdown{
+    position:absolute;
+    top:110%;
+    z-index:5;
+    left:50%;
+    transform:translateX(-50%);
+    display:none;
+
+}
+.year-list{
+    border:.1rem solid #707070;
+    border-radius:1rem;
+    padding:.8rem 0;
+    background:#fff;
+    overflow-y:scroll;
+    height:180px;
+    scroll-margin-block-start: -50px;
+}
+.year-list::-webkit-scrollbar{
+    width:.5rem;
+}
+.year-list::-webkit-scrollbar-thumb{
+    background:#B5B5B5;
+    border-radius:50rem;
+}
+.year-list-item{
+    padding:.2rem 3.3rem;
+    color:#686868;
+    font-size:1.5rem;
+}
+.year-list-item:hover{
+    color:#CAE8FF;
+}
+
+.bg-blue{
+    background:#5EB3F1;
+}
+.color-fff{
+    color:#fff;
+}
+
+/* tarix ucun */
+/* [type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+  [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+input[type="date"]:focus{
+    background:#EFEFEF !important;
+} */
+/* respansive */
+@media screen and (max-width:576px){
+    .data-input{
+        height:5rem;
+    }
+}

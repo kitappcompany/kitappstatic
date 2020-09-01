@@ -178,7 +178,7 @@ button:focus{
     transition:all .5s;
     padding:.2rem;
     text-align: right;
-    padding-right: 8rem;
+    padding-right: 4rem;
 }
 .burger-menu-list-item:hover{
     color:#5EB3F1;

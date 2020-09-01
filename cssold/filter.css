@@ -83,15 +83,3 @@
         #filter hr{
             border:.5px solid #B5B5B5;
         }
-
-        .filter-active{
-            display: block !important;
-        }
-
-        #filter .drop-down-list li {
-            display: block;
-        }
-
-        #filter .drop-down-list{
-            display: none;
-        }

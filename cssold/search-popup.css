@@ -1,0 +1,41 @@
+html{
+    font-size:10px;
+}
+
+#search-popup{
+    color:#686868;
+}
+#search-popup .col-7{
+    overflow: scroll;
+    padding-right:5.5rem;
+}
+#search-popup{
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:5;
+    font-family:DINPro-Medium;
+    display:none;
+}
+.place-icon{
+    height:1.8rem;
+}
+.courier-icon{
+    height:3.1rem;
+}
+#search-popup .unknown-book{
+    width:100%;
+}
+#search-popup .popup-bg{
+    height:100vh;
+}
+#search-popup .popup-img-container{
+    width:21.5rem;
+}
+@media screen and (max-width:768px){
+    #search-popup .col-7{
+        padding-right:0rem;
+        padding-left:4rem;
+    }
+}
