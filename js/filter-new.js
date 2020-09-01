@@ -1,7 +1,7 @@
 
 
 let filterId = document.querySelector('#filter');
-
+let inputValue = document.querySelectorAll(".input-val")
 
 // filterin acilib baglanmasi
 function showFilter(){
@@ -20,13 +20,17 @@ function showFilterElementDropdown(e){
     if(hasClass(e.children[2],'d-block')){
         whenShowElement(e);
     } else{
-        whenHiddenElement(e);   
+        whenHiddenElement(e);
     }
-    
+
     for(let i = 0; i< e.children[2].children.length;i++){
         e.children[2].children[i].onclick = function(){
             e.children[0].value = e.children[2].children[i].innerHTML;
+            e.children[0].dataset.info = e.children[2].children[i].dataset.info;
             whenHiddenElement(e);
+
+            // Filter onclick
+            startFiltering();
         }
     }
     // ozunnen evvel acilan dropdowunu baglamaq ucun
@@ -56,4 +60,38 @@ function whenHiddenElement(e){
 
 function hasClass(element, className) {
     return (' ' + element.className + ' ').indexOf(' ' + className+ ' ') > -1;
+}
+
+function startFiltering() {
+    // body...
+    let url = makeURLS(inputValue);
+    BooksList(url);
+}
+// added by NEW
+function makeURLS(inputValue) {
+    let url = "/catalog-api/listbooks?"
+    if (inputValue[0].dataset.info != undefined) {
+            url  =  url  + inputValue[0].dataset.name + "=" + inputValue[0].dataset.info;
+        }
+
+    for (var i = 1; i < inputValue.length; i++) {
+        if (inputValue[i].dataset.info != undefined) {
+            url = url + '&';
+            url  =  url  + inputValue[i].dataset.name + "=" + inputValue[i].dataset.info;
+        }
+    }
+    return url
+}
+
+var timer = 0;
+function fakeclick(input, ms){
+    // input.dataset.info
+    input.setAttribute('data-info', input.value);
+
+    clearTimeout(timer);
+
+    timer = setTimeout(function () {
+      startFiltering()
+    }, ms || 1000);
+    // li.click()
 }
