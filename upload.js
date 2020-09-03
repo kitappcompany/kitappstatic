@@ -252,6 +252,7 @@ function make_location(locations, adPlacePopup, adPlaceButton) {
     return locations_data
 }
 
+
 function upload_image( adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook/"){
     // Show user that uploading
     // FOR USER EXPERIENCE
