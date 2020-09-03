@@ -372,6 +372,7 @@ function show_error_images(action) {
     if (action) img.style.borderColor= "red";
     else img.style = "";
 }
+
 function show_errors(errors) {
     // add style to placeholder
     add_style('::placeholder { color: rgb(245, 76, 110); }');
@@ -406,9 +407,16 @@ function show_popup(adPlacePopup, adPlaceButton) {
     adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Elanınız yayımlanır ..."
     adPlacePopup.style.display = "block";
 
+    let bgOpacity = document.querySelector('.bg-opacity');
+    bgOpacity.onclick = function(){}
+
 }
 function popupError( adPlacePopup, adPlaceButton) {
     // body...
+    let bgOpacity = document.querySelector('.bg-opacity');
+    bgOpacity.onclick = function(){
+        adPlacePopup.style.display = "none";
+    }
     adPlaceButton.disabled = false;
     adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/404.svg";
     adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Error"
@@ -416,7 +424,8 @@ function popupError( adPlacePopup, adPlaceButton) {
 function popupSuccess(adPlacePopup, adPlaceButton, method) {
     // body...
             // body...
-
+    let bgOpacity = document.querySelector('.bg-opacity');
+    bgOpacity.onclick = function(){    }
     let info = "Elanınız yayımlandı";
     let redirect = '/';
 

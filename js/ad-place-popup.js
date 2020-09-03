@@ -1,7 +1,6 @@
 function add_place_popup(page=true, book_id=null) {
     let adPlaceButton = document.querySelectorAll('.ad-place-button'),
-    adPlacePopup = document.querySelector('#ad-place-popup'),
-    bgOpacity = document.querySelector('.bg-opacity');
+    adPlacePopup = document.querySelector('#ad-place-popup');
 
     for(let i = 0;i< adPlaceButton.length;i++){
         adPlaceButton[i].onclick = function(){
@@ -14,8 +13,5 @@ function add_place_popup(page=true, book_id=null) {
 
             }
         }
-    }
-    bgOpacity.onclick = function(){
-        adPlacePopup.style.display = "none";
     }
 }
