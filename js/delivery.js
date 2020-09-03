@@ -24,7 +24,7 @@ function autoCompleteJS(id = false) {
 
 
     let mypos = document.getElementById('mypos').dataset.mypos;
-    let comp = encodeURIComponent('40,49')
+    let comp = encodeURIComponent('40.41066,49.87222')
     if (mypos != '' | mypos==null) {
         let d = JSON.parse(mypos)
         let lat =  parseFloat(d['Latitude']);

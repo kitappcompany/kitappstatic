@@ -1,7 +1,7 @@
 
 // close
 function openHomePage(){
-    window.open("index.html", "_self", "toolbar=yes,scrollbars=yes,resizable=yes");
+    window.open("/", "_self", "toolbar=yes,scrollbars=yes,resizable=yes");
 }
 
 // sign in sign up

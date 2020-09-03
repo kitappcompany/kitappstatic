@@ -65,7 +65,7 @@ function settings_js() {
 
 function autoCompleteJS() {
     // body...
-    let comp = encodeURIComponent('40,49')
+    let comp = encodeURIComponent('40.41066,49.87222')
 
     var options = {
           url: function(phrase) {
