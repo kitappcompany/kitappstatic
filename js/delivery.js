@@ -1,6 +1,6 @@
 let deliveryContainer = document.querySelector('.delivery-container');
 let locationInputTemp = Handlebars.compile(`<div class="delivery d-flex align-items-center py-2">
-            <input id={{unique}}  value="{{loc_name}}" data-loc_data='{{loc_data}}' name="sell_locations" type="text" class = "input-val locations">
+            <input id={{unique}}  value="{{loc_name}}" data-loc_data='{{loc_data}}' style="width:100%;" name="sell_locations" type="text" class = "input-val locations">
             <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/Path 413.svg" alt="" class = "ml-3 plas-delivery" onclick = "addDelivery();return false;">
             <img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/minus.svg" alt="" class = "ml-3 minus-delivery" onclick = "closeDelivery(this)">
             </div>`);
@@ -10,6 +10,11 @@ function addDelivery(loc_name=null, loc_data=null){
     deliveryContainer.insertAdjacentHTML('beforeend', locationInputTemp({'unique':unique,'loc_name':loc_name, 'loc_data':loc_data}) ) ;
     autoCompleteJS('#'+unique);
     checkPlusMinus();
+
+    //rewrite div style width
+    let div = document.querySelector("#"+unique).parentElement;
+    div.style.width = "100%";
+
 }
 
 function closeDelivery(thisDelivery){
@@ -61,6 +66,7 @@ function autoCompleteJS(id = false) {
           theme: "square"
         };
     $(id).easyAutocomplete(options);
+
 }
 
 // Brand New
