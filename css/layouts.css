@@ -151,7 +151,7 @@ button:focus{
     position:fixed;
     background:#5EB3F1;
     font-family:DINPro-Medium;
-    z-index:200;
+    z-index:3000;
     text-align:center;
     font-size:3.9rem;
     color:#fff;
