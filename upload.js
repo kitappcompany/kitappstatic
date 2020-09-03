@@ -3,7 +3,7 @@
 function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api/createabook/") {
     adPlaceButton.disabled = true;
     adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/myicons/comment.svg"
-    adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Elanınız yayınlanır ..."
+    adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Elanınız yayımlanır ..."
     adPlacePopup.style.display = "block";
 
     let csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
@@ -70,7 +70,7 @@ function PostABook(adPlacePopup, adPlaceButton, method="POST", url="/catalog-api
     request.onload = ()=>{
         adPlaceButton.disabled = false;
         if (request.status === 201 || request.status === 200) {
-            let info = "Elanınız yayınlandı";
+            let info = "Elanınız yayımlandı";
             if (method==="PATCH") {
                 info = "Məlumatlar uğurla dəyişdirildi."
             }
@@ -403,7 +403,7 @@ function show_errors(errors) {
 function show_popup(adPlacePopup, adPlaceButton) {
     adPlaceButton.disabled = true;
     adPlacePopup.querySelector('img').src = "https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/myicons/comment.svg"
-    adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Elanınız yayınlanır ..."
+    adPlacePopup.querySelector('.ad-place-popup-header').innerHTML = "Elanınız yayımlanır ..."
     adPlacePopup.style.display = "block";
 
 }
@@ -417,7 +417,7 @@ function popupSuccess(adPlacePopup, adPlaceButton, method) {
     // body...
             // body...
 
-    let info = "Elanınız yayınlandı";
+    let info = "Elanınız yayımlandı";
     let redirect = '/';
 
     if (method==="PATCH") {
