@@ -68,18 +68,18 @@ function messageMsg(slug, owner_name) {
                     if (res[i]["sender"]["email"] != user_email) {
                         writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
                         '<p class="incoming-message">' +res[i]["data"] + '</p>' +
-                        '<p class="incoming-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
+                        '<p class="incoming-date">' + timeHandler(d.getHours()) + ':' + timeHandler(d.getMinutes()) +'</p>' +
                         '</div>';
                     }
                     else{
                         writeMessages.innerHTML += '<div class="outgoing-div clearfix">' +
                         '<p class="outgoing-message float-right">' + res[i]["data"] + '</p>' +
-                        '<p class="outgoing-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
+                        '<p class="outgoing-date">' + timeHandler(d.getHours()) + ':' + timeHandler(d.getMinutes()) +'</p>' +
                         '</div>';
                     }
 
                     if (i === res.length - 1) {//fill date of last msg  to top of msg template
-                         document.querySelector(".date-container").innerHTML = d.getDate() + '.' + d.getMonth() + 1 + '.' + d.getFullYear();
+                         document.querySelector(".date-container").innerHTML = d.getDate() + '.' + d.getMonth() +  '.' + d.getFullYear();
                      }
                 }
                 else{
@@ -92,7 +92,7 @@ function messageMsg(slug, owner_name) {
                         '</div>'
 
                     if (i === res.length - 1) {//fill date of last msg  to top of msg template
-                         document.querySelector(".date-container").innerHTML = d.getDate() + '.' + d.getMonth() + 1 + '.' + d.getFullYear();
+                         document.querySelector(".date-container").innerHTML = timeHandler(d.getDate()) + '.' + timeHandler(d.getMonth()) + '.' + d.getFullYear();
                      }
                 }
             }
@@ -123,7 +123,7 @@ function messageMsg(slug, owner_name) {
             catch (e){
                 writeMessages.innerHTML += '<div class="incoming-div clearfix">' +
                 '<p class="incoming-message">' + res + '</p>' +
-                '<p class="incoming-date">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
+                '<p class="incoming-date">' + timeHandler(d.getHours()) + ':' + timeHandler(d.getMinutes()) +'</p>' +
                 '</div>';
             }
 
@@ -161,6 +161,12 @@ function messageMsg(slug, owner_name) {
         // body...
         console.log("error", e)
     }
+}
+
+function timeHandler(value) {
+    value = parseInt(value);
+    if (value < 10) return "0"+value;
+    return value
 }
 
 function chatRoomHandler() {
