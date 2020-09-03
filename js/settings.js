@@ -75,7 +75,7 @@ function autoCompleteJS() {
           listLocation:"items",
           requestDelay: 120,
           list: {
-                match: {enabled: true},
+                match: {enabled: false},
 
         	},
 
