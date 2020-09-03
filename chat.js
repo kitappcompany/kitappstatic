@@ -79,7 +79,7 @@ function messageMsg(slug, owner_name) {
                     }
 
                     if (i === res.length - 1) {//fill date of last msg  to top of msg template
-                         document.querySelector(".date-container").innerHTML = d.getDate() + '.' + d.getMonth() +  '.' + d.getFullYear();
+                         document.querySelector(".date-container").innerHTML = timeHandler(d.getDate()) + '.' + timeHandler(d.getMonth()) + '.' + d.getFullYear();
                      }
                 }
                 else{
@@ -148,7 +148,7 @@ function messageMsg(slug, owner_name) {
                 '.write-messages').get(0).scrollHeight
             }, 100);
         });
-        paddingBottom();
+        // paddingBottom();
 
     }
 
