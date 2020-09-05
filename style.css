@@ -159,6 +159,11 @@ body{
 #menu .category-list{
     display: inline-block;
 }
+
+.categories-list__item-color{
+    color: #5AB5F1 !important;
+}
+
 #menu ul li{
     padding:0 .551rem;
     z-index:2;

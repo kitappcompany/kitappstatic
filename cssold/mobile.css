@@ -60,9 +60,7 @@
 /* --------- LOAD MORE */
 
 .load-more{
-    height: 6rem;
-    width: auto;
-    padding-top: 1rem !important;
+    height: 5rem;
     padding-bottom: 1rem !important;  
     font-size: 2rem !important;
 }
@@ -490,9 +488,7 @@ img.fa-search{
 }
 
 
-.mobile-insert-book-button{
-    display: flex;
-}
+
 
 
 

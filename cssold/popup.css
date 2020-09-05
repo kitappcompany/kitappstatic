@@ -1,0 +1,190 @@
+@import "fonts.css";
+/* popup */
+#popup{
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:5;
+    font-family:DINPro-Medium;
+    overflow-y:scroll;
+    display:none;
+}
+#popup .col-7{
+    overflow: scroll;
+    padding-right:5.5rem;
+}
+#popup{
+    color:#686868;
+    z-index:15;
+}
+.courier-icon{
+    height:3rem;
+}
+.popup-bg{
+    height:160rem;
+    position:absolute;
+    top:0;
+    left:0;
+    background:#000;
+    opacity:.45;
+}
+.popup-container{
+    width:72.9rem;
+    background:white;
+    position:absolute;
+    border-radius:1.4rem;
+    top:50%;
+    left:50%;
+    translate:all 1s;
+    transform:translate(-50%,-50%);
+}
+.popup-container .close-button{
+    width:1.46rem;
+    cursor:pointer;
+}
+.popup-book{
+    width:100%;
+    height:31.9rem;
+    min-height:31.9rem;
+    border-radius: 1rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: inline-block;
+}
+.popup-bookmark{
+    height:3rem;
+    position:absolute;
+    right:.3rem;
+    top:-10%;
+}
+.popup-img-container{
+    width:21rem;
+    position: relative;
+}
+.left-img, .right-img{
+    cursor: pointer;
+    height:1.2rem;
+}
+.write-seller button{
+    width:80%;
+    height:4rem;
+    background:#5AB5F1;
+    font-size:1.9rem;
+    border:none;
+    border-radius:2.7rem;
+    color:#fff;
+    outline:none;
+}
+.write-seller{
+    color:#B5B5B5;
+    font-size:2.5rem;
+}
+.popup-price, .popup-money{
+    font-size:2.5rem;
+    color:#686868;
+    font-weight:bold;
+    font-family: 'jisazn';
+}
+.popup-book-name{
+    color:#686868;
+    font-size:2.3rem;   
+    word-wrap: break-word;
+    font-family:DINPro-Bold !important;
+}
+#popup .popup-book-name{
+    width: 25rem; 
+}
+.popup-author{
+    color:#B5B5B5;
+    font-family:DINPro;
+    font-size:1.9rem;
+}
+.popup-janr, .popup-veziyyet{
+    font-size:1.9rem;
+    margin:-.5rem 0;
+    font-family:DINPro;
+    color:#B5B5B5;
+}
+.popup-janr span, .popup-veziyyet span{
+    font-family: DINPro-Medium !important;
+    color:#686868;
+}
+.popup-about-header{
+    font-family: DINPro-Medium !important;
+    font-size:1.8rem;
+    color:#686868;
+}
+.popup-about{
+    color:#707070;
+    font-size:1.6rem;
+    line-height:1.8rem;
+    font-family:DINPro;
+}
+.popup-footer{
+    padding:0 4.5rem;
+    font-size:1.9rem;
+    margin-bottom:3.2rem;
+    color: #686868;
+    font-family:DINPro-Medium;
+}
+.popup-map{
+    display:none;
+    padding:4.2rem;
+    padding-bottom:3.6rem;
+    padding-top:0;
+}
+#gmap_canvas{
+    border-radius:3.3rem;
+    height:34.5rem;
+    width:100%;
+}
+.delivery-button{
+    cursor:pointer;
+}
+.popup-bookmark{
+    cursor:pointer;
+}
+
+        @media screen and (max-width:768px){
+            html{
+                font-size:9px;
+            }
+            .popup-container{
+            width:57.6rem;
+            }
+            #popup .col-7, #search-popup .col-7{
+            padding-right:5rem;
+            }
+            .write-seller button{
+                width:14rem;
+                height:4.8rem;
+            }
+            .popup-footer{
+                margin-top:2rem;
+                padding-right:0;
+            }
+            #search-popup .popup-footer{
+                padding:0 2rem;
+            }
+            .popup-book{
+                width:18.964rem;
+                height:27.319rem;
+            }
+            .popup-bookmark{
+                right:1rem;
+            }
+        }
+        @media screen and (max-width:576px){
+            html{
+                font-size:7px;
+            }
+
+        }
+        @media screen and (max-width:450px){
+            html{
+                font-size:5px;
+            }
+
+        }
