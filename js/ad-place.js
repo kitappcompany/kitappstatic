@@ -66,10 +66,10 @@ function delete_post(book_id){
 
     request.onload = ()=>{
         let res = JSON.parse(request.responseText)
-        if(res['status']) {
-               showRemoveThisAdPopup()
-               window.location.href = "/accounts/myposts";
-               return
+        if(res['status'] === 1) {
+            window.location.href = "/accounts/myposts";   
+            showRemoveThisAdPopup();   
+            return
         }
         showRemoveThisAdPopup()
         
