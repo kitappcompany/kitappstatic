@@ -55,11 +55,11 @@ function showRemoveThisAdPopup(){
     removeThisAdPopup.classList.toggle("remove-this-ad-popup-active");
 }
 
-function delete_post(post) {
+function delete_post(button){
     let book_id = div.querySelector('#book-id').value;
     const request = new XMLHttpRequest();
     request.open("DELETE", "/accounts-api/mybooks/"+book_id+"/")
-
+    button.disabled = true;
     try {
         //if user is authenticated
         let user_token = document.querySelector("#user_token").value
@@ -67,7 +67,15 @@ function delete_post(post) {
     catch (e) {return}
 
     request.onload = ()=>{
-        console.log(request.responseText)
+        let res = JSON.parse(request.responseText)
+        if(res['status]) {
+               showRemoveThisAdPopup()
+               window.location.href = "/accounts/myposts";
+               return
+        }
+               button.disabled = false;
+               showRemoveThisAdPopup()
+        
     }
 
     request.send()
