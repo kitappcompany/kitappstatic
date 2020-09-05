@@ -49,8 +49,26 @@ function ad_place() {
 
 }
 
-let = removeThisAdPopup = document.querySelector('.remove-this-ad-popup');
+let removeThisAdPopup = document.querySelector('.remove-this-ad-popup');
 
 function showRemoveThisAdPopup(){
     removeThisAdPopup.classList.toggle("remove-this-ad-popup-active");
+}
+
+function delete_post(post) {
+    let book_id = div.querySelector('#book-id').value;
+    const request = new XMLHttpRequest();
+    request.open("DELETE", "/accounts-api/mybooks/"+book_id+"/")
+
+    try {
+        //if user is authenticated
+        let user_token = document.querySelector("#user_token").value
+        request.setRequestHeader("Authorization", "Token " + user_token)}
+    catch (e) {return}
+
+    request.onload = ()=>{
+        console.log(request.responseText)
+    }
+
+    request.send()
 }
