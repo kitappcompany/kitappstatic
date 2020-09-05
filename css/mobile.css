@@ -27,7 +27,9 @@
     font-size: 2rem !important;
     padding: 0 1.5rem !important; 
     width: auto;
+    display: none;
 }
+
 /* --------- BOOK CARD ----------- */
 
 .book{
@@ -204,6 +206,11 @@ img.fa-search{
     z-index: 1000;
 }
 .input-container{
+    height: 45px;
+}
+
+
+.book-price-counter{
     height: 45px;
 }
 

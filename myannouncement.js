@@ -66,10 +66,28 @@ function sold_or_onsale(event, bool) {
             return
         }
     request.onload = ()=>{
-        console.log(request.responseText)
+        // console.log(request.responseText)
     }
 
     const data = new FormData();
     data.append('sold', bool)
     request.send(data)
+}
+
+function delete_post(post) {
+    let book_id = div.querySelector('#book-id').value;
+    const request = new XMLHttpRequest();
+    request.open("DELETE", "/accounts-api/mybooks/"+book_id+"/")
+
+    try {
+        //if user is authenticated
+        let user_token = document.querySelector("#user_token").value
+        request.setRequestHeader("Authorization", "Token " + user_token)}
+    catch (e) {return}
+
+    request.onload = ()=>{
+        console.log(request.responseText)
+    }
+
+    request.send()
 }
