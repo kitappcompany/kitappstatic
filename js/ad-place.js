@@ -54,3 +54,27 @@ let removeThisAdPopup = document.querySelector('.remove-this-ad-popup');
 function showRemoveThisAdPopup(){
     removeThisAdPopup.classList.toggle("remove-this-ad-popup-active");
 }
+
+function delete_post(book_id){
+    const request = new XMLHttpRequest();
+    request.open("DELETE", "/accounts-api/mybooks/"+book_id+"/")
+    try {
+        //if user is authenticated
+        let user_token = document.querySelector("#user_token").value
+        request.setRequestHeader("Authorization", "Token " + user_token)}
+    catch (e) {return}
+    document.querySelector("#user-text").innerHTML = " Elan silinir ...";
+    request.onload = ()=>{
+        let res = JSON.parse(request.responseText)
+        if(res['success'] == 1) {
+            window.location.href = "/accounts/myposts";   
+            showRemoveThisAdPopup();   
+            return
+        }
+        document.querySelector("#user-text").innerHTML = "Elanı silmək istədiyinizə əminsiz?";
+        showRemoveThisAdPopup();
+        
+    }
+
+    request.send()
+}
