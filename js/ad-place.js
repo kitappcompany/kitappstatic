@@ -49,7 +49,7 @@ function ad_place() {
 
 }
 
-let = removeThisAdPopup = document.querySelector('.remove-this-ad-popup');
+let removeThisAdPopup = document.querySelector('.remove-this-ad-popup');
 
 function showRemoveThisAdPopup(){
     removeThisAdPopup.classList.toggle("remove-this-ad-popup-active");
