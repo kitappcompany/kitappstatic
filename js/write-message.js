@@ -18,7 +18,7 @@ messageButton.onclick = function(){
         // show outgoing msg user but Wait svg
         writeMessages.innerHTML += '<div id="' + pk + '" class="outgoing-div clearfix">' +
             '<p class="outgoing-message float-right">' + messageInput.value + '</p>' +
-            '<p class="outgoing-date" style = "display:none;">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
+            '<p class="outgoing-date" style = "display:none;">' + timeHandlerPro(d.getHours()) + ':' + timeHandlerPro(d.getMinutes()) +'</p>' +
              '<img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/message-wait.svg" alt="" class="message-wait">' +
             '</div>';
 
@@ -107,3 +107,8 @@ $(document).ready(function() {
     }, 1000);
 });
 
+function timeHandlerPro(value) {
+    value = parseInt(value);
+    if (value < 10) return "0"+value;
+    return value
+}
