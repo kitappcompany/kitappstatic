@@ -56,7 +56,7 @@ document.querySelector('.message-input').addEventListener('keydown',function(eve
         // show outgoing msg user but Wait svg
         writeMessages.innerHTML += '<div id="' + pk + '" class="outgoing-div clearfix">' +
             '<p class="outgoing-message float-right">' + messageInput.value + '</p>' +
-            '<p class="outgoing-date" style = "display:none;">' + d.getHours() + ':' + d.getMinutes() +'</p>' +
+            '<p class="outgoing-date" style = "display:none;">' + timeHandlerPro(d.getHours()) + ':' + timeHandlerPro(d.getMinutes()) +'</p>' +
              '<img src="https://cdn.jsdelivr.net/gh/kitappcompany/kitappstatic@latest/icons/message-wait.svg" alt="" class="message-wait">' +
             '</div>';
 
