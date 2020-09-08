@@ -6,7 +6,7 @@ function openHomePage(){
 
 // sign in sign up
 let signupBtn = document.querySelector('#register-user');
-let radioButton = document.querySelector(".radio-button"), radioContent = document.querySelector('.radio-content'),checkRadio = false;
+let radioButton = document.querySelector(".radio-button"), accept = document.querySelector('.accept'), radioContent = document.querySelector('.radio-content'),checkRadio = false;
 
 let signInHeader = document.querySelector(".signin-h p"), signUpHeader = document.querySelector(".signup-h p"); // daxil ol ,qeydiyyat rengi
 let signInBorder = document.querySelector(".signin-h") ,signUpBorder = document.querySelector(".signup-h"); // daxil ol,qeydiyyat border bottom rengi
@@ -17,7 +17,7 @@ signupBtn.onclick = function(){
     if (checkRadio) signUp.children[0].children[0].submit();
     else{
         radioButton.style.border = '1px solid red';
-        radioContent.parentElement.style.color = 'red';
+        accept.style.color = 'red';
     }
 };
 
@@ -64,14 +64,14 @@ radioButton.onclick = function(){
         radioContent.style.display = "inline-block";
         checkRadio = true;
 
-        radioContent.parentElement.style.color = '';
+        accept.style.color = '';
         radioButton.style.border = '1px solid #B5B5B5';
     }
     else{
         radioContent.style.display = "none";
         checkRadio = false;
         radioButton.style.border = '1px solid red'
-        radioContent.parentElement.style.color = 'red'
+        accept.style.color = 'red'
     }
 }
 
