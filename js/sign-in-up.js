@@ -28,7 +28,7 @@ signInHeader.onclick = function(){
 }
 
 signUpHeader.onclick = function(){
-    bloackSignUp();
+    blockSignUp();
 }
 function blockSignUp(){
     signUpHeader.style.color = "#686868";
