@@ -14,10 +14,10 @@ let signIn = document.querySelector("#signin"), signUp = document.querySelector(
 
 
 signupBtn.onclick = function(){
-    if (checkRadio) signupBtn.submit();
+    if (checkRadio) signUp.children[0].children[0].submit();
     else{
         radioButton.style.border = '1px solid red';
-        radioContent.style.color = 'red';
+        radioContent.parentElement.style.color = 'red';
     }
 };
 
@@ -64,14 +64,14 @@ radioButton.onclick = function(){
         radioContent.style.display = "inline-block";
         checkRadio = true;
 
-        radioContent.style.color = '';
+        radioContent.parentElement.style.color = '';
         radioButton.style.border = '1px solid #B5B5B5';
     }
     else{
         radioContent.style.display = "none";
         checkRadio = false;
         radioButton.style.border = '1px solid red'
-        radioContent.style.color = 'red'
+        radioContent.parentElement.style.color = 'red'
     }
 }
 
