@@ -6,7 +6,6 @@ function openHomePage(){
 
 // sign in sign up
 let signupBtn = document.querySelector('#register-user');
-signupBtn.style.backgroundColor = '#b4c9d4'
 
 let signInHeader = document.querySelector(".signin-h p"), signUpHeader = document.querySelector(".signup-h p"); // daxil ol ,qeydiyyat rengi
 let signInBorder = document.querySelector(".signin-h") ,signUpBorder = document.querySelector(".signup-h"); // daxil ol,qeydiyyat border bottom rengi
@@ -16,7 +15,7 @@ signInHeader.onclick = function(){
 }
 
 signUpHeader.onclick = function(){
-    blockSignUp();
+    bloackSignUp();
 }
 function blockSignUp(){
     signUpHeader.style.color = "#686868";
@@ -52,16 +51,25 @@ radioButton.onclick = function(){
     if(!checkRadio){
         radioContent.style.display = "inline-block";
         checkRadio = true;
-        signupBtn.disabled = false;
-        signupBtn.style.backgroundColor = '#5AB5F1'
+
+        radioContent.style.color = '';
+        radioButton.style.border = '1px solid #B5B5B5';
     }
     else{
         radioContent.style.display = "none";
         checkRadio = false;
-        signupBtn.disabled = true;
-        signupBtn.style.backgroundColor = '#b4c9d4'
+        radioButton.style.border = '1px solid red'
+        radioContent.style.color = 'red'
     }
 }
+
+signupBtn.onclick = ()=>{
+    if (checkRadio) signupBtn.submit();
+    else{
+        radioButton.style.border = '1px solid red'
+        radioContent.style.color = 'red'
+    }
+};
 
 // pop up
 let forgetPasswordButton = document.querySelector(".forget-password");
