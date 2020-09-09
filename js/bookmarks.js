@@ -44,8 +44,8 @@ function bookmark() {
 
 let loadMore = document.querySelectorAll(".load-more"),
 loadingBar = document.querySelectorAll(".loading-bar");
-
 var next_page_markedbooks = '/bookmark-api/listbooks';
+let didview = 0;
 ListBooks();
 
 function ListBooks() {
@@ -73,7 +73,6 @@ function ListBooks() {
             const temp = Handlebars.compile(document.querySelector("#bookmark-instance").innerHTML);
             document.querySelector("#book-sell").children[0].innerHTML +=temp({"book":res.results})
             bookmark(); // add bookmark functionality to book cards (bookmark.js)
-            // popup(); //add popup functionality to book cards (popup.js)
 
             loadingBar[0].style.display = "none";
             loadMore[0].style.display = "inline-block";
@@ -83,6 +82,10 @@ function ListBooks() {
                 loadMore[0].style.display = "none";
                 return
             }
+
+            // did view
+            didview += res.results.length;
+            document.getElementById('didview').innerHTML = didview;
 
         } catch (e) {
             console.log(e)

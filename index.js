@@ -1,4 +1,5 @@
 var next_page_books = '/catalog-api/listbooks';
+let didview = 0;
 // load more -- loading
 let loadMore = document.querySelectorAll(".load-more"), loadingBar = document.querySelectorAll(".loading-bar");
 let shimmerE = document.querySelector("#shimmer-effect");
@@ -48,8 +49,6 @@ function BooksList(filter_url=false) {
         document.querySelector("#books").children[0].innerHTML +=temp({"book":res.results})
         bookmark(); // add bookmark functionality to book cards (bookmark.js)
 
-        // popup(); //add popup functionality to book cards (popup.js)
-
         loadingBar[0].style.display = "none";
         loadMore[0].style.display = "inline-block";
         shimmerE.style.display = "none";
@@ -58,6 +57,10 @@ function BooksList(filter_url=false) {
         if (!next_page_books) {
             loadMore[0].style.display = "none";
         }
+
+        // did view
+        didview += res.results.length;
+        document.getElementById('didview').innerHTML = didview;
     }
     request.send()
 }
