@@ -102,6 +102,9 @@ function bookdetail(id, popup) {
         once=true;
 
         message_js(); // this creates message popup for a book
+
+        // HTML5 history API
+        history.pushState({"pk":id},null, "?share_book="+id )
     }
     request.send()
 
@@ -175,4 +178,10 @@ function autoCompleteSearch() {
         let div = document.querySelector(".easy-autocomplete");
         div.className = ""; //no need design change margin: 0 auto;
         div.style.margin = "0 auto";
+}
+
+// backbutton
+window.onpopstate = e =>{
+    const data = e.state;
+    bookAboutBlock(`${pk}`);
 }

@@ -46,38 +46,6 @@ jQuery_3_4_1('.owl-nav').click(function(event) {
     jQuery_3_4_1(this).removeClass('disabled');
   });
 
-// MOST VIEWED
-jQuery_3_4_1('.most-viewed-books').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    navText: [jQuery_3_4_1('.arrow-left'),jQuery_3_4_1('.arrow-right')],
-    dots:false,
-    responsive:{
-        0:{
-            items:2
-        },
-        600:{
-            items:2
-        },
-        800:{
-            items:3
-        },
-        1000:{
-            items:5
-        },
-        1200:{
-            items:6
-        }
-    }
-})
-jQuery_3_4_1('.most-viewed-books').firstChild.removeClass('disabled');
-
-jQuery_3_4_1('.most-viewed-books').firstChild.click(function(event) {
-    jQuery_3_4_1(this).removeClass('disabled');
-  });
-
-
 
 // en çox baxilanlar - en yeni elanlar
 let newAdBook = document.querySelector(".new-ad-book"), mostViewedBook = document.querySelector(".most-viewed-book"),
