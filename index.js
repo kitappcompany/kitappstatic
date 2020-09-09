@@ -183,5 +183,5 @@ function autoCompleteSearch() {
 // backbutton
 window.onpopstate = e =>{
     const data = e.state;
-    bookAboutBlock(`${pk}`);
+    bookAboutBlock(`${data.pk}`);
 }
