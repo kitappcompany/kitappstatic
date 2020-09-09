@@ -44,8 +44,8 @@ function bookmark() {
 
 let loadMore = document.querySelectorAll(".load-more"),
 loadingBar = document.querySelectorAll(".loading-bar");
+
 var next_page_markedbooks = '/bookmark-api/listbooks';
-let didview = 0;
 ListBooks();
 
 function ListBooks() {
@@ -82,10 +82,6 @@ function ListBooks() {
                 loadMore[0].style.display = "none";
                 return
             }
-
-            // did view
-            didview += res.results.length;
-            document.getElementById('didview').innerHTML = didview;
 
         } catch (e) {
             console.log(e)
