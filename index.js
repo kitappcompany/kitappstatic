@@ -58,9 +58,13 @@ function BooksList(filter_url=false) {
             loadMore[0].style.display = "none";
         }
 
+
+
         // did view
         didview += res.results.length;
         document.getElementById('didview').innerHTML = didview;
+        let percentage = 100*didview/res['count'];
+        document.querySelector(".progress-bar--content").style.width = `${percentage}%`;
     }
     request.send()
 }
