@@ -49,24 +49,19 @@ jQuery_3_4_1('.owl-nav').click(function(event) {
 
 
 // en çox baxilanlar - en yeni elanlar
-let newAdBook = document.querySelector(".new-ad-book"), mostViewedBook = document.querySelector(".most-viewed-book");
+let newAdBook = document.querySelector(".new-ad-book"), mostViewedBook = document.querySelector(".most-viewed-book"),
+    newAdBooks = document.querySelector(".new-ad-books"), mostViewedBooks = document.querySelector(".most-viewed-books");
 newAdBook.onclick = function(){
         newAdBook.style.color = "#5AB5F1";
         mostViewedBook.style.color = "#686868";
+
+        newAdBooks.style.display = "block";
+        mostViewedBooks.style.display = "none";
 }
 mostViewedBook.onclick = function(){
     newAdBook.style.color = "#686868";
     mostViewedBook.style.color = "#5AB5F1";
+
+    newAdBooks.style.display = "none";
+    mostViewedBooks.style.display = "block";
 }
-
-// download-page
-// let downloadPage = document.querySelector("#download-page"),bodyScroll = document.querySelector("body");
-// window.onload = function(){
-//     downloadPage.style.display = "none";
-//     bodyScroll.style.overflowY = "scroll";
-
-// }
-//
-// setTimeout(function(){
-//     downloadPage.style.display = "none";
-// },3000)
