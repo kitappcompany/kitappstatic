@@ -259,4 +259,33 @@ input, button, textarea {
 
   }
 
+
+
+  /* scroll back */
+html {
+    scroll-behavior: smooth;
+  }
+.go-to-back {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    position: fixed;
+    bottom: 2rem;
+    border-radius: 50%;
+    right: 2rem;
+    cursor: pointer;
+    box-shadow: 0px 3px 6px #00000029;
+    
+  }
+  .go-to-back img {
+    width: 24px;
+  }
+
+
+
+
+
+
   

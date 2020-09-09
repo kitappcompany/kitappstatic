@@ -69,7 +69,7 @@
 
 /* --------- SEARCH ----------- */
 #search{
-    height: 35rem;
+    height: 45rem;
     display:flex;
     justify-content: center;
     align-items: flex-start;
@@ -77,7 +77,7 @@
 }
 
 #search-box{
-    top: 26rem;
+    top: 35rem;
     width: 100%;
     height: 8rem;
     padding: 0 3rem;
@@ -95,7 +95,7 @@ img.fa-search{
     font-size: 3.8rem !important;
     line-height: 4.5rem !important;
     text-align: center;
-    margin-top: 6rem !important;
+    margin-top: 7rem !important;
 }
 
 .playstore-link{
@@ -498,5 +498,9 @@ img.fa-search{
 
 
 
-/* ----------------------------------------------------- MAIN PAGE ------------------------------------------------------------------------ */
+/* ----------------------------------------------------- scroll PAGE ------------------------------------------------------------------------ */
+.go-to-back{
+    display: none;
+}
+
 /* ----------------------------------------------------- MAIN PAGE ------------------------------------------------------------------------ */
