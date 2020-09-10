@@ -108,7 +108,10 @@ function bookdetail(id, popup) {
         all_locations_obj = res.locations;
         once=true;
 
-        message_js(); // this creates message popup for a book
+        try {
+            // when authenticated
+            message_js(); // this creates message popup for a book
+        } catch (e) {}
 
         // HTML5 history API
         history.pushState({"pk":id},null, "?share_book="+id )
