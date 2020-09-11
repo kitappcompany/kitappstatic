@@ -26,6 +26,7 @@ function BooksList(filter_url=false) {
     if (filter_url) {
         next_page_books = filter_url;
         document.querySelector("#books").children[0].innerHTML = "";
+        didview =0;
     }
 
     if (!next_page_books) {
@@ -61,6 +62,8 @@ function BooksList(filter_url=false) {
 
 
         // did view
+        document.getElementById('totalbooks').innerHTML = res['count'];
+        
         didview += res.results.length;
         document.getElementById('didview').innerHTML = didview;
         let percentage = 100*didview/res['count'];
@@ -148,6 +151,15 @@ function search(event) {
         loadingBar[0].style.display = "none";
         loadMore[0].style.display = "inline-block";
         shimmerE.style.display = "none";
+        
+        // view count
+        didview = 0;
+        document.getElementById('totalbooks').innerHTML = res['count'];
+        
+        didview += res.results.length;
+        document.getElementById('didview').innerHTML = didview;
+        let percentage = 100*didview/res['count'];
+        document.querySelector(".progress-bar--content").style.width = `${percentage}%`;
     }
     request.send()
 
