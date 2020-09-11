@@ -10,14 +10,14 @@ closeButton.onclick = function(){
     // closeDelivery();
     
     // HTML5 history API
-    history.pushState(null ,null, "" )
+    history.pushState(null ,null, "?" )
 }
 popupBg.onclick = function(){
     popup.style.display = "none";
     // closeDelivery();
     
     // HTML5 history API
-    history.pushState(null ,null, "" )
+    history.pushState(null ,null, "?" )
 }
 
 
