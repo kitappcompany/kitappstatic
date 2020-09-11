@@ -16,14 +16,21 @@ function message_js() {
         messageContainer.style.display = "none";
         sendedMessage.style.display = "block";
         messageStart();// start messaging
+        
+        // HTML5 history API
+        history.pushState(null ,null, "?" );
     }
     bgOpacity.onclick = function(){
         messagePopup.style.display = "none";
         messageContainer.style.display = "block";
         sendedMessage.style.display = "none";
+        // HTML5 history API
+        history.pushState(null ,null, "?" );
     }
     messageClose.onclick = function(){
         messagePopup.style.display = "none";
+        // HTML5 history API
+        history.pushState(null ,null, "?" );
     }
 
 }
